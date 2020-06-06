@@ -147,5 +147,13 @@ public class NPC_Complete : NPC_States
         }
         base.attack();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "NPC" || collision.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.otherCollider);
+        }
+    }
 }
 

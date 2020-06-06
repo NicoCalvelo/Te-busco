@@ -34,11 +34,11 @@ public class playerAnimController : MonoBehaviour
     }
     public void footStep()
     {
-        audioManager.Instance.playSound(audioManager.gameObjectSource.playerSound, "Step");
+        audioManager.Instance.playSound("Step");
     }
     public void crouchFootStep()
     {
-        audioManager.Instance.playSound(audioManager.gameObjectSource.playerSound, "CrouchStep");
+        audioManager.Instance.playSound("CrouchStep");
     }
 
     public void jump(bool jumping)

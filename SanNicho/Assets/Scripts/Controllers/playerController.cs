@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <Documentacion>
 /// Resumen:
@@ -37,6 +38,12 @@ public class playerController : MonoBehaviour
     float initialSpeed;
 
 
+    public enum Platform
+    {
+        PC, Mobile
+    }
+    public Platform actualPlatform = Platform.Mobile;
+
     enum State
     {
         Moving
@@ -60,6 +67,13 @@ public class playerController : MonoBehaviour
                 checkGrounded();
                 break;
         }
+        switch (actualPlatform)
+        {
+            case Platform.PC:
+                PCinput();
+                break;
+        }
+
     }
 
     #region Collisions
@@ -84,33 +98,36 @@ public class playerController : MonoBehaviour
 
     #endregion
 
+    #region Cross Platform Controller
+    void PCinput()
+    {
+        //Saltar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jump();
+        }
+        //Agacharse
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            crouch();
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            standUp();
+        }
+
+        xAxis = Input.GetAxisRaw("Horizontal");
+    }
+
+    public void mobileInput(int i)
+    {
+        xAxis = i;
+    }
+    #endregion
+
     #region Moving State
     void MoveState()
     {
-        xAxis = Input.GetAxisRaw("Horizontal");
-
-        //Saltar
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            audioManager.Instance.playSound(audioManager.gameObjectSource.playerSound, "Jumping");
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpFoce);
-            isGrounded = false;
-            resetJumpNedded = true;
-            StartCoroutine(ResetJumpNeededRoutine());
-
-            playerAnimController.jump(true);
-        }
-        //Agacharse
-        if(Input.GetKey(KeyCode.S))
-        {
-            playerAnimController.crouch(true);
-            speed = initialSpeed / 2.5f;
-            
-        }else if (Input.GetKeyUp(KeyCode.S))
-        {
-            playerAnimController.crouch(false);
-            speed = initialSpeed;
-        }
 
         rb2D.velocity = new Vector2(xAxis * speed, rb2D.velocity.y);
         if (xAxis == 1)
@@ -120,6 +137,30 @@ public class playerController : MonoBehaviour
         playerAnimController.move(xAxis);
         
     }
+
+    public void jump()
+    {
+        if (isGrounded == false)
+            return;
+        audioManager.Instance.playSound("Jumping");
+        rb2D.velocity = new Vector2(rb2D.velocity.x, jumpFoce);
+        isGrounded = false;
+        resetJumpNedded = true;
+        StartCoroutine(ResetJumpNeededRoutine());
+
+        playerAnimController.jump(true);
+    }
+    public void crouch()
+    {
+        playerAnimController.crouch(true);
+        speed = initialSpeed / 2.5f;
+    }
+    public void standUp()
+    {
+        playerAnimController.crouch(false);
+        speed = initialSpeed;
+    }
+
 
     void checkGrounded()
     {
@@ -135,7 +176,7 @@ public class playerController : MonoBehaviour
 
             if (playLandingAudio == true && resetLandingAudio == true)
             {
-                audioManager.Instance.playSound(audioManager.gameObjectSource.playerSound, "Jumping");
+                audioManager.Instance.playSound("Jumping");
                 playLandingAudio = false;
                 resetLandingAudio = false;
                 StartCoroutine(resetAudioLandingNeededRoutine());
