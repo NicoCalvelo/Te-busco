@@ -957,10 +957,12 @@ MonoBehaviour:
     type: 3}
   idleTime: 5
   patrolSpeed: 7
-  pursueSpeed: 14
-  visibilityDistance: 45
+  pursueSpeed: 13
+  visibilityDistance: 40
   attackDistance: 20
   timeToShoot: 2
+  sceneLimitLeft: -350
+  sceneLimitRigth: 28
 --- !u!95 &4183296241075025631
 Animator:
   serializedVersion: 3
@@ -991,11 +993,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 2
-  m_LinearDrag: 1
-  m_AngularDrag: 0.15
-  m_GravityScale: 2
+  m_UseAutoMass: 1
+  m_Mass: 31.929398
+  m_LinearDrag: 2
+  m_AngularDrag: 0.25
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1096,8 +1098,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 75eb307a182a3824882ae553c70eadf7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
-  m_Pitch: 1
+  m_Volume: 0.2
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1140,7 +1142,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1192,7 +1194,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1a5bda3e0c229614098d3d478ca5b291, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1236,7 +1238,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -21,6 +21,8 @@ public class NPC_Complete : NPC_States
     private GameObject shootPrefab;
     [SerializeField]
     private float idleTime = 10f, patrolSpeed = 8, pursueSpeed = 13, visibilityDistance = 45, attackDistance = 20, timeToShoot = 5;
+    [SerializeField]
+    private float sceneLimitLeft = -350.0f, sceneLimitRigth = 28.0f;
     Rigidbody2D rb2D;
 
     float idleTimeLeft, shootTimeLeft;
@@ -60,7 +62,7 @@ public class NPC_Complete : NPC_States
 
     public override void enterPatrol()
     {
-        patrolTarget = new Vector2(Random.Range(-350.0f, 600.0f), 0);
+        patrolTarget = new Vector2(Random.Range(sceneLimitLeft, sceneLimitRigth), 0);
 
         base.enterPatrol();
     }
@@ -152,7 +154,7 @@ public class NPC_Complete : NPC_States
     {
         if(collision.gameObject.tag == "NPC" || collision.gameObject.tag == "Player")
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.otherCollider);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
         }
     }
 }

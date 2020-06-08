@@ -35,8 +35,10 @@ public class sceneLoader : MonoBehaviour
     #endregion
 
     [Header("Scene Transition")]
-    public Animator crossFadeAnim;
     public float transitionTime = 1;
+    public Animator crossFadeAnim, noticiasAnim;
+
+    private Animator transitionAnim;
 
     public int indexCostanera;
 
@@ -49,14 +51,42 @@ public class sceneLoader : MonoBehaviour
     {
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+    }
+    private void Start()
+    {
+        onChangeScene(0);
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        onChangeScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void onChangeScene(int scene)
+    {
+        
+        if (scene == 2)
+        {
+            noticiasAnim.enabled = true;
+            transitionAnim = noticiasAnim;
+            transitionTime = 2f;
+
+        }
+        else
+        {
+            noticiasAnim.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+            noticiasAnim.enabled = false;
+            transitionAnim = crossFadeAnim;
+            transitionTime = .8f;
+        }
     }
 
     public IEnumerator loadScene(int sceneIndex)
     {
-        crossFadeAnim.SetTrigger("startFade");
+        transitionAnim.SetTrigger("startFade");
 
         yield return new WaitForSeconds(transitionTime);
-        crossFadeAnim.ResetTrigger("startFade");
+        transitionAnim.ResetTrigger("startFade");
         SceneManager.LoadScene(sceneIndex);
     }
 
@@ -66,9 +96,9 @@ public class sceneLoader : MonoBehaviour
         operation.allowSceneActivation = false;
 
         yield return new WaitUntil(() => changeScene == true);
-        crossFadeAnim.SetTrigger("startFade");
+        transitionAnim.SetTrigger("startFade");
         yield return new WaitForSeconds(transitionTime);
-        crossFadeAnim.ResetTrigger("startFade");
+        transitionAnim.ResetTrigger("startFade");
         operation.allowSceneActivation = true;
     }
 }

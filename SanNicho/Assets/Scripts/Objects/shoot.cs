@@ -44,6 +44,7 @@ public class shoot : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Debug.Log("Te vieron wachin");
+            Destroy(gameObject);
         }
         else if(col.gameObject.tag == "NPC")
         {

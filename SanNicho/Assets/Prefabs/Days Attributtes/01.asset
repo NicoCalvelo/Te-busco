@@ -14,4 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 5.3
   cantidadNpc_01: 9
-  noticiasList: []
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "El mes de septiembre ya esta aqui. El mes en que nuestra querida
+      ciudad se llena de vida. Asi es queridos nicole\xF1os! El edificio mas emblematico
+      de la ciudad comienza a prepararse. "
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Parece increible que tambien en este comienzo, la estatua mas
+      imponente de la costanera alta, haya desaparecido... \xBFBandalismo? \xBFReformas?
+      \xBFUna se\xF1al de protesta? Los mantendremos informados al respecto."

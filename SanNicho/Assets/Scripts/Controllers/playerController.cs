@@ -82,7 +82,7 @@ public class playerController : MonoBehaviour
     {
         if(col.gameObject.tag == "NPC")
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.otherCollider);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
         }
     }
 

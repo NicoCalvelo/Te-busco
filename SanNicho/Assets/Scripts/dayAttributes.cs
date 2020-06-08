@@ -22,13 +22,15 @@ public class dayAttributes : ScriptableObject
     public float duracionDelDia;
     public int cantidadNpc_01;
 
-    public List<noticia> noticiasList;
+    public noticia[] noticiasList;
 
     [System.Serializable]
     public class noticia
     {
         public Sprite tvImage;
-        public string noticiaText;
+
+        [TextArea(3, 10)]
+        public string noticiaSentence;
     }
 
 }
