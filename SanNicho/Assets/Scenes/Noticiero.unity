@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00b30468ccb3df4d89ee55a1026e8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitChar: 0.035
-  waitAfterDot: 0.6
+  waitChar: 0.015
+  waitAfterDot: 0.45
   noticiaText: {fileID: 2077674730}
   noticiaImg: {fileID: 483823111}
   randomNoticias:

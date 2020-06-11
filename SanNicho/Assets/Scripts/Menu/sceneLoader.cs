@@ -64,10 +64,12 @@ public class sceneLoader : MonoBehaviour
 
     void onChangeScene(int scene)
     {
-        
+        noticiasAnim.enabled = false;
+        crossFadeAnim.enabled = false;
+
         if (scene == 2)
         {
-            noticiasAnim.enabled = true;
+            crossFadeAnim.gameObject.GetComponent<CanvasGroup>().alpha = 0;
             transitionAnim = noticiasAnim;
             transitionTime = 2f;
 
@@ -75,10 +77,11 @@ public class sceneLoader : MonoBehaviour
         else
         {
             noticiasAnim.gameObject.GetComponent<CanvasGroup>().alpha = 0;
-            noticiasAnim.enabled = false;
             transitionAnim = crossFadeAnim;
             transitionTime = .8f;
         }
+
+        transitionAnim.enabled = true;
     }
 
     public IEnumerator loadScene(int sceneIndex)

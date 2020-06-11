@@ -64,13 +64,15 @@ public class noticieroManager : MonoBehaviour
 
     public void displayNextNoticia()
     {
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+
         if (noticiasList.Count == 0)
         {
             endNoticias();
             return;
         }
-        if(coroutine != null)
-            StopCoroutine(coroutine);
+
         dayAttributes.noticia not = noticiasList.Dequeue();
         coroutine = StartCoroutine(typeSentence(not.noticiaSentence));
         //noticiaImg.sprite = not.tvImage;
