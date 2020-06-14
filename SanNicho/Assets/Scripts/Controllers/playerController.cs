@@ -84,16 +84,11 @@ public class playerController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
         }
-    }
 
-    private void OnCollisionStay2D(Collision2D col)
-    {
-
-    }
-
-    private void OnCollisionExit2D(Collision2D col)
-    {
-
+        if (col.gameObject.tag == "Photo")
+        {
+            gameManager.Instance.setStars(-1);
+        }
     }
 
     #endregion
@@ -128,14 +123,12 @@ public class playerController : MonoBehaviour
     #region Moving State
     void MoveState()
     {
-
         rb2D.velocity = new Vector2(xAxis * speed, rb2D.velocity.y);
         if (xAxis == 1)
             playerAnimController.flip(false);
         if (xAxis == -1)
             playerAnimController.flip(true);
-        playerAnimController.move(xAxis);
-        
+        playerAnimController.move(xAxis);      
     }
 
     public void jump()

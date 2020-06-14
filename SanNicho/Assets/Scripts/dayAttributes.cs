@@ -20,7 +20,8 @@ public class dayAttributes : ScriptableObject
 {
 
     public float duracionDelDia;
-    public int cantidadNpc_01;
+    public int diaNumero, cantidadNpc_01;
+
 
     public noticia[] noticiasList;
 

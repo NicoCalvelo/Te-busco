@@ -4,18 +4,21 @@ using UnityEngine;
 
 /// <Documentacion>
 /// Resumen:
-///     Este script se encarga de controlar la escena acorde al nivel del dia que se esta jugando.
+///     Este script se encarga de controlar la escena acorde al nivel del dia que se esta jugando y a los eventos
+///     enviados por el gameManager.
 /// 
 /// Creación:
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     07/06/2020 Calvelo Nicolás
+///     12/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
 public class costaneraManager : MonoBehaviour
 {
+
+
 
     void Start()
     {

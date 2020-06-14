@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
-using UnityEngine.UI;
 
 /// <Documentacion>
 /// Resumen:
@@ -12,7 +10,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     05/06/2020 Calvelo Nicolás
+///     12/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -49,9 +47,11 @@ public class sceneLoader : MonoBehaviour
 
     private void Awake()
     {
+        if (sceneLoader.Instance != null)
+            Destroy(gameObject);
+
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
-
     }
     private void Start()
     {

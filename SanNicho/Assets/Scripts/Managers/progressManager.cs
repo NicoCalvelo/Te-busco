@@ -10,7 +10,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/06/2020 Calvelo Nicolás
+///     12/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -38,6 +38,9 @@ public class progressManager : MonoBehaviour
 
     public void Awake()
     {
+        if (progressManager.Instance != null)
+            Destroy(gameObject);
+
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
 
@@ -69,6 +72,8 @@ public class progressManager : MonoBehaviour
             MemoryStream memory02 = new MemoryStream(data);
             BinaryFormatter bfo = new BinaryFormatter();
             progressData = (infoJugador)bfo.Deserialize(memory02);
+
+            Debug.Log("Intentos del dia 01 = " + progressData.diasInfo[1].intentos);
         }
         else //No hay archivo todavia
         {
@@ -88,5 +93,13 @@ public class progressManager : MonoBehaviour
         }
     }
 
-  
+    //Cuando se cierra la aplicacion se guarda la info del jugador en el archivo
+    private void OnApplicationQuit()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        string filePath = Application.persistentDataPath + "/progressData" + ".dat";
+        FileStream file = File.Create(filePath);
+        bf.Serialize(file, progressData);
+        file.Close();
+    }
 }

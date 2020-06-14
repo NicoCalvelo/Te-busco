@@ -9,10 +9,10 @@ using TMPro;
 ///     Este script controla las interacciones del usuario con la escena.
 /// 
 /// Creación:
-///     05/06/2020 Calvelo Nicolás
+///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/06//2020 Calvelo Nicolás
+///     12/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -32,6 +32,9 @@ public class noticieroManager : MonoBehaviour
     private Coroutine coroutine;
 
     private Queue<dayAttributes.noticia> noticiasList;
+
+    //Para checkear si el courutine que escribe la noticia sigue siendo ejecutado
+    bool courRunning = false;
 
     private void Start()
     {
@@ -64,8 +67,8 @@ public class noticieroManager : MonoBehaviour
 
     public void displayNextNoticia()
     {
-        if (coroutine != null)
-            StopCoroutine(coroutine);
+        if (courRunning == true) //Se checkea si todavia se sigue ejecutando el corutine
+            return;
 
         if (noticiasList.Count == 0)
         {
@@ -81,6 +84,7 @@ public class noticieroManager : MonoBehaviour
 
     IEnumerator typeSentence(string sentece)
     {
+        courRunning = true;
         noticiaText.text = "";
 
         foreach (char letter in sentece.ToCharArray())
@@ -95,6 +99,8 @@ public class noticieroManager : MonoBehaviour
             }
 
         }
+
+        courRunning = false;
     }
 
     void endNoticias()

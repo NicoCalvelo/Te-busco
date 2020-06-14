@@ -41,18 +41,11 @@ public class shoot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "NPC")
         {
-            Debug.Log("Te vieron wachin");
-            Destroy(gameObject);
-        }
-        else if(col.gameObject.tag == "NPC")
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), col.collider);
         }
         else
-        {
             Destroy(gameObject);
-        }
     }
 }

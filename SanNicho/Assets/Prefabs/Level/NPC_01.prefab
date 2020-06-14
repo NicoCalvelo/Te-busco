@@ -956,13 +956,13 @@ MonoBehaviour:
   shootPrefab: {fileID: 1572139095872945551, guid: e434f63aeb001fa4791f0a029bb5eddb,
     type: 3}
   idleTime: 5
-  patrolSpeed: 7
-  pursueSpeed: 13
-  visibilityDistance: 40
+  patrolSpeed: 5
+  pursueSpeed: 12
+  visibilityDistance: 45
   attackDistance: 20
   timeToShoot: 2
-  sceneLimitLeft: -350
-  sceneLimitRigth: 28
+  sceneLimitLeft: -336
+  sceneLimitRigth: 314
 --- !u!95 &4183296241075025631
 Animator:
   serializedVersion: 3
