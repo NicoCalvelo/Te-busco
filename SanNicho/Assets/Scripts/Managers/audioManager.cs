@@ -56,6 +56,10 @@ public class audioManager : MonoBehaviour
     {
         audioManagerSounds[clipName].Play();
     }
+    public void stopSound(string clipName)
+    {
+        audioManagerSounds[clipName].Stop();
+    }
 
     [System.Serializable]
     public class sound 

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     15/05/2020 Calvelo Nicolás
+///     14/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -169,7 +169,7 @@ public class playerController : MonoBehaviour
 
             if (playLandingAudio == true && resetLandingAudio == true)
             {
-                audioManager.Instance.playSound("Jumping");
+                audioManager.Instance.playSound("playerLanding");
                 playLandingAudio = false;
                 resetLandingAudio = false;
                 StartCoroutine(resetAudioLandingNeededRoutine());

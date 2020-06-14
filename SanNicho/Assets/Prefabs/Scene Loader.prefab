@@ -243,7 +243,6 @@ GameObject:
   - component: {fileID: 5321661286431289876}
   - component: {fileID: 5321661286431289879}
   - component: {fileID: 5321661286431289878}
-  - component: {fileID: 5321661286431289877}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -306,18 +305,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &5321661286431289877
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5321661286431289875}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &5321661287470795987
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +354,7 @@ MonoBehaviour:
   crossFadeAnim: {fileID: 5321661287851135732}
   noticiasAnim: {fileID: 6916938049805209025}
   indexCostanera: 3
+  indxNoticiero: 2
   changeScene: 0
 --- !u!1 &5321661287851135731
 GameObject:
@@ -381,6 +369,7 @@ GameObject:
   - component: {fileID: 5321661287851135734}
   - component: {fileID: 5321661287851135733}
   - component: {fileID: 5321661287851135732}
+  - component: {fileID: 1731327384}
   m_Layer: 0
   m_Name: Crossfade Transition
   m_TagString: Untagged
@@ -487,6 +476,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1731327384
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321661287851135731}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6916938049805209023
 GameObject:
   m_ObjectHideFlags: 0

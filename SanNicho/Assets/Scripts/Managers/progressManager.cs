@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     12/06/2020 Calvelo Nicolás
+///     14/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -33,13 +34,18 @@ public class progressManager : MonoBehaviour
     #endregion
 
     public dayAttributes nextDayAttribute;
+    public List<dayAttributes> daysAttributes;
 
     public infoJugador progressData;
 
     public void Awake()
     {
         if (progressManager.Instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
+
 
         _instance = this;
         DontDestroyOnLoad(this.gameObject);

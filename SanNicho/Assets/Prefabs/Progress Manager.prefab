@@ -44,6 +44,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextDayAttribute: {fileID: 0}
+  daysAttributes:
+  - {fileID: 11400000, guid: a44f3a8f2e849584f8ccf90869b6fa8f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   progressData:
     primeraVez: 0
     totalEstrellas: 0

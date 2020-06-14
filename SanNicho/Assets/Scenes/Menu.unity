@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -575,48 +575,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6916938050151205203, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050151205203, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050151205203, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050151205203, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050265164307, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050265164307, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050265164307, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6916938050265164307, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5321661286431289877, guid: 1d8bdd6d5e314fb43b09e24c213414e4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8bdd6d5e314fb43b09e24c213414e4, type: 3}
 --- !u!1 &777795561
 GameObject:
@@ -1106,24 +1065,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460846710}
   m_CullTransparentMesh: 0
---- !u!1 &1731327378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5321661287851135731, guid: 1d8bdd6d5e314fb43b09e24c213414e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 456529547}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1731327384
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731327378}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1772383046
 GameObject:
   m_ObjectHideFlags: 0

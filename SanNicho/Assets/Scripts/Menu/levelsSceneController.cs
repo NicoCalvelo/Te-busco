@@ -11,7 +11,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/06//2020 Calvelo Nicolás
+///     14/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -34,15 +34,10 @@ public class levelsSceneController : MonoBehaviour
     #endregion
     infoJugador.nivel nivelSelected;
 
-    public List<dayAttributes> daysAttributes;
-
     public GameObject grillaContent, diaPrefab, diaBloqPrefab;
 
     [Header("UI Elements")]
     public TextMeshProUGUI diaText;
-
-    [SerializeField]
-    private int noticieroSceneIndx = 2;
 
     private void Awake()
     {
@@ -88,7 +83,7 @@ public class levelsSceneController : MonoBehaviour
         diaText.text = (lvlIndx + 1).ToString("00");
 
 
-        progressManager.Instance.nextDayAttribute = daysAttributes[lvlIndx];
+        progressManager.Instance.nextDayAttribute = progressManager.Instance.daysAttributes[lvlIndx];
     }
 
     public void onClickMenu()
@@ -101,6 +96,6 @@ public class levelsSceneController : MonoBehaviour
     public void onClickJugar()
     {
         FindObjectOfType<audioManager>().playSound("clickConfirm");
-        StartCoroutine(sceneLoader.Instance.loadScene(noticieroSceneIndx));
+        StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indxNoticiero));
     }
 }

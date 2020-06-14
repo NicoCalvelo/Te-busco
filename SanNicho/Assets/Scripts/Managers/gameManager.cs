@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     12/06//2020 Calvelo Nicolás
+///     14/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -71,6 +71,7 @@ public class gameManager : MonoBehaviour
             minutosText.text = "30";
             canvasAnim.ResetTrigger("hora");
             canvasAnim.SetTrigger("minutes");
+            audioManager.Instance.playSound("zipClick");
 
         }
         else
@@ -80,7 +81,7 @@ public class gameManager : MonoBehaviour
             canvasAnim.SetTrigger("hora");
             hora++;
             horaText.text = hora.ToString("00");
-
+            audioManager.Instance.playSound("hourPass");
         }
 
 
@@ -110,6 +111,9 @@ public class gameManager : MonoBehaviour
         starsLeft += adicion;
         canvasAnim.SetInteger("starsLeft", starsLeft);
 
+        if (adicion < 0)
+            audioManager.Instance.playSound("loseStar");
+
 
         if(starsLeft == 0)
         {
@@ -120,14 +124,19 @@ public class gameManager : MonoBehaviour
     //Cuando al jugador se le acaban las estrellas
     void lose()
     {
-        Debug.Log("Perdiste puto");
+        audioManager.Instance.stopSound("backgroundMusic");
+        Time.timeScale = 0;
+        audioManager.Instance.playSound("levelLose");
+        canvasAnim.SetTrigger("levelLose");
     }
 
     //Cuando el jugador llega a la hora 24
     void levelCompeted()
     {
-        //Animacion de entrada panel de ganar
-        Debug.Log("Ganaste crack");
+        audioManager.Instance.stopSound("backgroundMusic");
+        Time.timeScale = 0;
+        audioManager.Instance.playSound("levelCompleted");
+        canvasAnim.SetTrigger("dayCompleted");
     }
 
     public void pauseGame()
@@ -150,6 +159,14 @@ public class gameManager : MonoBehaviour
     {
         audioManager.Instance.playSound("click02");
         Time.timeScale = 1;
+        StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indexCostanera));
+    }
+    public void jugarSiguienteDia()
+    {
+        audioManager.Instance.playSound("click02");
+        Time.timeScale = 1;
+
+        progressManager.Instance.nextDayAttribute = progressManager.Instance.daysAttributes[progressManager.Instance.nextDayAttribute.diaNumero];
         StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indexCostanera));
     }
     public void menu()

@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     12/06/2020 Calvelo Nicolás
+///     14/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -38,7 +38,7 @@ public class sceneLoader : MonoBehaviour
 
     private Animator transitionAnim;
 
-    public int indexCostanera;
+    public int indexCostanera = 3, indxNoticiero = 2;
 
     [HideInInspector]
     public bool changeScene = false;
@@ -48,7 +48,11 @@ public class sceneLoader : MonoBehaviour
     private void Awake()
     {
         if (sceneLoader.Instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
+
 
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
