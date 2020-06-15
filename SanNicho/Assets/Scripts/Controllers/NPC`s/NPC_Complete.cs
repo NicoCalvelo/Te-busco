@@ -75,7 +75,7 @@ public class NPC_Complete : NPC_States
 
         float distanceToTarget = Vector2.Distance(transform.position, patrolTarget);
 
-        if (distanceToTarget < 5)
+        if (distanceToTarget < 10)
         {
             nextState = State.IDLE;
         }

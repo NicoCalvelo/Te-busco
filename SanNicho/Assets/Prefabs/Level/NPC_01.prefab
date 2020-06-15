@@ -955,12 +955,12 @@ MonoBehaviour:
   phone: {fileID: 4183296241108429947}
   shootPrefab: {fileID: 1572139095872945551, guid: e434f63aeb001fa4791f0a029bb5eddb,
     type: 3}
-  idleTime: 5
-  patrolSpeed: 5
-  pursueSpeed: 12
+  idleTime: 4
+  patrolSpeed: 6
+  pursueSpeed: 12.5
   visibilityDistance: 45
-  attackDistance: 20
-  timeToShoot: 2
+  attackDistance: 23
+  timeToShoot: 1.5
   sceneLimitLeft: -336
   sceneLimitRigth: 314
 --- !u!95 &4183296241075025631
