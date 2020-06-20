@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/06//2020 Calvelo Nicolás
+///     18/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -59,6 +59,8 @@ public class gameManager : MonoBehaviour
         float invokeTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / 32;
         InvokeRepeating("setTime", invokeTime, invokeTime);
 
+        diaText.text = progressManager.Instance.nextDayAttribute.diaNumero.ToString("00");
+
         //agregar un intento de nivel al progress manager
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos++;
     }
@@ -102,7 +104,7 @@ public class gameManager : MonoBehaviour
         {
             //se termina el juego
             horaText.text = "00";
-            levelCompeted();
+            levelCompleted();
         }
     }
 
@@ -131,12 +133,19 @@ public class gameManager : MonoBehaviour
     }
 
     //Cuando el jugador llega a la hora 24
-    void levelCompeted()
+    void levelCompleted()
     {
         audioManager.Instance.stopSound("backgroundMusic");
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelCompleted");
         canvasAnim.SetTrigger("dayCompleted");
+
+        progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
+
+        if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
+            progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
+
+
     }
 
     public void pauseGame()

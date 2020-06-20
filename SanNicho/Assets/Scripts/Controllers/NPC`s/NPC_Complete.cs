@@ -9,7 +9,7 @@ using UnityEngine;
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     21/05/2020 Calvelo Nicolás
+///     16/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -20,10 +20,10 @@ public class NPC_Complete : NPC_States
     [SerializeField]
     private GameObject shootPrefab;
     [SerializeField]
-    private float idleTime = 10f, patrolSpeed = 8, pursueSpeed = 13, visibilityDistance = 45, attackDistance = 20, timeToShoot = 5;
-    [SerializeField]
-    private float sceneLimitLeft = -350.0f, sceneLimitRigth = 28.0f;
+    private float idleTime = 2f, patrolSpeed = 8, pursueSpeed = 13, visibilityDistance = 45, attackDistance = 20, timeToShoot = 5;
+
     Rigidbody2D rb2D;
+    Coroutine outOfScreen;
 
     float idleTimeLeft, shootTimeLeft;
     Vector2 patrolTarget;
@@ -31,8 +31,14 @@ public class NPC_Complete : NPC_States
 
     public override void Awake()
     {
+        idleTime = progressManager.Instance.nextDayAttribute.NPC_01_idleTime;
+        visibilityDistance = progressManager.Instance.nextDayAttribute.NPC_01_visibilityDistance;
+        timeToShoot = progressManager.Instance.nextDayAttribute.NPC_01_timeToShoot;
+
         rb2D = GetComponent<Rigidbody2D>();
         idleTimeLeft = idleTime;
+
+
 
         base.Awake();
     }
@@ -47,6 +53,9 @@ public class NPC_Complete : NPC_States
     public override void enterIdle()
     {
         idleTimeLeft = idleTime;
+        if (distanceToPlayer > 130)
+            outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
+
         base.enterIdle();
     }
     public override void idle()
@@ -62,7 +71,7 @@ public class NPC_Complete : NPC_States
 
     public override void enterPatrol()
     {
-        patrolTarget = new Vector2(Random.Range(sceneLimitLeft, sceneLimitRigth), 0);
+        patrolTarget = new Vector2(Random.Range(transform.position.x - 80, transform.position.x + 80), 0);
 
         base.enterPatrol();
     }
@@ -156,6 +165,20 @@ public class NPC_Complete : NPC_States
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
+        GetComponent<Animator>().enabled = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        GetComponent<Animator>().enabled = true;
+
+        if (outOfScreen != null)
+        StopCoroutine(outOfScreen);
     }
 }
 

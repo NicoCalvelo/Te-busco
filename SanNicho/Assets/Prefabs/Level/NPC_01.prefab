@@ -955,14 +955,12 @@ MonoBehaviour:
   phone: {fileID: 4183296241108429947}
   shootPrefab: {fileID: 1572139095872945551, guid: e434f63aeb001fa4791f0a029bb5eddb,
     type: 3}
-  idleTime: 4
-  patrolSpeed: 6
-  pursueSpeed: 12.5
-  visibilityDistance: 45
-  attackDistance: 23
+  idleTime: 2
+  patrolSpeed: 7
+  pursueSpeed: 13
+  visibilityDistance: 50
+  attackDistance: 25
   timeToShoot: 1.5
-  sceneLimitLeft: -336
-  sceneLimitRigth: 314
 --- !u!95 &4183296241075025631
 Animator:
   serializedVersion: 3
@@ -971,7 +969,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4183296241075025186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: da64e1fc1507a0346a81ae1e88905c6e, type: 2}
   m_CullingMode: 0

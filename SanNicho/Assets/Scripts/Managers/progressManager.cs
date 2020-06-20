@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/06/2020 Calvelo Nicolás
+///     20/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -101,6 +101,15 @@ public class progressManager : MonoBehaviour
 
     //Cuando se cierra la aplicacion se guarda la info del jugador en el archivo
     private void OnApplicationQuit()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        string filePath = Application.persistentDataPath + "/progressData" + ".dat";
+        FileStream file = File.Create(filePath);
+        bf.Serialize(file, progressData);
+        file.Close();
+    }
+
+    private void OnApplicationPause(bool pause)
     {
         BinaryFormatter bf = new BinaryFormatter();
         string filePath = Application.persistentDataPath + "/progressData" + ".dat";

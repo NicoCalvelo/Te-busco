@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/06/2020 Calvelo Nicolás
+///     20/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -78,6 +78,11 @@ public class playerController : MonoBehaviour
 
     #region Collisions
 
+    public void setCollider(float xOffset)
+    {
+        GetComponent<Collider2D>().offset = new Vector2(xOffset, GetComponent<Collider2D>().offset.y);
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "NPC")
@@ -121,13 +126,29 @@ public class playerController : MonoBehaviour
     #endregion
 
     #region Moving State
+
+    RaycastHit2D hitInfo;
+
     void MoveState()
     {
+        if(isGrounded == false)
+            hitInfo = Physics2D.CapsuleCast(transform.position, new Vector2(6 * transform.localScale.x, 15 * transform.localScale.y), CapsuleDirection2D.Vertical, 0, Vector2.down, floorDistance, groundLayerMask);
+
         rb2D.velocity = new Vector2(xAxis * speed, rb2D.velocity.y);
-        if (xAxis == 1)
+
+        if (xAxis == 1 && playerAnimController.spriteRenderer.flipX == true)
+        {
             playerAnimController.flip(false);
-        if (xAxis == -1)
+            setCollider(.7f);
+        }
+
+        if (xAxis == -1 && playerAnimController.spriteRenderer.flipX == false)
+        {
             playerAnimController.flip(true);
+            setCollider(-.8f);
+        }
+
+
         playerAnimController.move(xAxis);      
     }
 
@@ -139,7 +160,7 @@ public class playerController : MonoBehaviour
         rb2D.velocity = new Vector2(rb2D.velocity.x, jumpFoce);
         isGrounded = false;
         resetJumpNedded = true;
-        StartCoroutine(ResetJumpNeededRoutine());
+        StartCoroutine(checkGrounded());
 
         playerAnimController.jump(true);
     }
@@ -155,38 +176,18 @@ public class playerController : MonoBehaviour
     }
 
 
-    void checkGrounded()
+    IEnumerator checkGrounded()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, floorDistance, groundLayerMask.value);
+        yield return new WaitForSeconds(.3f);
 
-        if (rb2D.velocity.y < -10 && resetLandingAudio == true)
-            playLandingAudio = true;
+        yield return new WaitUntil(() => hitInfo.collider != null);
 
-        if (hitInfo.collider != null && resetJumpNedded == false)
-        {
-            isGrounded = true;
-            playerAnimController.jump(false);
+        isGrounded = true;
+        playerAnimController.jump(false);
+        audioManager.Instance.playSound("playerLanding");
 
-            if (playLandingAudio == true && resetLandingAudio == true)
-            {
-                audioManager.Instance.playSound("playerLanding");
-                playLandingAudio = false;
-                resetLandingAudio = false;
-                StartCoroutine(resetAudioLandingNeededRoutine());
-            }
-        }
     }
 
-    IEnumerator ResetJumpNeededRoutine()
-    {
-        yield return new WaitForSeconds(0.3f);
-        resetJumpNedded = false;
-    }
-    IEnumerator resetAudioLandingNeededRoutine()
-    {
-        yield return new WaitForSeconds(.5f);
-        resetLandingAudio = true;
-    }
     #endregion
 
 

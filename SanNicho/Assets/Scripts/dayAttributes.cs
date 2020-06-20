@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/06/2020 Calvelo Nicolás
+///     17/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -20,8 +20,16 @@ public class dayAttributes : ScriptableObject
 {
 
     public float duracionDelDia;
-    public int diaNumero, cantidadNpc_01;
+    public int diaNumero, maxNpc_01;
 
+
+    [Header("Npc_Complete")]
+    [Range(1.0f, 4.0f)]
+    public float NPC_01_idleTime;
+    [Range(45, 55)]
+    public float NPC_01_visibilityDistance;
+    [Range(1.5f, 3.0f)]
+    public float NPC_01_timeToShoot;
 
     public noticia[] noticiasList;
 

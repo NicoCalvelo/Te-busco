@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 48758218}
   - component: {fileID: 48758220}
   - component: {fileID: 48758219}
+  - component: {fileID: 48758221}
   m_Layer: 5
   m_Name: Gato
   m_TagString: Untagged
@@ -151,12 +152,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 372928697}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -791, y: 381}
-  m_SizeDelta: {x: 212.9, y: 220.2}
+  m_AnchoredPosition: {x: -785, y: 276}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &48758219
 MonoBehaviour:
@@ -194,6 +195,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48758217}
   m_CullTransparentMesh: 0
+--- !u!114 &48758221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48758217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 48758219}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 372928698}
+        m_MethodName: changeCat
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 48758219}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &372928693
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +346,8 @@ RectTransform:
   - {fileID: 1278823174}
   - {fileID: 1607412643}
   - {fileID: 1296246420}
-  - {fileID: 48758218}
   - {fileID: 1763721838}
+  - {fileID: 48758218}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,6 +386,15 @@ MonoBehaviour:
   endOfNoticias:
     tvImage: {fileID: 0}
     noticiaSentence: Estas han sido todas las noticias por hoy.
+  gatoSprites:
+  - {fileID: 21300000, guid: bdf2249c4d6a34944bd76563ecc1762b, type: 3}
+  - {fileID: 21300000, guid: b8f5797cf81010d4ebb6a87958d04374, type: 3}
+  - {fileID: 21300000, guid: 5ff053c1b26f252478b88ac81f8533aa, type: 3}
+  - {fileID: 21300000, guid: 901c1b339ade59e40ae139dba2c90477, type: 3}
+  - {fileID: 21300000, guid: bf44ee0665bf9004a8ae893648b4ad12, type: 3}
+  - {fileID: 21300000, guid: 6d6df5f0fa2381246af063eeb3af26cf, type: 3}
+  - {fileID: 21300000, guid: 193b380cc90c3294fac1b6eb4fe547d9, type: 3}
+  - {fileID: 21300000, guid: 6a6c2bb86dd97ec45bc0874c5a8458e7, type: 3}
 --- !u!1 &443536237
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +833,7 @@ PrefabInstance:
     - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
         type: 3}
       propertyPath: audioClips.Array.size
-      value: 9
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
         type: 3}
@@ -996,6 +1060,86 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[8].loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[9].name
+      value: Meow0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ee1d63b8c790a5d4f8801c7e3ba01a4a, type: 3}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[9].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[10].name
+      value: Meow1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ea13a17d2db6da4d9cfdda0b2b66b39, type: 3}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[10].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[11].name
+      value: Meow2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ee0856ee440e424896d358e4551c511, type: 3}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[11].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[11].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[12].name
+      value: Meow3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 75fb9a88941555e46a8a0018c8ba7fd4, type: 3}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[12].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
+        type: 3}
+      propertyPath: audioClips.Array.data[12].pitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb6cbb0e339d8447b21e46321098790, type: 3}
 --- !u!1 &1607412642
@@ -1127,7 +1271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Casi-Ultimas
+  m_text: Noticias
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1196,7 +1340,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1665211405}
-    characterCount: 12
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1282,7 +1426,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Noticias
+  m_text: El Sur
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1351,10 +1495,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1742357808}
-    characterCount: 8
+    characterCount: 6
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1413,7 +1557,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 372928697}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     12/06//2020 Calvelo Nicolás
+///     17/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -32,6 +32,9 @@ public class noticieroManager : MonoBehaviour
     private Coroutine coroutine;
 
     private Queue<dayAttributes.noticia> noticiasList;
+
+    [SerializeField]
+    private Sprite[] gatoSprites;
 
     //Para checkear si el courutine que escribe la noticia sigue siendo ejecutado
     bool courRunning = false;
@@ -106,5 +109,11 @@ public class noticieroManager : MonoBehaviour
     void endNoticias()
     {
         sceneLoader.Instance.changeScene = true;
+    }
+
+    public void changeCat(Image gato)
+    {
+        audioManager.Instance.playSound("Meow" + Random.Range(0,4).ToString());
+        gato.sprite = gatoSprites[Random.Range(0, gatoSprites.Length)];
     }
 }

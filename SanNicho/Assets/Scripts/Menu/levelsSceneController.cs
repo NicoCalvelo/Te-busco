@@ -11,7 +11,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/06//2020 Calvelo Nicolás
+///     17/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -34,10 +34,10 @@ public class levelsSceneController : MonoBehaviour
     #endregion
     infoJugador.nivel nivelSelected;
 
-    public GameObject grillaContent, diaPrefab, diaBloqPrefab;
+    public GameObject grillaContent, diaPrefab, diaBloqPrefab, infoPanel;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI diaText;
+    public TextMeshProUGUI diaText, intentosText;
 
     private void Awake()
     {
@@ -82,6 +82,7 @@ public class levelsSceneController : MonoBehaviour
         nivelSelected = progressManager.Instance.progressData.diasInfo[lvlIndx + 1];
         diaText.text = (lvlIndx + 1).ToString("00");
 
+        infoPanel.SetActive(false);
 
         progressManager.Instance.nextDayAttribute = progressManager.Instance.daysAttributes[lvlIndx];
     }
@@ -97,5 +98,11 @@ public class levelsSceneController : MonoBehaviour
     {
         FindObjectOfType<audioManager>().playSound("clickConfirm");
         StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indxNoticiero));
+    }
+
+    public void onClickInfo()
+    {
+        infoPanel.SetActive(!infoPanel.activeSelf);
+        intentosText.text = "Intentos: " + nivelSelected.intentos.ToString();
     }
 }

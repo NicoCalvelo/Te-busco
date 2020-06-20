@@ -16,7 +16,7 @@ public class shoot : MonoBehaviour
 {
     Vector3 targetPos;
     [SerializeField]
-    float shootSpeed = 10, timeToDestroy = -1;
+    float shootSpeed = 10;
 
     private void Start()
     {
@@ -28,10 +28,6 @@ public class shoot : MonoBehaviour
         float angle = Vector2.Angle(Vector2.up, diference) * sign;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-
-
-        if (timeToDestroy > 0)
-            Destroy(gameObject, timeToDestroy);
     }
 
     private void FixedUpdate()
@@ -47,5 +43,10 @@ public class shoot : MonoBehaviour
         }
         else
             Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

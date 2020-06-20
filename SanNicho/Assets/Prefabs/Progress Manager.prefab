@@ -46,30 +46,30 @@ MonoBehaviour:
   nextDayAttribute: {fileID: 0}
   daysAttributes:
   - {fileID: 11400000, guid: a44f3a8f2e849584f8ccf90869b6fa8f, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 35ec1f444f8d6eb4abd3c672a62ee614, type: 2}
+  - {fileID: 11400000, guid: cc10112717badd34f8433ac305a11093, type: 2}
+  - {fileID: 11400000, guid: 6be341c5a46c1a743afe679d91018f67, type: 2}
+  - {fileID: 11400000, guid: f5edaa29864a7d541a186dd45d4376ba, type: 2}
+  - {fileID: 11400000, guid: f560fa8e54c4fdb4a8920cbe087ae182, type: 2}
+  - {fileID: 11400000, guid: f12e6da265f7e934a9ecb7974c9016ba, type: 2}
+  - {fileID: 11400000, guid: 93473eeb63591de42ad3a61d7d673e8e, type: 2}
+  - {fileID: 11400000, guid: 2f99982f9b33b4948b4a9e18678aaa97, type: 2}
+  - {fileID: 11400000, guid: ff57f8417cf21c642a0b323e4fefd7eb, type: 2}
+  - {fileID: 11400000, guid: 101a77d52d24f324c85d38accba09aca, type: 2}
+  - {fileID: 11400000, guid: bb2b29aecd4d83c46bd96edef7d9f6fd, type: 2}
+  - {fileID: 11400000, guid: 36cb06c3d18fe0149882f80e634af369, type: 2}
+  - {fileID: 11400000, guid: 6f3b4d4bc71d71a42a21c8e9be82cd76, type: 2}
+  - {fileID: 11400000, guid: 97747a142baec7c4e89c6217b479717c, type: 2}
+  - {fileID: 11400000, guid: 040817fb154b0544ba0abc0982d199be, type: 2}
+  - {fileID: 11400000, guid: 4f76247a2bbd26e4c81cdff6602a192c, type: 2}
+  - {fileID: 11400000, guid: f9a9a52684c820847ae449eff727d184, type: 2}
+  - {fileID: 11400000, guid: 3b0660ec4e570e942a88df768c522422, type: 2}
+  - {fileID: 11400000, guid: 80795aa49757910449bfb3c318c37ba8, type: 2}
+  - {fileID: 11400000, guid: 9cbe6e9124dc4504ab060645e6c160b9, type: 2}
+  - {fileID: 11400000, guid: de2faf5f353c07549ae308dabc1dd446, type: 2}
+  - {fileID: 11400000, guid: 275bc14f3b3ec83449ac955de1987872, type: 2}
+  - {fileID: 11400000, guid: f36aacc2fe3d5124598a3f4af2d0dd2f, type: 2}
+  - {fileID: 11400000, guid: 9370b7327a662984d9855061c886f21e, type: 2}
   progressData:
     primeraVez: 0
     totalEstrellas: 0

@@ -68,6 +68,7 @@ public class sceneLoader : MonoBehaviour
 
     void onChangeScene(int scene)
     {
+        changeScene = false;
         noticiasAnim.enabled = false;
         crossFadeAnim.enabled = false;
 

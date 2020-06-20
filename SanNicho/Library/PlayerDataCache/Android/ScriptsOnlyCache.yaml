@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - levelsSceneController
     - menuSceneController
     - noticieroManager
+    - npcManager
     - playerAnimController
     - playerController
     - progressManager
@@ -88,7 +89,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -129,6 +129,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 60
       Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
     - Class: 68
       Script: {instanceID: 0}
     - Class: 70
@@ -160,19 +162,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13058}
+      Script: {instanceID: 13056}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13112}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13162}
     - Class: 114
-      Script: {instanceID: 13604}
+      Script: {instanceID: 13602}
     - Class: 114
-      Script: {instanceID: 13674}
+      Script: {instanceID: 13672}
+    - Class: 114
+      Script: {instanceID: 13712}
     - Class: 114
       Script: {instanceID: 13802}
     - Class: 114
@@ -235,6 +239,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 225
       Script: {instanceID: 0}
+    - Class: 251
+      Script: {instanceID: 0}
     - Class: 1971053207
       Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
@@ -289,27 +295,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 12864}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13112}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 13122}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13192}
     - Class: 114
-      Script: {instanceID: 13490}
+      Script: {instanceID: 13488}
     - Class: 114
-      Script: {instanceID: 13548}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13604}
+      Script: {instanceID: 13602}
     - Class: 114
-      Script: {instanceID: 13638}
+      Script: {instanceID: 13636}
     - Class: 114
       Script: {instanceID: 13808}
     - Class: 114
@@ -418,15 +424,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12452}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13230}
+      Script: {instanceID: 13228}
     - Class: 114
-      Script: {instanceID: 13638}
+      Script: {instanceID: 13636}
     - Class: 114
       Script: {instanceID: 14228}
     - Class: 114
@@ -479,11 +485,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13466}
+      Script: {instanceID: 13464}
     - Class: 114
       Script: {instanceID: 14228}
     - Class: 114
@@ -563,7 +569,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: d908dcd0c1dd01604de7109743e421b8
+      Hash: 6fbe13995b0e2335e18fbf5d1a3be448
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NPC_Complete
@@ -821,7 +827,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 938bfa2cc9888d6052695ff379480054
+      Hash: 80bd5d549bd41d674f7d836c3961d9c2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: levelBTN
@@ -879,12 +885,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: animatedPlantController
   - hash:
       serializedVersion: 2
       Hash: 5e1b42111795132786218294341ee87e
@@ -1007,7 +1007,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggle
   - hash:
       serializedVersion: 2
-      Hash: b1953f86a0fb88176401fe56687662a9
+      Hash: fd1013c7381dc779695a9cf053dfb59f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: levelsSceneController
@@ -1037,7 +1037,7 @@ ScriptsOnlyBuild:
     className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 212629507b148667154b776d92105ebb
+      Hash: d46397c2d57abd970d63f7027ac440bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: noticieroManager
@@ -1067,7 +1067,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: f54e8e4e0ab6c48f630d567278713d1b
+      Hash: 473b5e8d6b51a7f0574daef7665aad45
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: dayAttributes
@@ -1095,6 +1095,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: DebugUpdater
+  - hash:
+      serializedVersion: 2
+      Hash: 65bd10a9824e9b35a1fbfed6eb3cb45c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: npcManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1169,7 +1175,7 @@ ScriptsOnlyBuild:
     className: CinemachinePath
   - hash:
       serializedVersion: 2
-      Hash: a82e4c8a82a85b6e2ad2938c5d536136
+      Hash: 1105c39aef308523d78a200b86aeca95
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: shoot
@@ -1511,7 +1517,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 3c1d94f7962ae979581d6da8b7c3c458
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: playerAnimController
@@ -1553,7 +1559,7 @@ ScriptsOnlyBuild:
     className: LiftGammaGain
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 503c5a5a2a3e759c8430935cc17dc1c3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: menuSceneController
@@ -1577,7 +1583,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerUIntField
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 1f4cafc3dff750744840b0e84ff09727
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: costaneraManager
