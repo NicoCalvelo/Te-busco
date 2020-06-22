@@ -25,8 +25,6 @@ public class noticieroManager : MonoBehaviour
     public Image noticiaImg;
 
     [SerializeField]
-    private dayAttributes.noticia[] randomNoticias, publicidadNoticias;
-    [SerializeField]
     private dayAttributes.noticia endOfNoticias;
 
     private Coroutine coroutine;
@@ -59,8 +57,6 @@ public class noticieroManager : MonoBehaviour
         }
 
         yield return new WaitUntil(() => noticiasList.Count == notList.Length);
-
-        noticiasList.Enqueue(randomNoticias[Random.Range(0, randomNoticias.Length)]);
 
 
         noticiasList.Enqueue(endOfNoticias);

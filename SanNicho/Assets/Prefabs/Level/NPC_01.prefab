@@ -922,7 +922,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1565961639
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: c71af04840b82584fa6fbed96bd180c6, type: 3}
   m_Color: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
@@ -960,7 +960,7 @@ MonoBehaviour:
   pursueSpeed: 13
   visibilityDistance: 50
   attackDistance: 25
-  timeToShoot: 1.5
+  timeToShoot: 1.65
 --- !u!95 &4183296241075025631
 Animator:
   serializedVersion: 3
@@ -1405,7 +1405,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1565961639
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 28b5d44d6868d4247b4c33b2f4a88ce9, type: 3}
   m_Color: {r: 0.8962264, g: 0.88951004, b: 0.004227493, a: 1}

@@ -15,9 +15,9 @@ MonoBehaviour:
   duracionDelDia: 5.6
   diaNumero: 1
   maxNpc_01: 4
-  NPC_01_idleTime: 2
+  NPC_01_idleTime: 2.2
   NPC_01_visibilityDistance: 52
-  NPC_01_timeToShoot: 1.5
+  NPC_01_timeToShoot: 1.85
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "\xA1El mes de septiembre ya esta aqui! El mes en que nuestra

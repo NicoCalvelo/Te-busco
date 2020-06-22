@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     18/06//2020 Calvelo Nicolás
+///     22/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -88,17 +88,15 @@ public class gameManager : MonoBehaviour
 
 
         //a determinada hora cambiar el momento del dia en la escena
-        if(horaText.text == "12")
-        {
-            //Se cambia a despues del medio dia
-        }
-        else if(horaText.text == "16")
+        if(horaText.text == "16" && minutosText.text == "00")
         {
             //Se cambia a tarde
+            costaneraManager.Instance.setTarde();
         }
-        else if(horaText.text == "20")
+        else if(horaText.text == "20" && minutosText.text == "00")
         {
             //Se cambia a noche
+            costaneraManager.Instance.setNoche();
         }
         else if(horaText.text == "24")
         {

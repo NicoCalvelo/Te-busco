@@ -342,8 +342,8 @@ RectTransform:
   m_Children:
   - {fileID: 1887053503}
   - {fileID: 443536238}
-  - {fileID: 1207074016}
   - {fileID: 1278823174}
+  - {fileID: 1207074016}
   - {fileID: 1607412643}
   - {fileID: 1296246420}
   - {fileID: 1763721838}
@@ -372,17 +372,6 @@ MonoBehaviour:
   waitAfterDot: 0.45
   noticiaText: {fileID: 2077674730}
   noticiaImg: {fileID: 483823111}
-  randomNoticias:
-  - tvImage: {fileID: 0}
-    noticiaSentence: Ah y casi se me olvida! Fran se la come
-  - tvImage: {fileID: 0}
-    noticiaSentence: "Por ultimo, un hecho sin precedentes atormenta a la ciudad.
-      Asi es se\xF1ores! Estan lloviendo vergas."
-  - tvImage: {fileID: 0}
-    noticiaSentence: Las protestas en EEUU contra el racismo resuenan en la ciudad.
-      En este caso Bruno Mollo... Alias "El Negro" esta al frente de las revueltas
-      en plaza Mitre.
-  publicidadNoticias: []
   endOfNoticias:
     tvImage: {fileID: 0}
     noticiaSentence: Estas han sido todas las noticias por hoy.
@@ -573,7 +562,7 @@ RectTransform:
   m_Children:
   - {fileID: 1665211404}
   m_Father: {fileID: 372928697}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -647,7 +636,7 @@ RectTransform:
   m_Children:
   - {fileID: 1742357807}
   m_Father: {fileID: 372928697}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
