@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     20/06/2020 Calvelo Nicolás
+///     24/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -89,7 +89,10 @@ public class playerController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
         if (col.gameObject.tag == "Photo")
         {
             gameManager.Instance.setStars(-1);

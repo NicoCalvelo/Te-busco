@@ -9,7 +9,7 @@ using UnityEngine;
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     16/06/2020 Calvelo Nicolás
+///     23/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -53,7 +53,7 @@ public class NPC_Complete : NPC_States
     public override void enterIdle()
     {
         idleTimeLeft = idleTime;
-        if (distanceToPlayer > 130)
+        if (distanceToPlayer > 130 && outOfScreen == null)
             outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
 
         base.enterIdle();
@@ -178,7 +178,11 @@ public class NPC_Complete : NPC_States
         GetComponent<Animator>().enabled = true;
 
         if (outOfScreen != null)
-        StopCoroutine(outOfScreen);
+        {
+            StopCoroutine(outOfScreen);
+            outOfScreen = null;
+        }
+
     }
 }
 

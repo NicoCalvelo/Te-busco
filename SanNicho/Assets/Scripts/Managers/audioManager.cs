@@ -9,7 +9,7 @@ using UnityEngine;
 ///     09/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/06/2020 Calvelo Nicolás
+///     24/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -34,6 +34,10 @@ public class audioManager : MonoBehaviour
 
     Dictionary<string, AudioSource> audioManagerSounds;
 
+    public sound[] backgroundsMusics;
+
+    [Header("Ambience Sounds")]
+    public sound[] morningAS, eveningAS, nightAS;
 
     void Awake()
     {
@@ -50,6 +54,10 @@ public class audioManager : MonoBehaviour
             audioManagerSounds[clip.name].pitch = clip.pitch;
             audioManagerSounds[clip.name].loop = clip.loop;
         }
+
+        audioManagerSounds.Add("backgroundMusic", gameObject.AddComponent<AudioSource>());
+
+        audioManagerSounds.Add("ambienceSound", gameObject.AddComponent<AudioSource>());         
     }
 
     public void playSound(string clipName)
@@ -59,6 +67,39 @@ public class audioManager : MonoBehaviour
     public void stopSound(string clipName)
     {
         audioManagerSounds[clipName].Stop();
+    }
+
+    public void changeBackgroundMusic(int clipIndx)
+    {
+        audioManagerSounds["backgroundMusic"].clip = backgroundsMusics[clipIndx].clip;
+        audioManagerSounds["backgroundMusic"].volume = backgroundsMusics[clipIndx].volume;
+        audioManagerSounds["backgroundMusic"].pitch = backgroundsMusics[clipIndx].pitch;
+        audioManagerSounds["backgroundMusic"].loop = backgroundsMusics[clipIndx].loop;
+
+        audioManagerSounds["backgroundMusic"].Play();
+    }
+
+    public void playRandomAmbienceSound()
+    {
+        sound clip;
+        if (gameManager.Instance.hora < 16)
+        {
+            clip = morningAS[Random.Range(0, morningAS.Length)];
+        }
+        else if(gameManager.Instance.hora < 20)
+        {
+            clip = eveningAS[Random.Range(0, eveningAS.Length)];
+        }
+        else
+        {
+            clip = nightAS[Random.Range(0, nightAS.Length)];
+        }
+
+        audioManagerSounds["ambienceSound"].clip = clip.clip;
+        audioManagerSounds["ambienceSound"].volume = clip.volume;
+        audioManagerSounds["ambienceSound"].pitch = clip.pitch;
+        audioManagerSounds["ambienceSound"].loop = clip.loop;
+        audioManagerSounds["ambienceSound"].Play();
     }
 
     [System.Serializable]

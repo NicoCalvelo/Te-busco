@@ -10,7 +10,7 @@ using UnityEngine;
 ///     16/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     20/06/2020 Calvelo Nicolás
+///     23/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 /// 
@@ -62,8 +62,8 @@ public class npcManager : MonoBehaviour
     public IEnumerator exitPlayerView(GameObject npc)
     {
         yield return new WaitForSeconds(3);
-        npcDictionary.Remove(npc.name);
 
+        npcDictionary.Remove(npc.name);
         Destroy(npc);
         instantiateNewNpc();
     }
@@ -83,11 +83,4 @@ public class npcManager : MonoBehaviour
         npcDictionary.Add(newNpc.name, newNpc);
     }
 
-    public void stopNpcCoroutines()
-    {
-        foreach (GameObject npc in npcDictionary.Values)
-        {
-            npc.GetComponent<NPC_Complete>().StopAllCoroutines();
-        }
-    }
 }

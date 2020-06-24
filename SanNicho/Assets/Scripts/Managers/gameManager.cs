@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     22/06//2020 Calvelo Nicolás
+///     24/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -47,7 +47,7 @@ public class gameManager : MonoBehaviour
     [SerializeField]
     private GameObject pausePanel;
 
-    int hora = 8;
+    public int hora = 8;
 
     private void Awake()
     {
@@ -87,6 +87,10 @@ public class gameManager : MonoBehaviour
         }
 
 
+        float i = Random.Range(0.1f, 1.0f);
+        if (i < .6f)
+            StartCoroutine(playAmbienceSound());
+
         //a determinada hora cambiar el momento del dia en la escena
         if(horaText.text == "16" && minutosText.text == "00")
         {
@@ -104,6 +108,12 @@ public class gameManager : MonoBehaviour
             horaText.text = "00";
             levelCompleted();
         }
+    }
+
+    IEnumerator playAmbienceSound()
+    {
+        yield return new WaitForSeconds(Random.Range(1.0f, 18.0f));
+        audioManager.Instance.playRandomAmbienceSound();
     }
 
     public void setStars(int adicion)
@@ -128,6 +138,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelLose");
         canvasAnim.SetTrigger("levelLose");
+        StopAllCoroutines();
     }
 
     //Cuando el jugador llega a la hora 24
@@ -137,7 +148,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelCompleted");
         canvasAnim.SetTrigger("dayCompleted");
-
+        StopAllCoroutines();
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
 
         if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)

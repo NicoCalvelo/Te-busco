@@ -11,7 +11,7 @@ using UnityEngine;
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     22/06/2020 Calvelo Nicolás
+///     23/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -42,7 +42,8 @@ private static costaneraManager _instance;
 
     void Start()
     {
-        audioManager.Instance.playSound("morningMusic");
+        audioManager.Instance.changeBackgroundMusic(0);
+        audioManager.Instance.playRandomAmbienceSound();
         setScene();
     }
 
@@ -63,14 +64,12 @@ private static costaneraManager _instance;
     public void setTarde()
     {
         GetComponent<Animator>().SetTrigger("tarde");
-        audioManager.Instance.stopSound("morningMusic");
-        audioManager.Instance.playSound("tardeMusic");
+        audioManager.Instance.changeBackgroundMusic(1);
     }
 
     public void setNoche()
     {
         GetComponent<Animator>().SetTrigger("noche");
-        audioManager.Instance.stopSound("tardeMusic");
-        audioManager.Instance.playSound("nocheAmbience");
+        audioManager.Instance.changeBackgroundMusic(2);
     }
 }

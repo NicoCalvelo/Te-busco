@@ -8,7 +8,7 @@
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     21/05/2020 Calvelo Nicolás
+///     24/05/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -35,14 +35,12 @@ public class shoot : MonoBehaviour
         transform.Translate(Vector2.up * shootSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "NPC")
+        if(col.gameObject.tag == "Player")
         {
-            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), col.collider);
-        }
-        else
             Destroy(gameObject);
+        }
     }
 
     private void OnBecameInvisible()

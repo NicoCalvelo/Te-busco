@@ -84,6 +84,12 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -1080,7 +1086,7 @@ ScriptsOnlyBuild:
     className: CinemachineTriggerAction
   - hash:
       serializedVersion: 2
-      Hash: 36683561d218c9c2d5a47518e48a333a
+      Hash: 99f49c06373178859bce29e6717da4a0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameManager
@@ -1368,7 +1374,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: e8091d3da6c7628feb943650e6383fdb
+      Hash: 9849d17b6113487b8d4570ee8b43f256
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: audioManager
