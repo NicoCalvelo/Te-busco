@@ -96,11 +96,13 @@ public class gameManager : MonoBehaviour
         {
             //Se cambia a tarde
             costaneraManager.Instance.setTarde();
+            npcManager.Instance.onChangeTarde();
         }
         else if(horaText.text == "20" && minutosText.text == "00")
         {
             //Se cambia a noche
             costaneraManager.Instance.setNoche();
+            npcManager.Instance.onChangeNoche();
         }
         else if(horaText.text == "24")
         {
@@ -151,11 +153,18 @@ public class gameManager : MonoBehaviour
         StopAllCoroutines();
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
 
+        //puntaje
+        int earned = (int)Mathf.Round(starsLeft * 100 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 45);
+        Debug.Log("Se ganaron " + earned.ToString());
+        costaneraCanvas.Instance.levelCompleted(earned);
+
         if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
             progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
 
 
     }
+
+
 
     public void pauseGame()
     {

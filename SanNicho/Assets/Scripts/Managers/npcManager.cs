@@ -40,7 +40,11 @@ public class npcManager : MonoBehaviour
     public float sceneLimitLeft = -336.0f, sceneLimitRigth = 314.0f;
 
     [SerializeField]
-    private GameObject npc01Prefab;
+    private GameObject npc01Prefab, npc02Prefab;
+
+    [SerializeField]
+    private List<Transform> npc02Positions;
+
 
     private void Awake()
     {
@@ -48,14 +52,59 @@ public class npcManager : MonoBehaviour
 
         player = Camera.main.GetComponent<Transform>();
         npcDictionary = new Dictionary<string, GameObject>();
-
     }
 
     private void Start()
     {
-        for (int i = 0; i < progressManager.Instance.nextDayAttribute.maxNpc_01; i++)
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.inicioNpc_01; i++)
         {
             Invoke("instantiateNewNpc", Random.Range(0.1f, 3.0f));
+        }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.cantidadNPC_02; i++)
+        {
+            if (npc02Positions.Count == 0)
+                return;
+
+            Transform elected = npc02Positions[Random.Range(0, npc02Positions.Count)];
+            instantiateNewNpc02(elected);
+            npc02Positions.Remove(elected);
+        }
+    }
+
+    public void onChangeTarde()
+    {
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc01Tarde; i++)
+        {
+            Invoke("instantiateNewNpc", Random.Range(0.1f, 3.0f));
+        }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc02Tarde; i++)
+        {
+            if (npc02Positions.Count == 0)
+                return;
+
+            Transform elected = npc02Positions[Random.Range(0, npc02Positions.Count)];
+            instantiateNewNpc02(elected);
+            npc02Positions.Remove(elected);
+        }
+    }
+
+    public void onChangeNoche()
+    {
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc01Noche; i++)
+        {
+            Invoke("instantiateNewNpc", Random.Range(0.1f, 3.0f));
+        }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc02Noche; i++)
+        {
+            if (npc02Positions.Count == 0)
+                return;
+
+            Transform elected = npc02Positions[Random.Range(0, npc02Positions.Count)];
+            instantiateNewNpc02(elected);
+            npc02Positions.Remove(elected);
         }
     }
 
@@ -78,9 +127,16 @@ public class npcManager : MonoBehaviour
         }
 
         GameObject newNpc = Instantiate(npc01Prefab, spawnPos, Quaternion.identity, transform);
-        newNpc.name = "npc" + nextNpcNumber.ToString();
+        newNpc.name = "npc01_" + nextNpcNumber.ToString();
         nextNpcNumber++;
         npcDictionary.Add(newNpc.name, newNpc);
     }
-
+    void instantiateNewNpc02(Transform npcPos)
+    {
+        GameObject newNpc = Instantiate(npc02Prefab, npcPos.position, Quaternion.identity, transform);
+        newNpc.transform.rotation = npcPos.rotation;
+        newNpc.name = "npc02_" + nextNpcNumber.ToString();
+        nextNpcNumber++;
+        npcDictionary.Add(newNpc.name, newNpc);
+    }
 }

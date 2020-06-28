@@ -14,8 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.2
   diaNumero: 3
-  maxNpc_01: 4
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 2
   NPC_01_idleTime: 2.5
   NPC_01_visibilityDistance: 48
   NPC_01_timeToShoot: 1.7
+  cantidadNPC_02: 0
+  agregarNpc02Tarde: 0
+  agregarNpc02Noche: 0
+  NPC_02_hideTime: 0
+  NPC_02_attackDistance: 0
+  NPC_02_timeToShoot: 0
   noticiasList: []

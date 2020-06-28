@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 5.6
   diaNumero: 1
-  maxNpc_01: 4
-  NPC_01_idleTime: 2.2
-  NPC_01_visibilityDistance: 52
-  NPC_01_timeToShoot: 1.85
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 0
+  agregarNpc01Noche: 1
+  NPC_01_idleTime: 3
+  NPC_01_visibilityDistance: 48
+  NPC_01_timeToShoot: 1.8
+  cantidadNPC_02: 0
+  agregarNpc02Tarde: 0
+  agregarNpc02Noche: 0
+  NPC_02_hideTime: 1
+  NPC_02_attackDistance: 25.5
+  NPC_02_timeToShoot: 1.7
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "\xA1El mes de septiembre ya esta aqui! El mes en que nuestra

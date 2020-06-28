@@ -18,6 +18,7 @@ public class infoJugador
     public bool primeraVez = true;
 
     public int totalEstrellas = 0;
+    public int totalPuntos = 0;
 
     public Dictionary<int, nivel> diasInfo;
 

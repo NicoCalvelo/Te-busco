@@ -45,7 +45,7 @@ public class NPC_Complete : NPC_States
 
     public override void FixedUpdate()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+
 
         base.FixedUpdate();
     }
@@ -53,6 +53,7 @@ public class NPC_Complete : NPC_States
     public override void enterIdle()
     {
         idleTimeLeft = idleTime;
+        distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer > 130 && outOfScreen == null)
             outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
 
@@ -77,6 +78,7 @@ public class NPC_Complete : NPC_States
     }
     public override void patrol()
     {
+        distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer < visibilityDistance)
         {
             nextState = State.PURSUE;
@@ -114,7 +116,7 @@ public class NPC_Complete : NPC_States
     public override void pursue()
     {
         base.pursue();
-
+        distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer < attackDistance)
             nextState = State.ATTACK;
         else if (distanceToPlayer > visibilityDistance)
@@ -138,6 +140,11 @@ public class NPC_Complete : NPC_States
         base.exitPursue();
     }
 
+    public void playPursueSound()
+    {
+        audioManager.Instance.playSound("NPCstep");
+    }
+
     public override void enterAttack()
     {
         shootTimeLeft = timeToShoot;
@@ -149,10 +156,12 @@ public class NPC_Complete : NPC_States
 
         if (shootTimeLeft < 0)
         {
-            playNpcSound();
+
             Instantiate(shootPrefab, phone.position, Quaternion.identity);
+            audioManager.Instance.playSound("NPCshoot");
             shootTimeLeft = timeToShoot;
 
+            distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
             if (distanceToPlayer > attackDistance)
                 nextState = State.IDLE;
         }
@@ -161,7 +170,7 @@ public class NPC_Complete : NPC_States
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "NPC" || collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "NPC")
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
         }

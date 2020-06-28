@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - NPC_Complete
     - audioManager
+    - costaneraCanvas
     - costaneraManager
     - dayAttributes
     - gameManager
@@ -87,9 +88,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -216,6 +218,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 16516}
     - Class: 114
       Script: {instanceID: 16622}
+    - Class: 114
+      Script: {instanceID: 65942}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1852,6 +1856,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: costaneraCanvas
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity

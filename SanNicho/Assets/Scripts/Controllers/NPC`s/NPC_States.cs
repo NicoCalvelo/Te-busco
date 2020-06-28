@@ -22,9 +22,8 @@ public class NPC_States : MonoBehaviour
     public State actualState = State.IDLE;
     protected State nextState  = State.IDLE, prevState = State.IDLE;
     protected Animator anim;
-    protected Transform playerTransform, shootFrom;
+    protected Transform playerTransform;
     
-    public AudioSource idle_ASource, patrol_ASource, pursue_ASource, attack_ASource;
 
 
     public virtual void Awake()
@@ -82,10 +81,6 @@ public class NPC_States : MonoBehaviour
     {
         anim.ResetTrigger("isIdle");
 
-        if (idle_ASource != null)
-            if (idle_ASource.isPlaying == true)
-                idle_ASource.Stop();
-
         actualState = nextState;
     }
 
@@ -104,10 +99,6 @@ public class NPC_States : MonoBehaviour
     public virtual void exitPatrol()
     {
         anim.ResetTrigger("isPatroling");
-
-        if (patrol_ASource != null)
-            if (patrol_ASource.isPlaying == true)
-                patrol_ASource.Stop();
 
         actualState = nextState;
     }
@@ -152,15 +143,4 @@ public class NPC_States : MonoBehaviour
         actualState = nextState;
     }
 
-    public virtual void playNpcSound()
-    {
-        if(actualState == State.IDLE && idle_ASource != null)
-            idle_ASource.Play();
-        else if (actualState == State.PATROL && patrol_ASource != null)
-            patrol_ASource.Play();
-        else if (actualState == State.PURSUE && pursue_ASource != null)
-            pursue_ASource.Play();
-        else if (actualState == State.ATTACK && attack_ASource != null)
-            attack_ASource.Play();
-    }
 }

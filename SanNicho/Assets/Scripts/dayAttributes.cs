@@ -20,16 +20,29 @@ public class dayAttributes : ScriptableObject
 {
 
     public float duracionDelDia;
-    public int diaNumero, maxNpc_01;
+    public int diaNumero;
 
 
     [Header("Npc_Complete")]
+    public int inicioNpc_01;
+    public int agregarNpc01Tarde, agregarNpc01Noche;
     [Range(1.0f, 4.0f)]
     public float NPC_01_idleTime;
     [Range(45, 55)]
     public float NPC_01_visibilityDistance;
     [Range(1.5f, 3.0f)]
     public float NPC_01_timeToShoot;
+
+    [Header("Npc_Static")]
+    [Range(0, 10)]
+    public int cantidadNPC_02;
+    public int agregarNpc02Tarde, agregarNpc02Noche;
+    [Range(0.1f, 2.0f)]
+    public float NPC_02_hideTime;
+    [Range(15, 35)]
+    public float NPC_02_attackDistance;
+    [Range(1.0f, 3.0f)]
+    public float NPC_02_timeToShoot;
 
     public noticia[] noticiasList;
 
