@@ -10,7 +10,7 @@ using UnityEngine;
 ///     16/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/06/2020 Calvelo Nicolás
+///     29/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 /// 
@@ -37,13 +37,13 @@ public class npcManager : MonoBehaviour
     int nextNpcNumber = 0;
     Transform player;
 
-    public float sceneLimitLeft = -336.0f, sceneLimitRigth = 314.0f;
+
 
     [SerializeField]
-    private GameObject npc01Prefab, npc02Prefab;
+    private GameObject npc01Prefab, npc02Prefab, npc03Prefab;
 
     [SerializeField]
-    private List<Transform> npc02Positions;
+    private List<Transform> npc02Positions, npc03Positions;
 
 
     private void Awake()
@@ -70,6 +70,16 @@ public class npcManager : MonoBehaviour
             instantiateNewNpc02(elected);
             npc02Positions.Remove(elected);
         }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.cantidadNPC_03; i++)
+        {
+            if (npc03Positions.Count == 0)
+                return;
+
+            Transform elected = npc03Positions[Random.Range(0, npc02Positions.Count)];
+            instantiateNewNpc03(elected);
+            npc03Positions.Remove(elected);
+        }
     }
 
     public void onChangeTarde()
@@ -89,7 +99,6 @@ public class npcManager : MonoBehaviour
             npc02Positions.Remove(elected);
         }
     }
-
     public void onChangeNoche()
     {
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc01Noche; i++)
@@ -116,11 +125,12 @@ public class npcManager : MonoBehaviour
         Destroy(npc);
         instantiateNewNpc();
     }
+
     void instantiateNewNpc()
     {
         Vector2 spawnPos = new Vector2(player.position.x + (Random.Range(80.0f, 100.0f)  * (Random.Range(0, 2) * 2 - 1)), 0);
 
-        if(spawnPos.x < sceneLimitLeft || spawnPos.x > sceneLimitRigth)
+        if(spawnPos.x < gameManager.Instance.sceneLimitLeft || spawnPos.x > gameManager.Instance.sceneLimitRigth)
         {
             instantiateNewNpc();
             return;
@@ -136,6 +146,14 @@ public class npcManager : MonoBehaviour
         GameObject newNpc = Instantiate(npc02Prefab, npcPos.position, Quaternion.identity, transform);
         newNpc.transform.rotation = npcPos.rotation;
         newNpc.name = "npc02_" + nextNpcNumber.ToString();
+        nextNpcNumber++;
+        npcDictionary.Add(newNpc.name, newNpc);
+    }
+    void instantiateNewNpc03(Transform npcPos)
+    {
+        GameObject newNpc = Instantiate(npc03Prefab, npcPos.position, Quaternion.identity, transform);
+        newNpc.transform.rotation = npcPos.rotation;
+        newNpc.name = "npc03_" + nextNpcNumber.ToString();
         nextNpcNumber++;
         npcDictionary.Add(newNpc.name, newNpc);
     }

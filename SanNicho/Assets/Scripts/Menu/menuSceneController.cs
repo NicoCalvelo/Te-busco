@@ -58,4 +58,9 @@ public class menuSceneController : MonoBehaviour
         }
     }
 
+    public void onClickTienda()
+    {
+        FindObjectOfType<audioManager>().playSound("confirmClick");
+        StartCoroutine(sceneLoader.Instance.loadScene(4));
+    }
 }

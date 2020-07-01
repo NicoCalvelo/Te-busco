@@ -8,7 +8,7 @@
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     17/06/2020 Calvelo Nicolás
+///     29/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -20,6 +20,8 @@ public class infoJugador
     public int totalEstrellas = 0;
     public int totalPuntos = 0;
 
+    public List<item> shopItems;
+
     public Dictionary<int, nivel> diasInfo;
 
     [System.Serializable]
@@ -28,5 +30,12 @@ public class infoJugador
         public bool completado = false;
         public int estrellas = 0;
         public int intentos = 0;
+    }
+
+    [System.Serializable]
+    public class item
+    {
+        public string name;
+        public int nivel = 1;
     }
 }

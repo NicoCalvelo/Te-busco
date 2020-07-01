@@ -18,12 +18,13 @@ MonoBehaviour:
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
   NPC_01_idleTime: 2.8
-  NPC_01_visibilityDistance: 48.5
+  NPC_01_visibilityDistance: 49
   NPC_01_timeToShoot: 1.75
-  cantidadNPC_02: 4
-  agregarNpc02Tarde: 2
+  cantidadNPC_02: 0
+  agregarNpc02Tarde: 0
   agregarNpc02Noche: 0
-  NPC_02_hideTime: 2
+  NPC_02_hideTime: 0.1
   NPC_02_attackDistance: 15
-  NPC_02_timeToShoot: 2
+  NPC_02_timeToShoot: 1
+  bubblesToSpawn: 0
   noticiasList: []

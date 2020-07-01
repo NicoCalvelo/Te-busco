@@ -170,7 +170,7 @@ public class NPC_Complete : NPC_States
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "NPC")
+        if(collision.gameObject.tag == "NPC" || collision.gameObject.layer == 9)
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
         }

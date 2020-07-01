@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     17/06/2020 Calvelo Nicolás
+///     29/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -43,6 +43,18 @@ public class dayAttributes : ScriptableObject
     public float NPC_02_attackDistance;
     [Range(1.0f, 3.0f)]
     public float NPC_02_timeToShoot;
+
+    [Header("Npc_Camera")]
+    [Range(0, 10)]
+    public int cantidadNPC_03;
+    [Range(15, 35)]
+    public float NPC_03_attackDistance;
+    [Range(1.0f, 3.0f)]
+    public float NPC_03_timeToShoot;
+
+    [Header("Collectables")]
+    [Range(0, 24)]
+    public int bubblesToSpawn;
 
     public noticia[] noticiasList;
 

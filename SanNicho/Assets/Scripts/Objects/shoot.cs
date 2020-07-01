@@ -37,7 +37,12 @@ public class shoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag != "NPC")
+        if (col.gameObject.tag == "Bubble")
+        {
+            audioManager.Instance.playSound("hitBubble");
+        }
+
+        if (col.gameObject.tag != "NPC")
         {
             Destroy(gameObject);
         }

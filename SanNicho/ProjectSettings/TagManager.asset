@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Photo
+  - Bubble
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Ground
-  - ParkedCars
+  - Collectables
   - 
   - 
   - 

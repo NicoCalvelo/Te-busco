@@ -14,8 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.8
   diaNumero: 5
-  maxNpc_01: 4
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 2
   NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 48
+  NPC_01_visibilityDistance: 49
   NPC_01_timeToShoot: 1.7
-  noticiasList: []
+  cantidadNPC_02: 3
+  agregarNpc02Tarde: 1
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.75
+  NPC_02_attackDistance: 28
+  NPC_02_timeToShoot: 1.8
+  bubblesToSpawn: 20
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: hoy llueven burbujas

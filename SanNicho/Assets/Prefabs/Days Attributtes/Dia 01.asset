@@ -26,12 +26,13 @@ MonoBehaviour:
   NPC_02_hideTime: 1
   NPC_02_attackDistance: 25.5
   NPC_02_timeToShoot: 1.7
+  bubblesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "\xA1El mes de septiembre ya esta aqui! El mes en que nuestra
       querida ciudad se llena de vida. Asi es queridos nicole\xF1os! El edificio
-      mas emblematico de la ciudad comienza a prepararse. "
+      mas emblematico de la ciudad comienza con los preparativos. "
   - tvImage: {fileID: 0}
     noticiaSentence: "Parece increible que tambien, en estos momentos, la estatua
-      mas imponente de la costanera haya desaparecido... \xBFBandalismo? \xBFUna
-      se\xF1al de protesta? \xBFReformas? Los mantendremos informados al respecto."
+      mas imponente de la costanera haya desaparecido... \xBFReformas? \xBFBandalismo?
+      \xBFUna se\xF1al de protesta?  Los mantendremos informados al respecto."

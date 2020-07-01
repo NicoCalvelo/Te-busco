@@ -73,3 +73,7 @@ MonoBehaviour:
   progressData:
     primeraVez: 0
     totalEstrellas: 0
+    totalPuntos: 0
+    shopItems:
+    - name: burbuja
+      nivel: 1

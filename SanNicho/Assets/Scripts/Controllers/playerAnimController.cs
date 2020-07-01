@@ -8,18 +8,35 @@
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     15/05/2020 Calvelo Nicolás
+///     29/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
 public class playerAnimController : MonoBehaviour
 {
+    #region singleton
+    private static playerAnimController _instance;
+    public static playerAnimController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                Debug.Log("The Manager is NULL");
+            }
+
+            return _instance;
+        }
+    }
+    #endregion
+
     private Animator anim;
     public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Awake()
     {
+        _instance = this;
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -48,5 +65,10 @@ public class playerAnimController : MonoBehaviour
     public void crouch(bool crouching)
     {
         anim.SetBool("Crouch", crouching);
+    }
+
+    public void setBubble(float value)
+    {
+        anim.SetFloat("bubbleConsumption", value);
     }
 }

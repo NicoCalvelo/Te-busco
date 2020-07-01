@@ -49,9 +49,13 @@ public class NPC_Static : NPC_States
 
         if (Vector2.Distance(transform.position, playerTransform.position) < attackDistance)
         {
+            if (playerTransform.position.x < transform.position.x)                       
+                gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);         
+            else if (playerTransform.position.x > transform.position.x)          
+                gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+            
             anim.SetBool("show", true);
             audioManager.Instance.playSound("bush");
-
             yield return new WaitForSeconds(timeToShoot);
             Instantiate(shootPrefab, phone.position, Quaternion.identity);
             audioManager.Instance.playSound("NPCshoot");
@@ -59,6 +63,8 @@ public class NPC_Static : NPC_States
             anim.SetBool("show", false);
             yield return new WaitForSeconds(2);
         }
+
+        StartCoroutine(toAttack());
 
     }
 

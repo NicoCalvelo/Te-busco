@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <Documentacion>
 /// Resumen:
@@ -11,7 +9,7 @@ using UnityEngine;
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/06/2020 Calvelo Nicolás
+///     29/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -55,7 +53,7 @@ private static costaneraManager _instance;
 
         for (int i = 0; i <= cantidadDeNubes; i++)
         {
-            Vector3 pos = new Vector3 (Random.Range(npcManager.Instance.sceneLimitLeft, npcManager.Instance.sceneLimitRigth), Random.Range(55.0f, 65.0f), Random.Range(4.0f, 6.0f));
+            Vector3 pos = new Vector3 (Random.Range(gameManager.Instance.sceneLimitLeft, gameManager.Instance.sceneLimitRigth), Random.Range(55.0f, 65.0f), Random.Range(4.0f, 6.0f));
             Instantiate(nubePrefabs[Random.Range(0, nubePrefabs.Length)], pos, Quaternion.identity, transform);
         }
 

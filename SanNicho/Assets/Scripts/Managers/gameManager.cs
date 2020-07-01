@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     24/06//2020 Calvelo Nicolás
+///     29/06//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -34,8 +34,15 @@ public class gameManager : MonoBehaviour
     }
     #endregion
 
+    public float sceneLimitLeft = -336.0f, sceneLimitRigth = 314.0f;
+
     [Header("----Player-Stats----")]
     public int starsLeft = 3;
+    public float bubbleDefaultTime = 6.0f;
+
+    [Header("----Collectables----")]
+    [SerializeField]
+    private GameObject bublePrefab;
 
     [Header("----Game-UI----")]
     [SerializeField]
@@ -49,9 +56,18 @@ public class gameManager : MonoBehaviour
 
     public int hora = 8;
 
+
     private void Awake()
     {
         _instance = this;
+        itemsToSpawn = new List<GameObject>();
+
+        diaText.text = progressManager.Instance.nextDayAttribute.diaNumero.ToString("00");
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.bubblesToSpawn; i++)
+        {
+            itemsToSpawn.Add(bublePrefab);
+        }
     }
 
     private void Start()
@@ -59,7 +75,9 @@ public class gameManager : MonoBehaviour
         float invokeTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / 32;
         InvokeRepeating("setTime", invokeTime, invokeTime);
 
-        diaText.text = progressManager.Instance.nextDayAttribute.diaNumero.ToString("00");
+
+
+        StartCoroutine(spawnCollectables());
 
         //agregar un intento de nivel al progress manager
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos++;
@@ -111,7 +129,6 @@ public class gameManager : MonoBehaviour
             levelCompleted();
         }
     }
-
     IEnumerator playAmbienceSound()
     {
         yield return new WaitForSeconds(Random.Range(1.0f, 18.0f));
@@ -133,24 +150,21 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    //Cuando al jugador se le acaban las estrellas
     void lose()
     {
         audioManager.Instance.stopSound("backgroundMusic");
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelLose");
         canvasAnim.SetTrigger("levelLose");
-        StopAllCoroutines();
+        npcManager.Instance.StopAllCoroutines();
     }
-
-    //Cuando el jugador llega a la hora 24
     void levelCompleted()
     {
         audioManager.Instance.stopSound("backgroundMusic");
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelCompleted");
         canvasAnim.SetTrigger("dayCompleted");
-        StopAllCoroutines();
+        npcManager.Instance.StopAllCoroutines();
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
 
         //puntaje
@@ -164,7 +178,40 @@ public class gameManager : MonoBehaviour
 
     }
 
+    #region Collectables
+    List<GameObject> itemsToSpawn;
 
+    public enum collectables { Burbuja, Helado }
+
+    public IEnumerator spawnCollectables()
+    {
+        float waitTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / itemsToSpawn.Count;
+        for (int i = 0; i < itemsToSpawn.Count; i++)
+        {
+            float waitRandom = Random.Range(0.1f, waitTime);
+            yield return new WaitForSeconds(waitRandom);
+
+            int objIndx = Random.Range(0, itemsToSpawn.Count);
+            GameObject newItem = Instantiate(itemsToSpawn[objIndx], new Vector2(Random.Range(sceneLimitLeft, sceneLimitRigth), 80), Quaternion.identity, transform);
+            itemsToSpawn.RemoveAt(objIndx);
+
+            yield return new WaitForSeconds(waitTime - waitRandom);
+        }
+    }
+
+    public GameObject bubbleShield;
+
+    public void onCollect(collectables itemCollected)
+    {
+        Debug.Log("Se recolecto " + itemCollected.ToString());
+        if(itemCollected == collectables.Burbuja)
+        {
+            bubbleShield.SetActive(true);
+            playerAnimController.Instance.setBubble(1);
+            costaneraCanvas.Instance.agregarCollectable(collectables.Burbuja);
+        }
+    }
+    #endregion
 
     public void pauseGame()
     {
