@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     17/06//2020 Calvelo Nicolás
+///     03/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <Documentacion>
 /// Resumen:
@@ -8,7 +9,7 @@
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06/2020 Calvelo Nicolás
+///     06/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -24,6 +25,8 @@ public class infoJugador
 
     public Dictionary<int, nivel> diasInfo;
 
+    public List<logro> logros;
+
     [System.Serializable]
     public class nivel
     {
@@ -37,5 +40,16 @@ public class infoJugador
     {
         public string name;
         public int nivel = 1;
+    }
+
+    [System.Serializable]
+    public class logro
+    {
+        public string titulo, descripcion;
+        public bool completado = false, reclamado = false;
+        [Range(0.0f, 1.0f)]
+        public float porcentajeCompletado;
+
+        public int monedasDeRecompensa;
     }
 }

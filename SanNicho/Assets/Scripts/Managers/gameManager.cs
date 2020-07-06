@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06//2020 Calvelo Nicolás
+///     03/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -38,11 +38,12 @@ public class gameManager : MonoBehaviour
 
     [Header("----Player-Stats----")]
     public int starsLeft = 3;
-    public float bubbleDefaultTime = 6.0f;
+    public float bubbleDefaultTime = 6.0f, chicleDefaultTime = 15.0f;
 
     [Header("----Collectables----")]
+    public GameObject bublePrefab;
     [SerializeField]
-    private GameObject bublePrefab;
+    private GameObject chiclePrefab;
 
     [Header("----Game-UI----")]
     [SerializeField]
@@ -67,6 +68,10 @@ public class gameManager : MonoBehaviour
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.bubblesToSpawn; i++)
         {
             itemsToSpawn.Add(bublePrefab);
+        }
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.chiclesToSpawn; i++)
+        {
+            itemsToSpawn.Add(chiclePrefab);
         }
     }
 
@@ -168,7 +173,7 @@ public class gameManager : MonoBehaviour
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
 
         //puntaje
-        int earned = (int)Mathf.Round(starsLeft * 100 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 45);
+        int earned = (int)Mathf.Round(starsLeft * 10 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 15);
         Debug.Log("Se ganaron " + earned.ToString());
         costaneraCanvas.Instance.levelCompleted(earned);
 
@@ -181,7 +186,7 @@ public class gameManager : MonoBehaviour
     #region Collectables
     List<GameObject> itemsToSpawn;
 
-    public enum collectables { Burbuja, Helado }
+    public enum collectables { Burbuja, Helado, Chicle }
 
     public IEnumerator spawnCollectables()
     {
@@ -192,7 +197,7 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(waitRandom);
 
             int objIndx = Random.Range(0, itemsToSpawn.Count);
-            GameObject newItem = Instantiate(itemsToSpawn[objIndx], new Vector2(Random.Range(sceneLimitLeft, sceneLimitRigth), 80), Quaternion.identity, transform);
+            GameObject newItem = Instantiate(itemsToSpawn[objIndx], new Vector2(Random.Range(sceneLimitLeft, sceneLimitRigth), itemsToSpawn[objIndx].transform.position.y), Quaternion.identity, transform);
             itemsToSpawn.RemoveAt(objIndx);
 
             yield return new WaitForSeconds(waitTime - waitRandom);
@@ -209,6 +214,13 @@ public class gameManager : MonoBehaviour
             bubbleShield.SetActive(true);
             playerAnimController.Instance.setBubble(1);
             costaneraCanvas.Instance.agregarCollectable(collectables.Burbuja);
+        }
+
+        if(itemCollected == collectables.Chicle)
+        {
+            FindObjectOfType<playerController>().onGetChicle(true);
+            audioManager.Instance.playSound("chicloso");
+            costaneraCanvas.Instance.agregarCollectable(collectables.Chicle);
         }
     }
     #endregion
@@ -241,12 +253,12 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 1;
 
         progressManager.Instance.nextDayAttribute = progressManager.Instance.daysAttributes[progressManager.Instance.nextDayAttribute.diaNumero];
-        StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indexCostanera));
+        StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indxNoticiero));
     }
     public void menu()
     {
         audioManager.Instance.playSound("click03");
         Time.timeScale = 1;
-        StartCoroutine(sceneLoader.Instance.loadScene(0));
+        StartCoroutine(sceneLoader.Instance.loadScene(1));
     }
 }

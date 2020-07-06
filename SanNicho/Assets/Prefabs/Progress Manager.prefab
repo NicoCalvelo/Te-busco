@@ -71,9 +71,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f36aacc2fe3d5124598a3f4af2d0dd2f, type: 2}
   - {fileID: 11400000, guid: 9370b7327a662984d9855061c886f21e, type: 2}
   progressData:
-    primeraVez: 0
+    primeraVez: 1
     totalEstrellas: 0
     totalPuntos: 0
     shopItems:
     - name: burbuja
       nivel: 1
+    - name: chicle
+      nivel: 1
+    logros:
+    - titulo: HAT TRICK
+      descripcion: Marca tres goles en un mismo dia
+      completado: 0
+      reclamado: 0
+      porcentajeCompletado: 0
+      monedasDeRecompensa: 125

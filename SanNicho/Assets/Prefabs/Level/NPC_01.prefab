@@ -946,16 +946,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualState: 0
-  idle_ASource: {fileID: 0}
-  patrol_ASource: {fileID: 0}
-  pursue_ASource: {fileID: 0}
-  attack_ASource: {fileID: 0}
   phone: {fileID: 4183296241108429947}
   shootPrefab: {fileID: 1572139095872945551, guid: e434f63aeb001fa4791f0a029bb5eddb,
     type: 3}
   idleTime: 2
-  patrolSpeed: 7
-  pursueSpeed: 13
+  patrolSpeed: 8
+  pursueSpeed: 14
   visibilityDistance: 50
   attackDistance: 25
   timeToShoot: 1.65

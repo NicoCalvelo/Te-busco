@@ -41,6 +41,11 @@ public class playerAnimController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    public void changeColor(Color newColor)
+    {
+        spriteRenderer.color = newColor;
+    }
+
     public void flip(bool facingLeft)
     {
         spriteRenderer.flipX = facingLeft;

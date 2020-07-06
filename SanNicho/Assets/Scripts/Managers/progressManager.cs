@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06/2020 Calvelo Nicolás
+///     03/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -58,6 +58,7 @@ public class progressManager : MonoBehaviour
     {
         if(File.Exists(Application.persistentDataPath + "/progressData.dat") == true)      
         {
+            Debug.Log(Application.persistentDataPath + " / progressData.dat");
             FileStream infoPlayer = new FileStream(Application.persistentDataPath + "/progressData.dat", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
             byte[] data = null;
 
@@ -83,9 +84,9 @@ public class progressManager : MonoBehaviour
         }
         else //No hay archivo todavia
         {
-            progressData = new infoJugador();
-            progressData.diasInfo = new System.Collections.Generic.Dictionary<int, infoJugador.nivel>();
 
+            progressData.diasInfo = new System.Collections.Generic.Dictionary<int, infoJugador.nivel>();
+            
             for (int i = 0; i < 25; i++)
             {
                 progressData.diasInfo.Add(i + 1, new infoJugador.nivel());

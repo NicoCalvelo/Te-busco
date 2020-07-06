@@ -43,12 +43,11 @@ public class costaneraCanvas : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject bubblePrefab;
+    private GameObject bubblePrefab, chiclePrefab;
     [SerializeField]
     private Transform collectables_T;
 
-    float bubbleTimeLeft = 0;
-
+    float bubbleTimeLeft = 0, chicleTimeLeft = 0;   
 
     private void Awake()
     {
@@ -69,8 +68,8 @@ public class costaneraCanvas : MonoBehaviour
     public void setCoins()
     {
         audioManager.Instance.playSound("Rise02");
-        progressManager.Instance.progressData.totalPuntos += 12;
-        coinsEarned -= 12;
+        progressManager.Instance.progressData.totalPuntos += 2;
+        coinsEarned -= 2;
         monedasTotales.text = progressManager.Instance.progressData.totalPuntos.ToString();
         monedasGanadas.text = "+  " + coinsEarned.ToString();
         if (coinsEarned <= 0)
@@ -92,16 +91,24 @@ public class costaneraCanvas : MonoBehaviour
                 bubbleTimeLeft = 1;
                 return;
             }
-
-
             GameObject newItem = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity, collectables_T);
             StartCoroutine(consumeBubble(newItem, gameManager.Instance.bubbleDefaultTime + ((gameManager.Instance.bubbleDefaultTime / 4) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "burbuja").nivel)));
+        }
+        else if(item == gameManager.collectables.Chicle)
+        {
+            if (chicleTimeLeft > 0)
+            {
+                chicleTimeLeft = 1;
+                return;
+            }
+            GameObject newItem = Instantiate(chiclePrefab, Vector3.zero, Quaternion.identity, collectables_T);
+            StartCoroutine(consumeChicle(newItem, gameManager.Instance.chicleDefaultTime - ((gameManager.Instance.chicleDefaultTime * .15f) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "chicle").nivel)));
+
         }
     }
 
     IEnumerator consumeBubble(GameObject item, float seconds)
     {
-        Debug.Log("se comenzo el coroutine");
         Image fill = item.GetComponent<Image>();
 
         for(bubbleTimeLeft = 1; bubbleTimeLeft >= 0.00f; bubbleTimeLeft -= 0.01f)
@@ -118,6 +125,23 @@ public class costaneraCanvas : MonoBehaviour
             yield return new WaitForSeconds(seconds * .01f);
         }
     }
+    IEnumerator consumeChicle(GameObject item, float seconds)
+    {
+        Image fill = item.GetComponent<Image>();
 
+        for (chicleTimeLeft = 1; chicleTimeLeft >= 0.00f; chicleTimeLeft -= 0.01f)
+        {
+            fill.fillAmount = chicleTimeLeft;
+
+
+            if (chicleTimeLeft <= 0.01f)
+            {
+                FindObjectOfType<playerController>().onGetChicle(false);
+                audioManager.Instance.stopSound("chicloso");
+                Destroy(item);
+            }
+            yield return new WaitForSeconds(seconds * .01f);
+        }
+    }
 
 }

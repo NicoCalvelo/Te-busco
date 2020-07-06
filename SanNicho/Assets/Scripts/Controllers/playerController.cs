@@ -32,7 +32,7 @@ public class playerController : MonoBehaviour
 
     [Header("Movement Facts")]
     [SerializeField]
-    private float jumpFoce = .5f;
+    private float jumpFoce = 31.0f;
     [SerializeField]
     private float speed = 10f;
     float initialSpeed;
@@ -56,6 +56,7 @@ public class playerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerAnimController = FindObjectOfType<playerAnimController>();
         initialSpeed = speed;
+        transform.position = new Vector2(-110, 1.5f);
     }
 
     void Update()
@@ -193,5 +194,19 @@ public class playerController : MonoBehaviour
 
     #endregion
 
+
+    public void onGetChicle(bool enter)
+    {
+        if(enter == true)
+        {
+            jumpFoce = jumpFoce / 2;
+            playerAnimController.changeColor( new Color32(255, 175, 201, 255));
+        }
+        else
+        {
+            jumpFoce = jumpFoce * 2;
+            playerAnimController.changeColor(Color.white);
+        }
+    }
 
 }

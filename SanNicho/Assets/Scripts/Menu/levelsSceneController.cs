@@ -2,6 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
 /// <Documentacion>
 /// Resumen:
@@ -39,6 +41,10 @@ public class levelsSceneController : MonoBehaviour
     [Header("UI Elements")]
     public TextMeshProUGUI diaText, intentosText;
 
+
+    DateTime datevalue1, datevalue2;
+    TextMeshProUGUI cronometer;
+
     private void Awake()
     {
         _instance = this;
@@ -53,13 +59,26 @@ public class levelsSceneController : MonoBehaviour
     void setPage()
     {
         bool bloqueado = false;
+        bool setHabilitado = false;
 
         for (int i = 0; i < 25; i++)
         {
+            if(progressManager.Instance.daysAttributes[i].habilitado == false && setHabilitado == true)
+                bloqueado = true;
+
+
             if (bloqueado == false)
             {
                 GameObject d = Instantiate(diaPrefab, Vector3.zero, Quaternion.identity, grillaContent.transform);
                 d.GetComponent<levelBTN>().diaIndx = i;
+
+                if (progressManager.Instance.daysAttributes[i + 1].habilitado == false)
+                {
+                    setHabilitado = true;
+                    bloqueado = true;
+                    setDia(i);
+                    return;
+                }
 
                 if (progressManager.Instance.progressData.diasInfo[i + 1].completado == false)
                 {
@@ -70,11 +89,33 @@ public class levelsSceneController : MonoBehaviour
             }
             else
             {
+
                 GameObject d = Instantiate(diaBloqPrefab, Vector3.zero, Quaternion.identity, grillaContent.transform);
+                if( setHabilitado == true)
+                {
+                    d.transform.Find("Dialog").gameObject.SetActive(true);
+                    cronometer = d.transform.Find("Dialog").gameObject.GetComponentInChildren<TextMeshProUGUI>();
+                    int day = DateTime.Today.Day + 1;
+                    if(DateTime.Now.Hour < 8)
+                    {
+                        day--;
+                    }
+                    datevalue1 = new DateTime(2020, DateTime.Now.Month, day, 08, 0, 0);
+                    setHabilitado = false;
+                    InvokeRepeating("setCronometer",0, 1);
+                }
                 d.GetComponent<levelBTN>().diaIndx = i;
                 d.GetComponent<Button>().interactable = false;
             }
         }
+    }
+
+    void setCronometer()
+    {
+        datevalue2 = DateTime.Now;
+        TimeSpan timeDifference = datevalue1 - datevalue2;
+        string niceTime = string.Format("{0:00}:{1:00}:{2:00}", timeDifference.Hours, timeDifference.Minutes, timeDifference.Seconds);
+        cronometer.text = "Disponible en: " + niceTime;
     }
 
     public void setDia(int lvlIndx)
@@ -104,5 +145,6 @@ public class levelsSceneController : MonoBehaviour
     {
         infoPanel.SetActive(!infoPanel.activeSelf);
         intentosText.text = "Intentos: " + nivelSelected.intentos.ToString();
+        FindObjectOfType<audioManager>().playSound("clickSelect");
     }
 }

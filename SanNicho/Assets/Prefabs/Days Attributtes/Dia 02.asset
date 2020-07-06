@@ -14,17 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 5.9
   diaNumero: 2
+  habilitado: 1
+  shootLife: 4
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_idleTime: 2.8
-  NPC_01_visibilityDistance: 49
-  NPC_01_timeToShoot: 1.75
+  NPC_01_idleTime: 1.85
+  NPC_01_visibilityDistance: 55
+  NPC_01_timeToShoot: 1.6
   cantidadNPC_02: 0
   agregarNpc02Tarde: 0
   agregarNpc02Noche: 0
   NPC_02_hideTime: 0.1
   NPC_02_attackDistance: 15
   NPC_02_timeToShoot: 1
+  cantidadNPC_03: 0
+  NPC_03_attackDistance: 0
+  NPC_03_timeToShoot: 0
   bubblesToSpawn: 0
-  noticiasList: []
+  chiclesToSpawn: 0
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Se comenta en los diarios de ayer que ha salido un videojuego
+      situado en las calles de nuestra ciudad... Sin embargo no tenemos idea de lo
+      que est\xE1n hablando."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Pasando a otro tema, la obra de arte en la costanera alta sigue
+      desaparecida. Nos han llegado comentarios de que se la ha visto andando por
+      ah\xED."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Desafortunadamente, aqu\xED en \"Noticias el sur\", somos lo
+      suficientemente inteligentes como para saber que las estatuas no pueden moverse
+      por s\xED solas."

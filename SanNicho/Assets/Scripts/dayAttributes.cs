@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06/2020 Calvelo Nicolás
+///     06/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -21,20 +21,22 @@ public class dayAttributes : ScriptableObject
 
     public float duracionDelDia;
     public int diaNumero;
+    public bool habilitado = false;
 
+    [Header("Shoots")]
+    [Range(0.0f, 7.0f)]
+    public float shootLife = 5.0f;
 
     [Header("Npc_Complete")]
     public int inicioNpc_01;
     public int agregarNpc01Tarde, agregarNpc01Noche;
-    [Range(1.0f, 4.0f)]
-    public float NPC_01_idleTime;
-    [Range(45, 55)]
+    [Range(45, 65)]
     public float NPC_01_visibilityDistance;
     [Range(1.5f, 3.0f)]
     public float NPC_01_timeToShoot;
 
     [Header("Npc_Static")]
-    [Range(0, 10)]
+    [Range(0, 9)]
     public int cantidadNPC_02;
     public int agregarNpc02Tarde, agregarNpc02Noche;
     [Range(0.1f, 2.0f)]
@@ -55,6 +57,8 @@ public class dayAttributes : ScriptableObject
     [Header("Collectables")]
     [Range(0, 24)]
     public int bubblesToSpawn;
+    [Range(0, 12)]
+    public int chiclesToSpawn;
 
     public noticia[] noticiasList;
 

@@ -16,7 +16,7 @@ public class shoot : MonoBehaviour
 {
     Vector3 targetPos;
     [SerializeField]
-    float shootSpeed = 10;
+    float shootSpeed = 17;
 
     private void Start()
     {
@@ -28,6 +28,9 @@ public class shoot : MonoBehaviour
         float angle = Vector2.Angle(Vector2.up, diference) * sign;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (progressManager.Instance.nextDayAttribute.shootLife > 0)
+            Destroy(gameObject, progressManager.Instance.nextDayAttribute.shootLife);
     }
 
     private void FixedUpdate()

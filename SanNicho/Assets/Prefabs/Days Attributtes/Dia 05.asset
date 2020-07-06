@@ -14,19 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.8
   diaNumero: 5
+  habilitado: 1
+  shootLife: 5
   inicioNpc_01: 3
-  agregarNpc01Tarde: 1
-  agregarNpc01Noche: 2
-  NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 49
+  agregarNpc01Tarde: 2
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 55
   NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 3
+  cantidadNPC_02: 4
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 1
   NPC_02_hideTime: 1.75
-  NPC_02_attackDistance: 28
-  NPC_02_timeToShoot: 1.8
-  bubblesToSpawn: 20
+  NPC_02_attackDistance: 35
+  NPC_02_timeToShoot: 1.7
+  cantidadNPC_03: 0
+  NPC_03_attackDistance: 0
+  NPC_03_timeToShoot: 0
+  bubblesToSpawn: 24
+  chiclesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: hoy llueven burbujas
+    noticiaSentence: "\xA1Lo temido est\xE1 sucediendo! Nuestras predicciones meteorol\xF3gicas
+      se hacen realidad... \xA1As\xED es! Esas extra\xF1as nubes est\xE1n en los
+      l\xEDmites de nuestra ciudad."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Habitualmente les sugerir\xEDa que lleven sus paraguas con
+      ustedes. Aunque al parecer tendr\xE1n que sacar sus alfileres... Si escucharon
+      bien... Esas gotas con forma de burbujas no se pincharan solas."

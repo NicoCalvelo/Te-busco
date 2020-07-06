@@ -17,8 +17,9 @@ public class levelBTN : MonoBehaviour
 {
     public int diaIndx;
     public Image star1, star2, star3;
-
     public Sprite star;
+
+    
 
     public void Start()
     {
@@ -38,9 +39,12 @@ public class levelBTN : MonoBehaviour
         }
     }
 
+
+
     public void onClick()
     {
         levelsSceneController.Instance.setDia(diaIndx);
         FindObjectOfType<audioManager>().playSound("clickSelect");
     }
+
 }

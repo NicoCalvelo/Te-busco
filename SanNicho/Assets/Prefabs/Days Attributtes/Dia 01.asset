@@ -14,25 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 5.6
   diaNumero: 1
+  habilitado: 1
+  shootLife: 3
   inicioNpc_01: 3
-  agregarNpc01Tarde: 0
+  agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_idleTime: 3
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.8
+  NPC_01_visibilityDistance: 57
+  NPC_01_timeToShoot: 1.7
   cantidadNPC_02: 0
   agregarNpc02Tarde: 0
   agregarNpc02Noche: 0
   NPC_02_hideTime: 1
   NPC_02_attackDistance: 25.5
   NPC_02_timeToShoot: 1.7
+  cantidadNPC_03: 0
+  NPC_03_attackDistance: 0
+  NPC_03_timeToShoot: 0
   bubblesToSpawn: 0
+  chiclesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "\xA1El mes de septiembre ya esta aqui! El mes en que nuestra
-      querida ciudad se llena de vida. Asi es queridos nicole\xF1os! El edificio
-      mas emblematico de la ciudad comienza con los preparativos. "
+    noticiaSentence: "\xA1El mes de septiembre ya esta aqu\xED! El mes en que nuestra
+      querida ciudad se llena de vida. As\xED es queridos nicole\xF1os! El edificio
+      m\xE1s emblematico de la ciudad comienza con sus preparativos. "
   - tvImage: {fileID: 0}
-    noticiaSentence: "Parece increible que tambien, en estos momentos, la estatua
-      mas imponente de la costanera haya desaparecido... \xBFReformas? \xBFBandalismo?
+    noticiaSentence: "Parece incre\xEDble que tambi\xE9n, en estos momentos, la estatua
+      m\xE1s imponente de la costanera haya desaparecido... \xBFReformas? \xBFBandalismo?
       \xBFUna se\xF1al de protesta?  Los mantendremos informados al respecto."

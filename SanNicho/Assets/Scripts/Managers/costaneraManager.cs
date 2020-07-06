@@ -36,13 +36,14 @@ private static costaneraManager _instance;
     private void Awake()
     {
         _instance = this;
+        setScene();
     }
 
     void Start()
     {
         audioManager.Instance.changeBackgroundMusic(0);
         audioManager.Instance.playRandomAmbienceSound();
-        setScene();
+
     }
 
     void setScene()
@@ -51,9 +52,16 @@ private static costaneraManager _instance;
         //Nubes
         int cantidadDeNubes = Random.Range(7, 15);
 
+        if (progressManager.Instance.nextDayAttribute.diaNumero == 5)
+        {
+            cantidadDeNubes += 75;
+            Instantiate(gameManager.Instance.bublePrefab, new Vector2(-85, 65), Quaternion.identity, gameManager.Instance.transform);
+        }
+
+
         for (int i = 0; i <= cantidadDeNubes; i++)
         {
-            Vector3 pos = new Vector3 (Random.Range(gameManager.Instance.sceneLimitLeft, gameManager.Instance.sceneLimitRigth), Random.Range(55.0f, 65.0f), Random.Range(4.0f, 6.0f));
+            Vector3 pos = new Vector3 (Random.Range(gameManager.Instance.sceneLimitLeft, gameManager.Instance.sceneLimitRigth), Random.Range(55.0f, 75.0f), Random.Range(3.5f, 6.0f));
             Instantiate(nubePrefabs[Random.Range(0, nubePrefabs.Length)], pos, Quaternion.identity, transform);
         }
 

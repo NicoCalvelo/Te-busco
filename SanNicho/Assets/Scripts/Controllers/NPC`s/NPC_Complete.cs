@@ -31,7 +31,7 @@ public class NPC_Complete : NPC_States
 
     public override void Awake()
     {
-        idleTime = progressManager.Instance.nextDayAttribute.NPC_01_idleTime;
+        idleTime = Random.Range(1.0f, 3.0f);
         visibilityDistance = progressManager.Instance.nextDayAttribute.NPC_01_visibilityDistance;
         timeToShoot = progressManager.Instance.nextDayAttribute.NPC_01_timeToShoot;
 

@@ -14,17 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.5
   diaNumero: 4
+  habilitado: 1
+  shootLife: 4.5
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 2
-  NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 49.5
+  NPC_01_visibilityDistance: 55
   NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 3
+  cantidadNPC_02: 5
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 1
-  NPC_02_hideTime: 1.8
-  NPC_02_attackDistance: 25
-  NPC_02_timeToShoot: 2
+  NPC_02_hideTime: 1.3
+  NPC_02_attackDistance: 35
+  NPC_02_timeToShoot: 1.6
+  cantidadNPC_03: 0
+  NPC_03_attackDistance: 0
+  NPC_03_timeToShoot: 0
   bubblesToSpawn: 0
-  noticiasList: []
+  chiclesToSpawn: 0
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xA1\xDAltimo momento! Desde la direcci\xF3n nos informan del
+      comunicado oficial por parte del municipio\u2026 Aparentemente, la estatua
+      en costanera alta ha desaparecido."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Por nuestra parte, como noticiero de la ciudad, decidimos contribuir
+      a la investigaci\xF3n de lo sucedido de la misma manera que siempre... Transmitiendo
+      informaci\xF3n."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Es por esto que todo aquel que tenga informaci\xF3n \xFAtil
+      acerca de lo ocurrido \xA1No dude en contactarse con nosotros! via instagram
+      \"@velogroup\"."
