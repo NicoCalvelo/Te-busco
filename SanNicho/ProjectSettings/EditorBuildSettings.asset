@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tienda.unity
     guid: 5fcfba391e658734494559f73ddbde89
+  - enabled: 1
+    path: Assets/Scenes/Torneos.unity
+    guid: bf26d6070f35c0440b7b675a047dda61
   m_configObjects: {}

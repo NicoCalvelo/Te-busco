@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/07//2020 Calvelo Nicolás
+///     21/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -34,11 +34,39 @@ public class noticieroManager : MonoBehaviour
     [SerializeField]
     private Sprite[] gatoSprites;
 
+    [SerializeField]
+    Image gato, reportera;
+
     //Para checkear si el courutine que escribe la noticia sigue siendo ejecutado
     bool courRunning = false;
 
     private void Start()
     {
+        if(progressManager.Instance.nextDayAttribute.diaNumero == 13)
+        {
+            courRunning = true;
+            gato.enabled = false;
+            reportera.enabled = false;
+            if(progressManager.Instance.progressData.diasInfo[13].estrellas == 3)
+            {
+                noticiaText.text = "Por motivos supersticiosos hoy no trabajamos...";
+            }
+            else
+            {
+                progressManager.Instance.progressData.diasInfo[13].completado = true;
+                if (progressManager.Instance.progressData.diasInfo[12].estrellas == 0)
+                    noticiaText.text = "Por motivos supersticiosos hoy no trabajamos...";
+                else if (progressManager.Instance.progressData.diasInfo[13].estrellas == 1)
+                    noticiaText.text = "Ya te hemos avisado... Hoy cerramos, vuelve mañana.";
+                else if (progressManager.Instance.progressData.diasInfo[13].estrellas == 2)
+                    noticiaText.text = "Si que eres persistenete... Aqui tienes tu tercer estrella.";
+                progressManager.Instance.progressData.diasInfo[13].estrellas++;
+            }
+
+            Invoke("returnLevels", 6);
+
+            return;
+        }
 
         FindObjectOfType<audioManager>().playSound("mainMusic");
 
@@ -80,7 +108,6 @@ public class noticieroManager : MonoBehaviour
         //noticiaImg.sprite = not.tvImage;
 
     }
-
     IEnumerator typeSentence(string sentece)
     {
         courRunning = true;
@@ -101,15 +128,18 @@ public class noticieroManager : MonoBehaviour
 
         courRunning = false;
     }
-
     void endNoticias()
     {
         sceneLoader.Instance.changeScene = true;
     }
-
     public void changeCat(Image gato)
     {
-        audioManager.Instance.playSound("Meow" + Random.Range(0,4).ToString());
+        audioManager.Instance.playSound("Meow" + Random.Range(0,3).ToString());
         gato.sprite = gatoSprites[Random.Range(0, gatoSprites.Length)];
+    }
+
+    void returnLevels()
+    {
+        StartCoroutine(sceneLoader.Instance.loadScene(1));
     }
 }

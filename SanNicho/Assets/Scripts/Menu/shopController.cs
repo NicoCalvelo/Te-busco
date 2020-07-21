@@ -11,7 +11,7 @@ using TMPro;
 ///     01/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/07/2020 Calvelo Nicolás
+///     21/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -23,7 +23,7 @@ public class shopController : MonoBehaviour
 
     public GameObject slotPrefab, content;
 
-    public TextMeshProUGUI dialog;
+    public TextMeshProUGUI dialog, monedasText;
 
     public string[] sentences;
 
@@ -33,11 +33,15 @@ public class shopController : MonoBehaviour
 
         StartCoroutine(typeSentence(sentences[Random.Range(0, sentences.Length)]));
 
+        monedasText.text = progressManager.Instance.progressData.totalPuntos.ToString("F0");
+
         foreach(shopItem item in itemsList)
         {
             if(progressManager.Instance.progressData.diasInfo[item.disponibleAPartirDelDia].completado == true)
             {
                 GameObject newItem = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity, content.transform);
+                newItem.GetComponent<slotPrefab>().thisItem = item;
+                newItem.GetComponent<slotPrefab>().setPrefab();
             }
 
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: chicle
   mensajeDeMejora: "-15% de duraci\xF3n"
   descripcionCompra: 
-  disponibleAPartirDelDia: 7
+  disponibleAPartirDelDia: 9
   icon: {fileID: 21300000, guid: e0fc61d8d6144b540830a481852306fb, type: 3}
   mejorable: 1
   cantidadDeNiveles: 4

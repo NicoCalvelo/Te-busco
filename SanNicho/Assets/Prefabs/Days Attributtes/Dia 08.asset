@@ -14,21 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 7.7
   diaNumero: 8
-  shootLife: 6.5
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
-  agregarNpc02Tarde: 0
-  agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  bubblesToSpawn: 0
-  noticiasList: []
+  habilitado: 1
+  shootLife: 0
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 55
+  NPC_01_timeToShoot: 1.6
+  cantidadNPC_02: 3
+  agregarNpc02Tarde: 1
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.3
+  NPC_02_attackDistance: 30
+  NPC_02_timeToShoot: 1.8
+  cantidadNPC_03: 5
+  NPC_03_attackDistance: 33
+  NPC_03_timeToShoot: 2
+  bubblesToSpawn: 6
+  chiclesToSpawn: 0
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Anunciamos la nueva llegada de la \xFAltima generaci\xF3n de
+      celulares aifons al mercado. No tenemos muy en claro cuales son sus mejoras
+      y aumentos... Adem\xE1s del precio..."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Ah si las c\xE1maras... Como si dos lentes no alcanzaran, un
+      tercero permite que el alcance en las fotos sea mucho mayor de lo que uno podr\xEDa
+      necesitar."

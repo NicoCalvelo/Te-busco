@@ -33,6 +33,12 @@ public class playerAnimController : MonoBehaviour
     private Animator anim;
     public SpriteRenderer spriteRenderer;
 
+    //Animations parameters
+    int parameterMove = Animator.StringToHash("Move");
+    int parameterJump = Animator.StringToHash("Jumping");
+    int parameterCrouch = Animator.StringToHash("Crouch");
+    int parameterBubble = Animator.StringToHash("bubbleConsumption");
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -51,8 +57,8 @@ public class playerAnimController : MonoBehaviour
         spriteRenderer.flipX = facingLeft;
     }
     public void move(float move)
-    {
-        anim.SetFloat("Move", Mathf.Abs(move));
+    {       
+        anim.SetFloat(parameterMove, Mathf.Abs(move));
     }
     public void footStep()
     {
@@ -65,15 +71,14 @@ public class playerAnimController : MonoBehaviour
 
     public void jump(bool jumping)
     {
-        anim.SetBool("Jumping", jumping);
+        anim.SetBool(parameterJump, jumping);
     }
     public void crouch(bool crouching)
     {
-        anim.SetBool("Crouch", crouching);
+        anim.SetBool(parameterCrouch, crouching);
     }
-
     public void setBubble(float value)
     {
-        anim.SetFloat("bubbleConsumption", value);
+        anim.SetFloat(parameterBubble, value);
     }
 }

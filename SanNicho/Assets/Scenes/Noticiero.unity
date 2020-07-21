@@ -384,6 +384,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6d6df5f0fa2381246af063eeb3af26cf, type: 3}
   - {fileID: 21300000, guid: 193b380cc90c3294fac1b6eb4fe547d9, type: 3}
   - {fileID: 21300000, guid: 6a6c2bb86dd97ec45bc0874c5a8458e7, type: 3}
+  gato: {fileID: 48758219}
+  reportera: {fileID: 1296246421}
 --- !u!1 &443536237
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
         type: 3}
       propertyPath: audioClips.Array.size
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4453500298864074983, guid: 0cb6cbb0e339d8447b21e46321098790,
         type: 3}

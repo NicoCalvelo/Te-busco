@@ -86,3 +86,15 @@ MonoBehaviour:
       reclamado: 0
       porcentajeCompletado: 0
       monedasDeRecompensa: 125
+    - titulo: "DE EXCURSI\xD3N"
+      descripcion: "Da un peque\xF1o empujon al transporte escolar"
+      completado: 0
+      reclamado: 0
+      porcentajeCompletado: 0
+      monedasDeRecompensa: 150
+    - titulo: SE BUSCA
+      descripcion: Haz que las camaras encuentren a kitty
+      completado: 0
+      reclamado: 0
+      porcentajeCompletado: 0
+      monedasDeRecompensa: 65

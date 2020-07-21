@@ -10,7 +10,7 @@ using TMPro;
 ///     06/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/07/2020 Calvelo Nicolás
+///     07/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -18,17 +18,12 @@ public class logroPrefab : MonoBehaviour
 {
     public infoJugador.logro thisLogro;
 
-    public TextMeshProUGUI titulo, descripcion;
-    public Image frontImg;
+    public TextMeshProUGUI titulo, descripcion, monedasText;
+    public Image frontImg, medallaImg;
     public Button reclamarBTN;
 
-    Animator anim;
+    public Animator anim;
 
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-        reclamarBTN.interactable = false;
-    }
 
     //Se setea el prefab en base a la informacion
     public void setPrefab()
@@ -43,8 +38,9 @@ public class logroPrefab : MonoBehaviour
 
             if (thisLogro.reclamado) // El logro se reclamo
             {
-                anim.SetBool("completado", true);
-                reclamarBTN.GetComponent<TextMeshProUGUI>().text = "reclamado";
+                medallaImg.color = Color.white;
+                reclamarBTN.GetComponentInChildren<TextMeshProUGUI>().text = "reclamado";
+                reclamarBTN.interactable = false;
                 return;
             }
 
@@ -52,12 +48,20 @@ public class logroPrefab : MonoBehaviour
         }
     }
 
-    void onclickReclacmar()
+    public void onclickReclacmar()
     {
-        anim.SetBool("completado", true);
-        reclamarBTN.GetComponent<TextMeshProUGUI>().text = "reclamado";
+        monedasText.gameObject.SetActive(true);
 
         //Animacion de monedas ganadas
+        anim.SetTrigger("Reclamando");
+        anim.SetBool("completado", true);
+        reclamarBTN.GetComponentInChildren<TextMeshProUGUI>().text = "reclamado";
+        audioManager.Instance.playSound("recompensa");
+        reclamarBTN.interactable = false;
+
+        progressManager.Instance.progressData.logros.Find(l => l.titulo == thisLogro.titulo).reclamado = true;
+        monedasText.text = "+ " + thisLogro.monedasDeRecompensa.ToString();
+        progressManager.Instance.progressData.totalPuntos += thisLogro.monedasDeRecompensa;
     }
 
 }

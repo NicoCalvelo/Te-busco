@@ -9,7 +9,7 @@
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06/2020 Calvelo Nicolás
+///     21/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -33,6 +33,8 @@ private static costaneraManager _instance;
 
     public GameObject[] nubePrefabs;
 
+    public GameObject arcoFutbol, doraemon, colectivo;
+
     private void Awake()
     {
         _instance = this;
@@ -52,11 +54,27 @@ private static costaneraManager _instance;
         //Nubes
         int cantidadDeNubes = Random.Range(7, 15);
 
-        if (progressManager.Instance.nextDayAttribute.diaNumero == 5)
+        if(progressManager.Instance.nextDayAttribute.diaNumero == 5)
         {
             cantidadDeNubes += 75;
             Instantiate(gameManager.Instance.bublePrefab, new Vector2(-85, 65), Quaternion.identity, gameManager.Instance.transform);
         }
+        else if(progressManager.Instance.nextDayAttribute.diaNumero == 9)
+        {
+            Instantiate(gameManager.Instance.chiclePrefab, new Vector2(-85, 0), Quaternion.identity, gameManager.Instance.transform);
+        }
+        else if (progressManager.Instance.nextDayAttribute.diaNumero == 6)
+        {
+            arcoFutbol.SetActive(true);
+        }else if(progressManager.Instance.nextDayAttribute.diaNumero == 11)
+        {
+            colectivo.SetActive(true);
+        }
+        else if (progressManager.Instance.nextDayAttribute.diaNumero == 12)
+        {
+            doraemon.SetActive(true);
+        }
+
 
 
         for (int i = 0; i <= cantidadDeNubes; i++)
@@ -64,6 +82,9 @@ private static costaneraManager _instance;
             Vector3 pos = new Vector3 (Random.Range(gameManager.Instance.sceneLimitLeft, gameManager.Instance.sceneLimitRigth), Random.Range(55.0f, 75.0f), Random.Range(3.5f, 6.0f));
             Instantiate(nubePrefabs[Random.Range(0, nubePrefabs.Length)], pos, Quaternion.identity, transform);
         }
+
+
+
 
     }
 

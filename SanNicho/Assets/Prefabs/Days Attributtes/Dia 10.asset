@@ -14,21 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 8.3
   diaNumero: 10
+  habilitado: 1
   shootLife: 0
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
-  agregarNpc02Tarde: 0
-  agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  bubblesToSpawn: 0
-  noticiasList: []
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 53
+  NPC_01_timeToShoot: 1.65
+  cantidadNPC_02: 2
+  agregarNpc02Tarde: 1
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.6
+  NPC_02_attackDistance: 30
+  NPC_02_timeToShoot: 1.85
+  cantidadNPC_03: 4
+  NPC_03_attackDistance: 35
+  NPC_03_timeToShoot: 1.9
+  bubblesToSpawn: 5
+  chiclesToSpawn: 5
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "En el d\xEDa de hoy queremos compartir con ustedes los resultados
+      publicados esta ma\xF1ana a partir de un estudio universitario sobre la competitividad..."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Se ha realizado un estudio exahustivo sobre el desempe\xF1o
+      de deportistas en campeonatos profesionales a nivel nacional... Luego de siete
+      meses se ha llegado a las siguientes conclusiones..."
+  - tvImage: {fileID: 0}
+    noticiaSentence: Ser competitivo en su justa medida es una virtud, ya que nos
+      ayuda a impulsarnos hacia nuevas metas, conseguir retos, tener aprendizajes
+      continuos, mejorarnos a nivel personal o profesional.
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Cuesti\xF3n distinta es cuando est\xE1 competitividad resulta
+      excesiva, y en vez de un desarrollo personal lo que nos genera es una angustia
+      emocional..."

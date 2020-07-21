@@ -9,7 +9,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/07/2020 Calvelo Nicolás
+///     10/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 

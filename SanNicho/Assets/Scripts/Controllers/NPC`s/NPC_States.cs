@@ -21,7 +21,14 @@ public class NPC_States : MonoBehaviour
 
     public State actualState = State.IDLE;
     protected State nextState  = State.IDLE, prevState = State.IDLE;
+
     protected Animator anim;
+    //Animations parameters
+    int parameterIdle = Animator.StringToHash("isIdle");
+    int parameterPatrol = Animator.StringToHash("isPatroling");
+    int parameterPursue = Animator.StringToHash("isPursuing");
+    int parameterAttack = Animator.StringToHash("isAttacking");
+
     protected Transform playerTransform;
     
 
@@ -29,8 +36,10 @@ public class NPC_States : MonoBehaviour
     public virtual void Awake()
     {
         anim = GetComponent<Animator>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerTransform = gameManager.Instance.playerTransfrorm;
     }
+
+    
 
     public virtual void FixedUpdate()
     {
@@ -67,7 +76,7 @@ public class NPC_States : MonoBehaviour
 
     public virtual void enterIdle()
     {
-        anim.SetTrigger("isIdle");
+        anim.SetTrigger(parameterIdle);
         actualState = State.IDLE;
     }
     public virtual void idle()
@@ -79,14 +88,14 @@ public class NPC_States : MonoBehaviour
     }
     public virtual void exitIdle()
     {
-        anim.ResetTrigger("isIdle");
+        anim.ResetTrigger(parameterIdle);
 
         actualState = nextState;
     }
 
     public virtual void enterPatrol()
     {
-        anim.SetTrigger("isPatroling");
+        anim.SetTrigger(parameterPatrol);
         actualState = State.PATROL;
     }
     public virtual void patrol()
@@ -98,14 +107,14 @@ public class NPC_States : MonoBehaviour
     }
     public virtual void exitPatrol()
     {
-        anim.ResetTrigger("isPatroling");
+        anim.ResetTrigger(parameterPatrol);
 
         actualState = nextState;
     }
 
     public virtual void enterPursue()
     {
-        anim.SetTrigger("isPursuing");
+        anim.SetTrigger(parameterPursue);
         actualState = State.PURSUE;
     }
     public virtual void pursue()
@@ -118,14 +127,14 @@ public class NPC_States : MonoBehaviour
     }
     public virtual void exitPursue()
     {
-        anim.ResetTrigger("isPursuing");
+        anim.ResetTrigger(parameterPursue);
 
         actualState = nextState;
     }
 
     public virtual void enterAttack()
     {
-        anim.SetTrigger("isAttacking");
+        anim.SetTrigger(parameterAttack);
         actualState = State.ATTACK;
     }
     public virtual void attack()
@@ -138,7 +147,7 @@ public class NPC_States : MonoBehaviour
     }
     public virtual void exitAttack()
     {
-        anim.ResetTrigger("isAttacking");
+        anim.ResetTrigger(parameterAttack);
 
         actualState = nextState;
     }

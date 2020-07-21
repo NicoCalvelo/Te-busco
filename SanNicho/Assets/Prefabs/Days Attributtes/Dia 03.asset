@@ -22,7 +22,7 @@ MonoBehaviour:
   NPC_01_visibilityDistance: 50
   NPC_01_timeToShoot: 1.7
   cantidadNPC_02: 7
-  agregarNpc02Tarde: 1
+  agregarNpc02Tarde: 0
   agregarNpc02Noche: 0
   NPC_02_hideTime: 2
   NPC_02_attackDistance: 27

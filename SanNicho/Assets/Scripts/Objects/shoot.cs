@@ -8,7 +8,7 @@
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     24/05/2020 Calvelo Nicolás
+///     10/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -20,8 +20,8 @@ public class shoot : MonoBehaviour
 
     private void Start()
     {
-        targetPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        targetPos = new Vector3(targetPos.x, targetPos.y + 2); 
+        targetPos = gameManager.Instance.playerTransfrorm.position;
+        targetPos = new Vector3(targetPos.x, targetPos.y + 3.5f); 
 
         Vector2 diference = targetPos - transform.position;
         float sign = (transform.position.x < targetPos.x) ? -1.0f : 1.0f;

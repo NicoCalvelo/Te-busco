@@ -45,8 +45,6 @@ public class NPC_Complete : NPC_States
 
     public override void FixedUpdate()
     {
-
-
         base.FixedUpdate();
     }
 

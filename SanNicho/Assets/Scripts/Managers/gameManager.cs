@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <Documentacion>
 /// Resumen:
@@ -12,7 +13,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/07//2020 Calvelo Nicolás
+///     21/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -35,6 +36,9 @@ public class gameManager : MonoBehaviour
     #endregion
 
     public float sceneLimitLeft = -336.0f, sceneLimitRigth = 314.0f;
+    [HideInInspector]
+    public Transform playerTransfrorm;
+
 
     [Header("----Player-Stats----")]
     public int starsLeft = 3;
@@ -42,8 +46,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----Collectables----")]
     public GameObject bublePrefab;
-    [SerializeField]
-    private GameObject chiclePrefab;
+    public GameObject chiclePrefab;
 
     [Header("----Game-UI----")]
     [SerializeField]
@@ -54,14 +57,18 @@ public class gameManager : MonoBehaviour
     private CanvasGroup movementBTNs;
     [SerializeField]
     private GameObject pausePanel;
+    [SerializeField]
+    private Button siguienteDiaBTN;
 
     public int hora = 8;
 
+    bool isTransition = false;
 
     private void Awake()
     {
         _instance = this;
         itemsToSpawn = new List<GameObject>();
+        playerTransfrorm = GameObject.FindGameObjectWithTag("Player").transform;
 
         diaText.text = progressManager.Instance.nextDayAttribute.diaNumero.ToString("00");
 
@@ -149,7 +156,7 @@ public class gameManager : MonoBehaviour
             audioManager.Instance.playSound("loseStar");
 
 
-        if(starsLeft == 0)
+        if(starsLeft == 0 && isTransition == false)
         {
             lose();
         }
@@ -176,6 +183,9 @@ public class gameManager : MonoBehaviour
         int earned = (int)Mathf.Round(starsLeft * 10 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 15);
         Debug.Log("Se ganaron " + earned.ToString());
         costaneraCanvas.Instance.levelCompleted(earned);
+
+        if (progressManager.Instance.daysAttributes[progressManager.Instance.nextDayAttribute.diaNumero].habilitado == false)
+            siguienteDiaBTN.interactable = false;
 
         if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
             progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
@@ -243,12 +253,14 @@ public class gameManager : MonoBehaviour
     }
     public void jugarDeNuevo()
     {
+        isTransition = true;
         audioManager.Instance.playSound("click02");
         Time.timeScale = 1;
         StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indexCostanera));
     }
     public void jugarSiguienteDia()
     {
+        isTransition = true;
         audioManager.Instance.playSound("click02");
         Time.timeScale = 1;
 
@@ -257,6 +269,7 @@ public class gameManager : MonoBehaviour
     }
     public void menu()
     {
+        isTransition = true;
         audioManager.Instance.playSound("click03");
         Time.timeScale = 1;
         StartCoroutine(sceneLoader.Instance.loadScene(1));

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     24/06/2020 Calvelo Nicolás
+///     10/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -182,7 +182,7 @@ public class playerController : MonoBehaviour
 
     IEnumerator checkGrounded()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(1.1f);
 
         yield return new WaitUntil(() => hitInfo.collider != null);
 

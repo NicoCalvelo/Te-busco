@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/07/2020 Calvelo Nicolás
+///     21/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -36,7 +36,7 @@ public class dayAttributes : ScriptableObject
     public float NPC_01_timeToShoot;
 
     [Header("Npc_Static")]
-    [Range(0, 9)]
+    [Range(0, 7)]
     public int cantidadNPC_02;
     public int agregarNpc02Tarde, agregarNpc02Noche;
     [Range(0.1f, 2.0f)]

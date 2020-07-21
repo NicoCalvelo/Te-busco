@@ -77,10 +77,9 @@ public class levelsSceneController : MonoBehaviour
                     setHabilitado = true;
                     bloqueado = true;
                     setDia(i);
-                    return;
                 }
 
-                if (progressManager.Instance.progressData.diasInfo[i + 1].completado == false)
+                if (progressManager.Instance.progressData.diasInfo[i + 1].completado == false && setHabilitado == false)
                 {
                     bloqueado = true;
                     setDia(i);

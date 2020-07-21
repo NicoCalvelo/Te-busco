@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 /// <Documentacion>
 /// Resumen:
@@ -12,7 +10,7 @@ using TMPro;
 ///     01/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     01/07/2020 Calvelo Nicolás
+///     21/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -31,23 +29,23 @@ public class slotPrefab : MonoBehaviour
     //Se setea el prefab
     public void setPrefab()
     {
-        int itemLevle = progressManager.Instance.progressData.shopItems.Find(i => i.name == thisItem.name).nivel;
+        int itemLevel = progressManager.Instance.progressData.shopItems.Find(i => i.name == thisItem.itemName).nivel;
         icon.sprite = thisItem.icon;
         nombre.text = thisItem.itemName;
 
         if(thisItem.mejorable == true)
         {
             mejorablePanel.SetActive(true);
-            nivel.text = "Nvl " + itemLevle.ToString();
+            nivel.text = "Nvl " + itemLevel.ToString();
             mejorarText.text = "mejorar";
             mensaje.text = thisItem.mensajeDeMejora;
-            if (itemLevle > 1)
+            if (itemLevel > 1)
             {
                 lvl2.color = mejorado;
-                if (itemLevle > 2)
+                if (itemLevel > 2)
                 {
                     lvl3.color = mejorado;
-                    if (itemLevle > 3)
+                    if (itemLevel > 3)
                     {
                         lvl3.color = mejorado;
                     }
@@ -62,7 +60,7 @@ public class slotPrefab : MonoBehaviour
             mejorarText.text = "comprar";
         }
       
-        costo.text = (thisItem.costoInicial + (thisItem.costoInicial * (thisItem.porcentajeAumentoCostoPorNivel * itemLevle))).ToString("F0");
+        costo.text = (thisItem.costoInicial + (thisItem.costoInicial * (thisItem.porcentajeAumentoCostoPorNivel * itemLevel))).ToString("F0");
 
     }
 

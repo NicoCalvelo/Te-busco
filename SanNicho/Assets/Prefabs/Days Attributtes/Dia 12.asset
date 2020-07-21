@@ -14,21 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 8.9
   diaNumero: 12
+  habilitado: 1
   shootLife: 0
-  inicioNpc_01: 0
+  inicioNpc_01: 3
   agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_idleTime: 2.5
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
-  agregarNpc02Tarde: 0
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 50
+  NPC_01_timeToShoot: 1.8
+  cantidadNPC_02: 3
+  agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  bubblesToSpawn: 0
+  NPC_02_hideTime: 2
+  NPC_02_attackDistance: 33
+  NPC_02_timeToShoot: 2
+  cantidadNPC_03: 6
+  NPC_03_attackDistance: 33
+  NPC_03_timeToShoot: 1.65
+  bubblesToSpawn: 7
+  chiclesToSpawn: 3
   noticiasList: []

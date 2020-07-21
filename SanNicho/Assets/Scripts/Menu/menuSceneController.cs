@@ -9,7 +9,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     06/07/2020 Calvelo Nicolás
+///     14/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -21,6 +21,7 @@ public class menuSceneController : MonoBehaviour
 
     [SerializeField]
     GameObject torneoDialog, shopDialog, logroPrefab, logroContent, logrosPanel;
+
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class menuSceneController : MonoBehaviour
         if (progressManager.Instance.progressData.diasInfo[9].completado == true) //Significa que ya se desbloquearon los torneos
         {
             torneoBtn.interactable = true;
-            torneoBtn.transform.GetChild(1).gameObject.SetActive(false);
+            torneoBtn.transform.GetChild(0).gameObject.SetActive(false);
         }
 
         if(progressManager.Instance.progressData.diasInfo[4].completado == true)
@@ -47,7 +48,7 @@ public class menuSceneController : MonoBehaviour
     void setLogros()
     {
         logrosPanel.SetActive(true);
-        foreach(infoJugador.logro logro in progressManager.Instance.progressData.logros)
+        foreach (infoJugador.logro logro in progressManager.Instance.progressData.logros)
         {
             GameObject newLogro = Instantiate(logroPrefab, Vector2.zero, Quaternion.identity, logroContent.transform);
 
@@ -56,7 +57,6 @@ public class menuSceneController : MonoBehaviour
         }
         logrosPanel.SetActive(false);
     }
-
 
     public void onClickPlayBTN()
     {
@@ -74,7 +74,8 @@ public class menuSceneController : MonoBehaviour
         }
         else
         {
-            //Transicion a la escena de torneos
+            FindObjectOfType<audioManager>().playSound("confirmClick");
+            StartCoroutine(sceneLoader.Instance.loadScene(5));
         }
     }
     public void onClickTienda()

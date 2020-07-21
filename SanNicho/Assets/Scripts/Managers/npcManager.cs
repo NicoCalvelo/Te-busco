@@ -76,7 +76,7 @@ public class npcManager : MonoBehaviour
             if (npc03Positions.Count == 0)
                 return;
 
-            Transform elected = npc03Positions[Random.Range(0, npc02Positions.Count)];
+            Transform elected = npc03Positions[Random.Range(0, npc03Positions.Count)];
             instantiateNewNpc03(elected);
             npc03Positions.Remove(elected);
         }
