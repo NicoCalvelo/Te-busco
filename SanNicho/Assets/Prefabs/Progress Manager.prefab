@@ -79,6 +79,10 @@ MonoBehaviour:
       nivel: 1
     - name: chicle
       nivel: 1
+    - name: helado
+      nivel: 1
+    - name: resorte
+      nivel: 1
     logros:
     - titulo: HAT TRICK
       descripcion: Marca tres goles en un mismo dia
@@ -98,3 +102,9 @@ MonoBehaviour:
       reclamado: 0
       porcentajeCompletado: 0
       monedasDeRecompensa: 65
+    - titulo: "PASE\xD3 PERRUNO"
+      descripcion: No pierdas de vista a firulais
+      completado: 0
+      reclamado: 0
+      porcentajeCompletado: 0
+      monedasDeRecompensa: 145

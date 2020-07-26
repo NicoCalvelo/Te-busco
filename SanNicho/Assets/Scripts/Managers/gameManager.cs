@@ -13,7 +13,7 @@ using UnityEngine.UI;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     21/07//2020 Calvelo Nicolás
+///     26/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -42,7 +42,7 @@ public class gameManager : MonoBehaviour
 
     [Header("----Player-Stats----")]
     public int starsLeft = 3;
-    public float bubbleDefaultTime = 6.0f, chicleDefaultTime = 15.0f;
+    public float bubbleDefaultTime = 6.0f, chicleDefaultTime = 15.0f, heladoDefaultTime = 7.0f, resorteDefaultTime = 11.0f;
 
     [Header("----Collectables----")]
     public GameObject bublePrefab;
@@ -191,12 +191,22 @@ public class gameManager : MonoBehaviour
             progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
 
 
+        //Logro de firulais
+        if(progressManager.Instance.nextDayAttribute.diaNumero == 16)
+        {
+            if (costaneraManager.Instance.firulais.activeSelf)
+            {
+                progressManager.Instance.progressData.logros[3].completado = true;
+                progressManager.Instance.progressData.logros[3].porcentajeCompletado = 1;
+            }
+        }
+
     }
 
     #region Collectables
     List<GameObject> itemsToSpawn;
 
-    public enum collectables { Burbuja, Helado, Chicle }
+    public enum collectables { Burbuja, Helado, Chicle, Resorte }
 
     public IEnumerator spawnCollectables()
     {
@@ -224,13 +234,19 @@ public class gameManager : MonoBehaviour
             bubbleShield.SetActive(true);
             playerAnimController.Instance.setBubble(1);
             costaneraCanvas.Instance.agregarCollectable(collectables.Burbuja);
-        }
-
-        if(itemCollected == collectables.Chicle)
+        }else if(itemCollected == collectables.Chicle)
         {
             FindObjectOfType<playerController>().onGetChicle(true);
             audioManager.Instance.playSound("chicloso");
             costaneraCanvas.Instance.agregarCollectable(collectables.Chicle);
+        }else if(itemCollected == collectables.Helado)
+        {
+            FindObjectOfType<playerController>().onGetHelado = true;
+            costaneraCanvas.Instance.agregarCollectable(collectables.Helado);
+        }else if(itemCollected == collectables.Resorte)
+        {
+            FindObjectOfType<playerController>().onGetResorte(true);
+            costaneraCanvas.Instance.agregarCollectable(collectables.Resorte);
         }
     }
     #endregion

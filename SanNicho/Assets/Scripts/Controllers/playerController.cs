@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <Documentacion>
 /// Resumen:
@@ -10,7 +9,7 @@ using UnityEngine.UI;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     10/07/2020 Calvelo Nicolás
+///     22/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -194,7 +193,43 @@ public class playerController : MonoBehaviour
 
     #endregion
 
+    bool heladoActualState = false;
 
+    public bool onGetHelado
+    {
+        get
+        {
+            return heladoActualState;
+        }
+        set
+        {
+            if(heladoActualState == false)
+            {
+                gameObject.transform.localScale = gameObject.transform.localScale / 3;
+                heladoActualState = true;
+                audioManager.Instance.playSound("heladoIn");
+            }
+            else
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + 3);
+                gameObject.transform.localScale = gameObject.transform.localScale * 3;
+                heladoActualState = false;
+                audioManager.Instance.playSound("heladoOut");
+            }
+        }
+    }
+    public void onGetResorte(bool enter)
+    {
+        if (enter)
+        {
+            jumpFoce = jumpFoce * 1.8f;
+            //Animacion  de resortes
+        }
+        else
+        {
+            jumpFoce = jumpFoce / 1.8f;
+        }
+    }
     public void onGetChicle(bool enter)
     {
         if(enter == true)

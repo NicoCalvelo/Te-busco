@@ -9,7 +9,7 @@
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     21/07/2020 Calvelo Nicolás
+///     26/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -33,7 +33,7 @@ private static costaneraManager _instance;
 
     public GameObject[] nubePrefabs;
 
-    public GameObject arcoFutbol, doraemon, colectivo;
+    public GameObject arcoFutbol, doraemon, colectivo, firulais, heladero, elFamoso;
 
     private void Awake()
     {
@@ -52,7 +52,7 @@ private static costaneraManager _instance;
     {
 
         //Nubes
-        int cantidadDeNubes = Random.Range(7, 15);
+        int cantidadDeNubes = Random.Range(11, 19);
 
         if(progressManager.Instance.nextDayAttribute.diaNumero == 5)
         {
@@ -73,8 +73,14 @@ private static costaneraManager _instance;
         else if (progressManager.Instance.nextDayAttribute.diaNumero == 12)
         {
             doraemon.SetActive(true);
+        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 16)
+        {
+            firulais.SetActive(true);
         }
 
+        heladero.SetActive(progressManager.Instance.nextDayAttribute.heladero);
+
+        elFamoso.SetActive(progressManager.Instance.nextDayAttribute.elFamoso);
 
 
         for (int i = 0; i <= cantidadDeNubes; i++)
@@ -93,10 +99,15 @@ private static costaneraManager _instance;
         GetComponent<Animator>().SetTrigger("tarde");
         audioManager.Instance.changeBackgroundMusic(1);
     }
-
     public void setNoche()
     {
         GetComponent<Animator>().SetTrigger("noche");
         audioManager.Instance.changeBackgroundMusic(2);
+        if (progressManager.Instance.nextDayAttribute.diaNumero != 15)
+            Invoke("setLuces", 15);
+    }
+    public void setLuces()
+    {
+        GetComponent<Animator>().SetTrigger("encenderLuces");
     }
 }

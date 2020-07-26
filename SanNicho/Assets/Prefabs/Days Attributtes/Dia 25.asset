@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 25
   m_EditorClassIdentifier: 
-  duracionDelDia: 13
+  duracionDelDia: 8
   diaNumero: 25
+  habilitado: 0
   shootLife: 0
   inicioNpc_01: 0
   agregarNpc01Tarde: 0
   agregarNpc01Noche: 0
-  NPC_01_idleTime: 2.5
   NPC_01_visibilityDistance: 48
   NPC_01_timeToShoot: 1.7
   cantidadNPC_02: 0
@@ -31,4 +31,5 @@ MonoBehaviour:
   NPC_03_attackDistance: 0
   NPC_03_timeToShoot: 0
   bubblesToSpawn: 0
+  chiclesToSpawn: 0
   noticiasList: []

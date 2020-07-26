@@ -72,6 +72,11 @@ public class NPC_Complete : NPC_States
     {
         patrolTarget = new Vector2(Random.Range(transform.position.x - 80, transform.position.x + 80), 0);
 
+        if (patrolTarget.x < transform.position.x)
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
+        else
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+
         base.enterPatrol();
     }
     public override void patrol()
@@ -88,16 +93,8 @@ public class NPC_Complete : NPC_States
         {
             nextState = State.IDLE;
         }
-        else if (patrolTarget.x < transform.position.x)
-        {
-            rb2D.velocity = new Vector2(patrolSpeed * -1, rb2D.velocity.y);
-            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-        }
-        else if (patrolTarget.x > transform.position.x)
-        {
-            rb2D.velocity = new Vector2(patrolSpeed, rb2D.velocity.y);
-            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
-        }
+
+        rb2D.velocity = new Vector2(patrolSpeed * Mathf.Sign(playerTransform.position.x - patrolTarget.x), rb2D.velocity.y);
 
         base.patrol();
     }
@@ -120,17 +117,7 @@ public class NPC_Complete : NPC_States
         else if (distanceToPlayer > visibilityDistance)
             nextState = State.IDLE;
 
-        if (playerTransform.position.x < transform.position.x)
-        {
-            rb2D.velocity = new Vector2(pursueSpeed * -1, rb2D.velocity.y);
-            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-        }
-        else if (playerTransform.position.x > transform.position.x)
-        {
-            rb2D.velocity = new Vector2(pursueSpeed, rb2D.velocity.y);
-            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
-        }
-
+        rb2D.velocity = new Vector2(pursueSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x), rb2D.velocity.y);
     }
     public override void exitPursue()
     {

@@ -374,6 +374,8 @@ MonoBehaviour:
   itemsList:
   - {fileID: 11400000, guid: b0c801cd88097884091b81b254ce3c02, type: 2}
   - {fileID: 11400000, guid: b74a92f4b38e7ee4e92b0be8106a4895, type: 2}
+  - {fileID: 11400000, guid: 9e86b876bd02ed046b7b8954b102aa47, type: 2}
+  - {fileID: 11400000, guid: ad7de6324fde2134c9c340375d47db4f, type: 2}
   slotPrefab: {fileID: 8068897194618514998, guid: aa655af1d2ab37c4284c3613b89a738d,
     type: 3}
   content: {fileID: 1720459791}
@@ -1690,7 +1692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30.000042, y: -35}
+  m_AnchoredPosition: {x: 30, y: -35}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1372844571

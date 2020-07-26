@@ -10,7 +10,7 @@ using UnityEngine;
 ///     16/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/06/2020 Calvelo Nicolás
+///     26/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 /// 
@@ -40,7 +40,7 @@ public class npcManager : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject npc01Prefab, npc02Prefab, npc03Prefab;
+    private GameObject npc01Prefab, npc02Prefab, npc03Prefab, npc04Prefab;
 
     [SerializeField]
     private List<Transform> npc02Positions, npc03Positions;
@@ -80,6 +80,11 @@ public class npcManager : MonoBehaviour
             instantiateNewNpc03(elected);
             npc03Positions.Remove(elected);
         }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.cantidadNPC_04; i++)
+        {
+            instantiateNewNpc04();
+        }
     }
 
     public void onChangeTarde()
@@ -98,6 +103,10 @@ public class npcManager : MonoBehaviour
             instantiateNewNpc02(elected);
             npc02Positions.Remove(elected);
         }
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc04Tarde; i++)
+        {
+            instantiateNewNpc04();
+        }
     }
     public void onChangeNoche()
     {
@@ -114,6 +123,11 @@ public class npcManager : MonoBehaviour
             Transform elected = npc02Positions[Random.Range(0, npc02Positions.Count)];
             instantiateNewNpc02(elected);
             npc02Positions.Remove(elected);
+        }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc04Noche; i++)
+        {
+            instantiateNewNpc04();
         }
     }
 
@@ -154,6 +168,13 @@ public class npcManager : MonoBehaviour
         GameObject newNpc = Instantiate(npc03Prefab, npcPos.position, Quaternion.identity, transform);
         newNpc.transform.rotation = npcPos.rotation;
         newNpc.name = "npc03_" + nextNpcNumber.ToString();
+        nextNpcNumber++;
+        npcDictionary.Add(newNpc.name, newNpc);
+    }
+    void instantiateNewNpc04()
+    {
+        GameObject newNpc = Instantiate(npc04Prefab, Vector2.zero, Quaternion.identity, transform);
+        newNpc.name = "npc04_" + nextNpcNumber.ToString();
         nextNpcNumber++;
         npcDictionary.Add(newNpc.name, newNpc);
     }

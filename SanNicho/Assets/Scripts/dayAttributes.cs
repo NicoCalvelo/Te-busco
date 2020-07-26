@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <Documentacion>
 /// Resumen:
@@ -11,7 +9,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     21/07/2020 Calvelo Nicolás
+///     22/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -27,6 +25,15 @@ public class dayAttributes : ScriptableObject
     [Range(0.0f, 7.0f)]
     public float shootLife = 5.0f;
 
+    [Space]
+    public bool heladero;
+    public int heladosAgenerar;
+
+    [Space]
+    public bool elFamoso;
+    public int pasadas;
+
+    [Space]
     [Header("Npc_Complete")]
     public int inicioNpc_01;
     public int agregarNpc01Tarde, agregarNpc01Noche;
@@ -35,6 +42,7 @@ public class dayAttributes : ScriptableObject
     [Range(1.5f, 3.0f)]
     public float NPC_01_timeToShoot;
 
+    [Space]
     [Header("Npc_Static")]
     [Range(0, 7)]
     public int cantidadNPC_02;
@@ -46,6 +54,7 @@ public class dayAttributes : ScriptableObject
     [Range(1.0f, 3.0f)]
     public float NPC_02_timeToShoot;
 
+    [Space]
     [Header("Npc_Camera")]
     [Range(0, 10)]
     public int cantidadNPC_03;
@@ -54,6 +63,17 @@ public class dayAttributes : ScriptableObject
     [Range(1.0f, 3.0f)]
     public float NPC_03_timeToShoot;
 
+    [Space]
+    [Header("Npc_Drone")]
+    [Range(0, 4)]
+    public int cantidadNPC_04;
+    public int agregarNpc04Tarde, agregarNpc04Noche;
+    [Range(45, 55)]
+    public float NPC_04_attackDistance;
+    [Range(.7f, 2.0f)]
+    public float NPC_04_timeToShoot;
+
+    [Space]
     [Header("Collectables")]
     [Range(0, 24)]
     public int bubblesToSpawn;
