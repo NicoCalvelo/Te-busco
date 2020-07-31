@@ -19,5 +19,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9bd8debf4ce262f428fe542df0333152, type: 3}
   mejorable: 1
   cantidadDeNiveles: 3
-  costoInicial: 673
-  porcentajeAumentoCostoPorNivel: 0.43
+  costoInicial: 379
+  porcentajeAumentoCostoPorNivel: 0.73

@@ -9,7 +9,7 @@ using UnityEngine;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     22/07/2020 Calvelo Nicolás
+///     30/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -194,6 +194,7 @@ public class playerController : MonoBehaviour
     #endregion
 
     bool heladoActualState = false;
+    bool chicleState = false;
 
     public bool onGetHelado
     {
@@ -232,15 +233,16 @@ public class playerController : MonoBehaviour
     }
     public void onGetChicle(bool enter)
     {
-        if(enter == true)
+        if(enter == true && chicleState == false)
         {
             jumpFoce = jumpFoce / 2;
             playerAnimController.changeColor( new Color32(255, 175, 201, 255));
         }
-        else
+        else if(chicleState == true)
         {
             jumpFoce = jumpFoce * 2;
             playerAnimController.changeColor(Color.white);
+            chicleState = false;
         }
     }
 

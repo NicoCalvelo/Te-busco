@@ -13,7 +13,7 @@ using UnityEngine.UI;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     26/07//2020 Calvelo Nicolás
+///     30/07//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -206,7 +206,7 @@ public class gameManager : MonoBehaviour
     #region Collectables
     List<GameObject> itemsToSpawn;
 
-    public enum collectables { Burbuja, Helado, Chicle, Resorte }
+    public enum collectables { Burbuja, Helado, Chicle, Resorte, Globito }
 
     public IEnumerator spawnCollectables()
     {
@@ -247,12 +247,21 @@ public class gameManager : MonoBehaviour
         {
             FindObjectOfType<playerController>().onGetResorte(true);
             costaneraCanvas.Instance.agregarCollectable(collectables.Resorte);
+        }else if (itemCollected == collectables.Globito)
+        {
+            if(costaneraManager.Instance.globitos.transform.childCount == 0)
+            {
+                progressManager.Instance.progressData.logros[4].porcentajeCompletado = 1;
+                progressManager.Instance.progressData.logros[4].completado = true;
+            }
         }
     }
     #endregion
 
+
     public void pauseGame()
     {
+        audioManager.Instance.stopSound("backgroundMusic");
         audioManager.Instance.playSound("click01");
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -261,6 +270,7 @@ public class gameManager : MonoBehaviour
     }
     public void resumeGame()
     {
+        audioManager.Instance.playSound("backgroundMusic");
         audioManager.Instance.playSound("click01");
         Time.timeScale = 1;
         pausePanel.SetActive(false);

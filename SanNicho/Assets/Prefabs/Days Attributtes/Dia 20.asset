@@ -14,22 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 7.5
   diaNumero: 20
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
+  heladero: 1
+  heladosAgenerar: 5
+  elFamoso: 1
+  pasadas: 4
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
   agregarNpc01Noche: 0
-  NPC_01_visibilityDistance: 48
+  NPC_01_visibilityDistance: 54
   NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
+  cantidadNPC_02: 4
   agregarNpc02Tarde: 0
-  agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  bubblesToSpawn: 0
-  chiclesToSpawn: 0
-  noticiasList: []
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.35
+  NPC_02_attackDistance: 34
+  NPC_02_timeToShoot: 1.85
+  cantidadNPC_03: 5
+  NPC_03_attackDistance: 32.5
+  NPC_03_timeToShoot: 2.2
+  cantidadNPC_04: 2
+  agregarNpc04Tarde: 1
+  agregarNpc04Noche: 0
+  NPC_04_attackDistance: 52.27
+  NPC_04_timeToShoot: 1.35
+  cantidadNPC_Background: 5
+  bubblesToSpawn: 6
+  chiclesToSpawn: 7
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xA1Queridos nicole\xF1os! Hoy es el dia... O la noche mejor
+      dicho... Da igual."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xA1Preparemosnos para recibir la primavera de la mejor manera!
+      La ciudad esta de festejo... \xA1No te lo pierdas! Hoy a las 20:00 hs en el
+      anfiteatro."

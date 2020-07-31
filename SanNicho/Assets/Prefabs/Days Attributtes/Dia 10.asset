@@ -16,6 +16,10 @@ MonoBehaviour:
   diaNumero: 10
   habilitado: 1
   shootLife: 0
+  heladero: 0
+  heladosAgenerar: 0
+  elFamoso: 0
+  pasadas: 0
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
@@ -30,8 +34,14 @@ MonoBehaviour:
   cantidadNPC_03: 4
   NPC_03_attackDistance: 35
   NPC_03_timeToShoot: 1.9
+  cantidadNPC_04: 0
+  agregarNpc04Tarde: 0
+  agregarNpc04Noche: 0
+  NPC_04_attackDistance: 0
+  NPC_04_timeToShoot: 0
+  cantidadNPC_Background: 2
   bubblesToSpawn: 5
-  chiclesToSpawn: 5
+  chiclesToSpawn: 7
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "En el d\xEDa de hoy queremos compartir con ustedes los resultados

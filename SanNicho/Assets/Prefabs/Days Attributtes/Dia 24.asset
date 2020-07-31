@@ -16,6 +16,10 @@ MonoBehaviour:
   diaNumero: 24
   habilitado: 0
   shootLife: 0
+  heladero: 1
+  heladosAgenerar: 4
+  elFamoso: 1
+  pasadas: 3
   inicioNpc_01: 0
   agregarNpc01Tarde: 0
   agregarNpc01Noche: 0
@@ -30,6 +34,12 @@ MonoBehaviour:
   cantidadNPC_03: 0
   NPC_03_attackDistance: 0
   NPC_03_timeToShoot: 0
+  cantidadNPC_04: 0
+  agregarNpc04Tarde: 0
+  agregarNpc04Noche: 0
+  NPC_04_attackDistance: 0
+  NPC_04_timeToShoot: 0
+  cantidadNPC_Background: 6
   bubblesToSpawn: 0
   chiclesToSpawn: 0
   noticiasList: []

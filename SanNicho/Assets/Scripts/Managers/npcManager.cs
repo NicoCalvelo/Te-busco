@@ -40,7 +40,7 @@ public class npcManager : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject npc01Prefab, npc02Prefab, npc03Prefab, npc04Prefab;
+    private GameObject npc01Prefab, npc02Prefab, npc03Prefab, npc04Prefab, npcBackground;
 
     [SerializeField]
     private List<Transform> npc02Positions, npc03Positions;
@@ -85,6 +85,11 @@ public class npcManager : MonoBehaviour
         {
             instantiateNewNpc04();
         }
+
+        for (int i = 0; i < progressManager.Instance.nextDayAttribute.cantidadNPC_Background; i++)
+        {
+            instantiateNewNpcBackground();
+        }
     }
 
     public void onChangeTarde()
@@ -110,6 +115,16 @@ public class npcManager : MonoBehaviour
     }
     public void onChangeNoche()
     {
+        //En el dia del concierto a las 20:00hs se destruyen todos los npc
+        if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
+        {
+            foreach(GameObject npc in npcDictionary.Values)
+            {
+                Destroy(npc);
+            }
+        }
+
+
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc01Noche; i++)
         {
             Invoke("instantiateNewNpc", Random.Range(0.1f, 3.0f));
@@ -175,6 +190,13 @@ public class npcManager : MonoBehaviour
     {
         GameObject newNpc = Instantiate(npc04Prefab, Vector2.zero, Quaternion.identity, transform);
         newNpc.name = "npc04_" + nextNpcNumber.ToString();
+        nextNpcNumber++;
+        npcDictionary.Add(newNpc.name, newNpc);
+    }
+    void instantiateNewNpcBackground()
+    {
+        GameObject newNpc = Instantiate(npcBackground, new Vector3(Random.Range(gameManager.Instance.sceneLimitLeft + 75, gameManager.Instance.sceneLimitRigth - 75), 10, .5f), Quaternion.identity, transform);
+        newNpc.name = "npcBackground_" + nextNpcNumber.ToString();
         nextNpcNumber++;
         npcDictionary.Add(newNpc.name, newNpc);
     }

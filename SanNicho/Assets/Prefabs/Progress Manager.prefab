@@ -108,3 +108,9 @@ MonoBehaviour:
       reclamado: 0
       porcentajeCompletado: 0
       monedasDeRecompensa: 145
+    - titulo: DE FIESTA
+      descripcion: Recolecta todos los globos
+      completado: 0
+      reclamado: 0
+      porcentajeCompletado: 0
+      monedasDeRecompensa: 85

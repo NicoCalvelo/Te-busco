@@ -74,6 +74,9 @@ public class dayAttributes : ScriptableObject
     public float NPC_04_timeToShoot;
 
     [Space]
+    public int cantidadNPC_Background;
+
+    [Space]
     [Header("Collectables")]
     [Range(0, 24)]
     public int bubblesToSpawn;

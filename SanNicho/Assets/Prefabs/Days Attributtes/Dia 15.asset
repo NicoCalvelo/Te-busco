@@ -14,22 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 7
   diaNumero: 15
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
-  agregarNpc02Tarde: 0
+  heladero: 1
+  heladosAgenerar: 5
+  elFamoso: 0
+  pasadas: 0
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 51
+  NPC_01_timeToShoot: 1.75
+  cantidadNPC_02: 1
+  agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  bubblesToSpawn: 0
-  chiclesToSpawn: 0
-  noticiasList: []
+  NPC_02_hideTime: 1.34
+  NPC_02_attackDistance: 25
+  NPC_02_timeToShoot: 1.73
+  cantidadNPC_03: 3
+  NPC_03_attackDistance: 31.3
+  NPC_03_timeToShoot: 1.51
+  cantidadNPC_04: 0
+  agregarNpc04Tarde: 0
+  agregarNpc04Noche: 0
+  NPC_04_attackDistance: 0
+  NPC_04_timeToShoot: 0
+  cantidadNPC_Background: 3
+  bubblesToSpawn: 4
+  chiclesToSpawn: 7
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Toda la ciudad se encuentra expectante... El 20 de septiembre,
+      a la noche, habr\xE1 un concierto en el anfiteatro de la costanera!"
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Entre m\xFAsicos y festejos, los nicole\xF1os recibiremos a
+      la primavera de la mejor manera posible!"
+  - tvImage: {fileID: 0}
+    noticiaSentence: 'Por otro lado, seguimos sin tener noticias sobre lo sucedido
+      con la estatua en costanera alta... '
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Y hablando de la costanera, se ha producido un corte el\xE9ctrico...
+      Parece que un pieza bastante peculiar se ha averiado... Llevar\xE1 por lo menos
+      un dia repararla."

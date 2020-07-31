@@ -32,12 +32,14 @@ private static costaneraManager _instance;
     #endregion
 
     public GameObject[] nubePrefabs;
+    public GameObject arcoFutbol, doraemon, colectivo, firulais, heladero, elFamoso, globitos;
 
-    public GameObject arcoFutbol, doraemon, colectivo, firulais, heladero, elFamoso;
+    Animator anim;
 
     private void Awake()
     {
         _instance = this;
+        anim = GetComponent<Animator>();
         setScene();
     }
 
@@ -76,6 +78,12 @@ private static costaneraManager _instance;
         }else if (progressManager.Instance.nextDayAttribute.diaNumero == 16)
         {
             firulais.SetActive(true);
+        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 18)
+        {
+            globitos.SetActive(true);
+        }else if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
+        {
+            anim.SetTrigger("preEscenario");
         }
 
         heladero.SetActive(progressManager.Instance.nextDayAttribute.heladero);
@@ -96,18 +104,23 @@ private static costaneraManager _instance;
 
     public void setTarde()
     {
-        GetComponent<Animator>().SetTrigger("tarde");
+        anim.SetTrigger("tarde");
         audioManager.Instance.changeBackgroundMusic(1);
     }
     public void setNoche()
     {
-        GetComponent<Animator>().SetTrigger("noche");
+        anim.SetTrigger("noche");
         audioManager.Instance.changeBackgroundMusic(2);
         if (progressManager.Instance.nextDayAttribute.diaNumero != 15)
             Invoke("setLuces", 15);
+        else if (progressManager.Instance.nextDayAttribute.diaNumero == 20)
+        {
+            //Cambiar musica de fondo
+        }
+
     }
     public void setLuces()
     {
-        GetComponent<Animator>().SetTrigger("encenderLuces");
+        anim.SetTrigger("encenderLuces");
     }
 }

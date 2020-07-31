@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 /// <Documentacion>
 /// Resumen:
@@ -10,7 +9,7 @@ using System.Collections.Generic;
 ///     24/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     24/07/2020 Calvelo Nicolás
+///     29/07/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -22,6 +21,9 @@ public class elFamoso : MonoBehaviour
     Animator anim;
     SpriteRenderer sp;
 
+    [SerializeField]
+    GameObject ligths;
+
     int parameterConducir = Animator.StringToHash("conducir");
 
 
@@ -31,6 +33,8 @@ public class elFamoso : MonoBehaviour
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
         StartCoroutine(pasadas());
+        if (gameManager.Instance.hora >= 20)
+            ligths.SetActive(true);
     }
 
     IEnumerator pasadas()
