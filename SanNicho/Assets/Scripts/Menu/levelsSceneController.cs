@@ -71,7 +71,7 @@ public class levelsSceneController : MonoBehaviour
             {
                 GameObject d = Instantiate(diaPrefab, Vector3.zero, Quaternion.identity, grillaContent.transform);
                 d.GetComponent<levelBTN>().diaIndx = i;
-
+                d.GetComponent<levelBTN>().setBTN();
                 if (progressManager.Instance.daysAttributes[i + 1].habilitado == false)
                 {
                     setHabilitado = true;

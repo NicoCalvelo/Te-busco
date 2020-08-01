@@ -1211,6 +1211,30 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &822673189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6802456816870230908, guid: 74b70396d841d2046ac7c3015da74253,
+    type: 3}
+  m_PrefabInstance: {fileID: 1893378799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &822673190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822673189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52774eb4e08ee1f44a312b607e84fb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DriveableProperty:
+    m_Fields:
+    - m_Target: {fileID: 0}
+      m_FieldPath: 
+      m_RSKeyName: 
+      m_Type: 
 --- !u!1 &873063380
 GameObject:
   m_ObjectHideFlags: 0

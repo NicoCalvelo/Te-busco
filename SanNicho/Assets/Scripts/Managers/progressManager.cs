@@ -38,6 +38,9 @@ public class progressManager : MonoBehaviour
 
     public infoJugador progressData;
 
+    [HideInInspector]
+    public int diasHabilitados;
+
     public void Awake()
     {
         if (progressManager.Instance != null)
@@ -49,7 +52,8 @@ public class progressManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
-
+        diasHabilitados = RemoteSettings.GetInt("diasHabilitados");
+        Debug.Log("dias habilitados = " + diasHabilitados);
         decompressInfoJugador();
     }
 
@@ -78,9 +82,27 @@ public class progressManager : MonoBehaviour
             }
             MemoryStream memory02 = new MemoryStream(data);
             BinaryFormatter bfo = new BinaryFormatter();
-            progressData = (infoJugador)bfo.Deserialize(memory02);
 
-            Debug.Log("Intentos del dia 01 = " + progressData.diasInfo[1].intentos);
+            infoJugador info = (infoJugador)bfo.Deserialize(memory02);
+
+            //Hay nuevos logros
+            if(info.logros.Count < progressData.logros.Count)
+            {
+                for (int i = info.logros.Count; i < progressData.logros.Count; i++)
+                {
+                    info.logros.Add(progressData.logros[i]);
+                }
+            }
+            //Hay nuevos items en la tienda
+            if(info.shopItems.Count < progressData.shopItems.Count)
+            {
+                for (int i = info.shopItems.Count; i < progressData.shopItems.Count; i++)
+                {
+                    info.shopItems.Add(progressData.shopItems[i]);
+                }
+            }
+
+            progressData = info;
         }
         else //No hay archivo todavia
         {
@@ -97,6 +119,15 @@ public class progressManager : MonoBehaviour
             FileStream file = File.Create(filePath);
             bf.Serialize(file, progressData);
             file.Close();
+        }
+
+        for (int i = 0; i < diasHabilitados; i++)
+        {
+            daysAttributes[i].habilitado = true;
+        }
+        for (int i = diasHabilitados; i < 25; i++)
+        {
+            daysAttributes[i].habilitado = false;
         }
     }
 

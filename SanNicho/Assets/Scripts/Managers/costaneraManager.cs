@@ -32,7 +32,7 @@ private static costaneraManager _instance;
     #endregion
 
     public GameObject[] nubePrefabs;
-    public GameObject arcoFutbol, doraemon, colectivo, firulais, heladero, elFamoso, globitos;
+    public GameObject arcoFutbol, doraemon, colectivo, firulais, heladero, elFamoso, globitos, primavera, niebla;
 
     Animator anim;
 
@@ -84,22 +84,25 @@ private static costaneraManager _instance;
         }else if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
         {
             anim.SetTrigger("preEscenario");
+        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 22)
+        {
+            niebla.SetActive(true);
+        }
+
+        if (progressManager.Instance.nextDayAttribute.diaNumero >= 21)
+        {
+            primavera.SetActive(true);
         }
 
         heladero.SetActive(progressManager.Instance.nextDayAttribute.heladero);
 
         elFamoso.SetActive(progressManager.Instance.nextDayAttribute.elFamoso);
 
-
         for (int i = 0; i <= cantidadDeNubes; i++)
         {
             Vector3 pos = new Vector3 (Random.Range(gameManager.Instance.sceneLimitLeft, gameManager.Instance.sceneLimitRigth), Random.Range(55.0f, 75.0f), Random.Range(3.5f, 6.0f));
             Instantiate(nubePrefabs[Random.Range(0, nubePrefabs.Length)], pos, Quaternion.identity, transform);
         }
-
-
-
-
     }
 
     public void setTarde()

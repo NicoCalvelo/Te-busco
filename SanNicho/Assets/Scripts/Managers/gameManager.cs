@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 /// <Documentacion>
 /// Resumen:
@@ -87,12 +88,15 @@ public class gameManager : MonoBehaviour
         float invokeTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / 32;
         InvokeRepeating("setTime", invokeTime, invokeTime);
 
-
-
         StartCoroutine(spawnCollectables());
 
         //agregar un intento de nivel al progress manager
         progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos++;
+        //---Analitycs---      
+        Analytics.CustomEvent("level_start", new Dictionary<string, object>
+        {
+            { "level_index", progressManager.Instance.nextDayAttribute.diaNumero }          
+        });    
     }
 
     //Se ejecuta repetidamente cada vez que pasan 30 minutos en tiempo del juego
@@ -181,7 +185,6 @@ public class gameManager : MonoBehaviour
 
         //puntaje
         int earned = (int)Mathf.Round(starsLeft * 10 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 15);
-        Debug.Log("Se ganaron " + earned.ToString());
         costaneraCanvas.Instance.levelCompleted(earned);
 
         if (progressManager.Instance.daysAttributes[progressManager.Instance.nextDayAttribute.diaNumero].habilitado == false)
@@ -189,7 +192,6 @@ public class gameManager : MonoBehaviour
 
         if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
             progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
-
 
         //Logro de firulais
         if(progressManager.Instance.nextDayAttribute.diaNumero == 16)
@@ -200,6 +202,13 @@ public class gameManager : MonoBehaviour
                 progressManager.Instance.progressData.logros[3].porcentajeCompletado = 1;
             }
         }
+
+        //---Analitycs---
+        Analytics.CustomEvent("level_complete", new Dictionary<string, object>
+        {
+            { "level_index", progressManager.Instance.nextDayAttribute.diaNumero },
+            { "intentos", progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos }
+        });
 
     }
 

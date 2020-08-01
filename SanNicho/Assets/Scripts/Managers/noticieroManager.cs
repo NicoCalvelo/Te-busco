@@ -69,7 +69,7 @@ public class noticieroManager : MonoBehaviour
         }
 
         FindObjectOfType<audioManager>().playSound("mainMusic");
-
+        courRunning = false;
         StartCoroutine(setNoticias(progressManager.Instance.nextDayAttribute.noticiasList));
 
         StartCoroutine(sceneLoader.Instance.loadSceneAsync());

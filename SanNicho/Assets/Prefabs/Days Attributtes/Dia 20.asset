@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 7.5
   diaNumero: 20
-  habilitado: 1
+  habilitado: 0
   shootLife: 0
   heladero: 1
   heladosAgenerar: 5
@@ -47,6 +47,7 @@ MonoBehaviour:
     noticiaSentence: "\xA1Queridos nicole\xF1os! Hoy es el dia... O la noche mejor
       dicho... Da igual."
   - tvImage: {fileID: 0}
-    noticiaSentence: "\xA1Preparemosnos para recibir la primavera de la mejor manera!
-      La ciudad esta de festejo... \xA1No te lo pierdas! Hoy a las 20:00 hs en el
-      anfiteatro."
+    noticiaSentence: "\xA1Preparemosnos para recibir la primavera de la mejor manera! "
+  - tvImage: {fileID: 0}
+    noticiaSentence: "La ciudad esta de festejo... \xA1No te lo pierdas! Hoy a las
+      20:00 hs en el anfiteatro."

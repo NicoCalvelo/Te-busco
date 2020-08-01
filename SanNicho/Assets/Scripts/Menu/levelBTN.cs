@@ -19,11 +19,13 @@ public class levelBTN : MonoBehaviour
     public Image star1, star2, star3;
     public Sprite star;
 
-    
-
-    public void Start()
+    private void Start()
     {
         transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = (diaIndx + 1).ToString("00");
+    }
+
+    public void setBTN()
+    {
 
         if(progressManager.Instance.progressData.diasInfo[diaIndx + 1].estrellas > 0)
         {

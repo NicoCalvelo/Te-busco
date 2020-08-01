@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.1
   diaNumero: 6
-  habilitado: 1
+  habilitado: 0
   shootLife: 5.5
   heladero: 0
   heladosAgenerar: 0

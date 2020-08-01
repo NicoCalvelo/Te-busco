@@ -28,10 +28,12 @@ public class NPC_Complete : NPC_States
     float idleTimeLeft, shootTimeLeft;
     Vector2 patrolTarget;
     float distanceToPlayer;
+    float sign;
+
 
     public override void Awake()
     {
-        idleTime = Random.Range(1.0f, 3.0f);
+        idleTime = Random.Range(1.4f, 3.0f);
         visibilityDistance = progressManager.Instance.nextDayAttribute.NPC_01_visibilityDistance;
         timeToShoot = progressManager.Instance.nextDayAttribute.NPC_01_timeToShoot;
 
@@ -72,10 +74,12 @@ public class NPC_Complete : NPC_States
     {
         patrolTarget = new Vector2(Random.Range(transform.position.x - 80, transform.position.x + 80), 0);
 
-        if (patrolTarget.x < transform.position.x)
-            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-        else
+        sign = (transform.position.x > patrolTarget.x) ? -1.0f : 1.0f;
+
+        if (patrolTarget.x > transform.position.x)
             gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+        else
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
 
         base.enterPatrol();
     }
@@ -94,7 +98,7 @@ public class NPC_Complete : NPC_States
             nextState = State.IDLE;
         }
 
-        rb2D.velocity = new Vector2(patrolSpeed * Mathf.Sign(playerTransform.position.x - patrolTarget.x), rb2D.velocity.y);
+        rb2D.velocity = new Vector2(patrolSpeed * sign, rb2D.velocity.y);
 
         base.patrol();
     }
@@ -106,6 +110,12 @@ public class NPC_Complete : NPC_States
 
     public override void enterPursue()
     {
+        if (playerTransform.position.x < transform.position.x)
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
+        else
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+
+
         base.enterPursue();
     }
     public override void pursue()
@@ -117,7 +127,8 @@ public class NPC_Complete : NPC_States
         else if (distanceToPlayer > visibilityDistance)
             nextState = State.IDLE;
 
-        rb2D.velocity = new Vector2(pursueSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x), rb2D.velocity.y);
+        sign = (transform.position.x > playerTransform.position.x) ? -1.0f : 1.0f;
+        rb2D.velocity = new Vector2(pursueSpeed * sign, rb2D.velocity.y);
     }
     public override void exitPursue()
     {
