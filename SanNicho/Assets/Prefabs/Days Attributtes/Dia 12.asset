@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.7
   diaNumero: 12
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
   heladero: 0
   heladosAgenerar: 0
@@ -44,10 +44,9 @@ MonoBehaviour:
   chiclesToSpawn: 7
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "Continuando con los informes deportivos, hoy se enfrentar\xE1n
-      Regatas vs Belgrano en basquetbol de primera... "
+    noticiaSentence: "...y esa es la raz\xF3n de porque los sordos no se divorcian..."
   - tvImage: {fileID: 0}
-    noticiaSentence: Aguarden un momento...
+    noticiaSentence: "\xA1Aguarden un momento! . . ."
   - tvImage: {fileID: 0}
     noticiaSentence: "\xBFKitty?... \xBFD\xF3nde est\xE1s?... \xBFAlguien ha visto
       a Kitty?..."

@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - Npc__Background
     - arcoFutbol
     - audioManager
+    - campeonatosManager
     - colectivo
     - collectable
     - costaneraCanvas
@@ -109,6 +110,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - UnityEditor.Timeline.SequenceHierarchy
+    - UnityEditor.Timeline.TimelineWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -141,6 +145,73 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
+    Assets/Scenes/Campeonatos.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11382}
+    - Class: 114
+      Script: {instanceID: 11988}
+    - Class: 114
+      Script: {instanceID: 12260}
+    - Class: 114
+      Script: {instanceID: 12716}
+    - Class: 114
+      Script: {instanceID: 12778}
+    - Class: 114
+      Script: {instanceID: 13056}
+    - Class: 114
+      Script: {instanceID: 13662}
+    - Class: 114
+      Script: {instanceID: 14264}
+    - Class: 114
+      Script: {instanceID: 14312}
+    - Class: 114
+      Script: {instanceID: 14804}
+    - Class: 114
+      Script: {instanceID: 14808}
+    - Class: 114
+      Script: {instanceID: 14852}
+    - Class: 114
+      Script: {instanceID: 14986}
+    - Class: 114
+      Script: {instanceID: 15354}
+    - Class: 114
+      Script: {instanceID: 15524}
+    - Class: 114
+      Script: {instanceID: 16572}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Costanera.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -247,37 +318,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14954}
     - Class: 114
-      Script: {instanceID: 15046}
+      Script: {instanceID: 15048}
     - Class: 114
-      Script: {instanceID: 15164}
+      Script: {instanceID: 15166}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15354}
     - Class: 114
-      Script: {instanceID: 15386}
+      Script: {instanceID: 15388}
     - Class: 114
-      Script: {instanceID: 15522}
+      Script: {instanceID: 15524}
     - Class: 114
-      Script: {instanceID: 15540}
+      Script: {instanceID: 15542}
     - Class: 114
-      Script: {instanceID: 15592}
+      Script: {instanceID: 15594}
     - Class: 114
-      Script: {instanceID: 15850}
+      Script: {instanceID: 15852}
     - Class: 114
-      Script: {instanceID: 15994}
+      Script: {instanceID: 15996}
     - Class: 114
-      Script: {instanceID: 16450}
-    - Class: 114
-      Script: {instanceID: 16486}
+      Script: {instanceID: 16452}
     - Class: 114
       Script: {instanceID: 16488}
     - Class: 114
-      Script: {instanceID: 16570}
+      Script: {instanceID: 16490}
     - Class: 114
-      Script: {instanceID: 16668}
+      Script: {instanceID: 16572}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16670}
     - Class: 114
-      Script: {instanceID: 16716}
+      Script: {instanceID: 16680}
+    - Class: 114
+      Script: {instanceID: 16718}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -404,45 +475,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14852}
     - Class: 114
-      Script: {instanceID: 15008}
+      Script: {instanceID: 15010}
     - Class: 114
-      Script: {instanceID: 15056}
+      Script: {instanceID: 15058}
     - Class: 114
-      Script: {instanceID: 15068}
+      Script: {instanceID: 15070}
     - Class: 114
-      Script: {instanceID: 15186}
+      Script: {instanceID: 15188}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15354}
     - Class: 114
-      Script: {instanceID: 15502}
+      Script: {instanceID: 15504}
     - Class: 114
-      Script: {instanceID: 15522}
+      Script: {instanceID: 15524}
     - Class: 114
-      Script: {instanceID: 15598}
+      Script: {instanceID: 15600}
     - Class: 114
-      Script: {instanceID: 15832}
+      Script: {instanceID: 15834}
     - Class: 114
-      Script: {instanceID: 15930}
+      Script: {instanceID: 15932}
     - Class: 114
-      Script: {instanceID: 15996}
+      Script: {instanceID: 15998}
     - Class: 114
-      Script: {instanceID: 16184}
+      Script: {instanceID: 16186}
     - Class: 114
-      Script: {instanceID: 16244}
+      Script: {instanceID: 16246}
     - Class: 114
-      Script: {instanceID: 16518}
+      Script: {instanceID: 16520}
     - Class: 114
-      Script: {instanceID: 16522}
+      Script: {instanceID: 16524}
     - Class: 114
-      Script: {instanceID: 16570}
-    - Class: 114
-      Script: {instanceID: 16606}
+      Script: {instanceID: 16572}
     - Class: 114
       Script: {instanceID: 16608}
     - Class: 114
-      Script: {instanceID: 16764}
+      Script: {instanceID: 16610}
     - Class: 114
-      Script: {instanceID: 16770}
+      Script: {instanceID: 16766}
+    - Class: 114
+      Script: {instanceID: 16772}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -509,11 +580,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14852}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15354}
     - Class: 114
-      Script: {instanceID: 15522}
+      Script: {instanceID: 15524}
     - Class: 114
-      Script: {instanceID: 16570}
+      Script: {instanceID: 16572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -566,11 +637,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14852}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15354}
     - Class: 114
-      Script: {instanceID: 15522}
+      Script: {instanceID: 15524}
     - Class: 114
-      Script: {instanceID: 16570}
+      Script: {instanceID: 16572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -647,11 +718,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14852}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15354}
     - Class: 114
-      Script: {instanceID: 15522}
+      Script: {instanceID: 15524}
     - Class: 114
-      Script: {instanceID: 16570}
+      Script: {instanceID: 16572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -671,69 +742,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
-      Script: {instanceID: 0}
-    Assets/Scenes/Torneos.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11382}
-    - Class: 114
-      Script: {instanceID: 11988}
-    - Class: 114
-      Script: {instanceID: 12260}
-    - Class: 114
-      Script: {instanceID: 12716}
-    - Class: 114
-      Script: {instanceID: 12778}
-    - Class: 114
-      Script: {instanceID: 13056}
-    - Class: 114
-      Script: {instanceID: 13662}
-    - Class: 114
-      Script: {instanceID: 14264}
-    - Class: 114
-      Script: {instanceID: 14312}
-    - Class: 114
-      Script: {instanceID: 14804}
-    - Class: 114
-      Script: {instanceID: 14808}
-    - Class: 114
-      Script: {instanceID: 14852}
-    - Class: 114
-      Script: {instanceID: 15352}
-    - Class: 114
-      Script: {instanceID: 15522}
-    - Class: 114
-      Script: {instanceID: 16570}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1260,7 +1268,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggle
   - hash:
       serializedVersion: 2
-      Hash: fd1013c7381dc779695a9cf053dfb59f
+      Hash: 479241dd5b6553181d4063a580d6f066
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: levelsSceneController
@@ -1684,6 +1692,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: VolumeComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: campeonatosManager
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -2183,5 +2197,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Noticiero.unity
   - Assets/Scenes/Costanera.unity
   - Assets/Scenes/Tienda.unity
-  - Assets/Scenes/Torneos.unity
+  - Assets/Scenes/Campeonatos.unity
   playerPath: C:/Users/Nico Calvelo/Documents/nico/Builds/TeBusco.apk

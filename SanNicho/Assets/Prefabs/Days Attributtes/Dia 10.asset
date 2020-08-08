@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.5
   diaNumero: 10
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
   heladero: 0
   heladosAgenerar: 0
@@ -24,15 +24,15 @@ MonoBehaviour:
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
   NPC_01_visibilityDistance: 53
-  NPC_01_timeToShoot: 1.65
+  NPC_01_timeToShoot: 1.8
   cantidadNPC_02: 2
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 1
-  NPC_02_hideTime: 1.6
+  NPC_02_hideTime: 1.65
   NPC_02_attackDistance: 30
   NPC_02_timeToShoot: 1.85
   cantidadNPC_03: 4
-  NPC_03_attackDistance: 35
+  NPC_03_attackDistance: 34
   NPC_03_timeToShoot: 1.9
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
@@ -44,17 +44,10 @@ MonoBehaviour:
   chiclesToSpawn: 7
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "En el d\xEDa de hoy queremos compartir con ustedes los resultados
-      publicados esta ma\xF1ana a partir de un estudio universitario sobre la competitividad..."
+    noticiaSentence: "... Y ese fue el resumen deportivo de esta semana. Ma\xF1ana
+      Regatas vs Belgrano en basquetbol de primera."
   - tvImage: {fileID: 0}
-    noticiaSentence: "Se ha realizado un estudio exahustivo sobre el desempe\xF1o
-      de deportistas en campeonatos profesionales a nivel nacional... Luego de siete
-      meses se ha llegado a las siguientes conclusiones..."
+    noticiaSentence: "Todo tipos de eventos y campeonatos se est\xE1n habilitando
+      en la ciudad. Incre\xEDbles premios los aguardan."
   - tvImage: {fileID: 0}
-    noticiaSentence: Ser competitivo en su justa medida es una virtud, ya que nos
-      ayuda a impulsarnos hacia nuevas metas, conseguir retos, tener aprendizajes
-      continuos, mejorarnos a nivel personal o profesional.
-  - tvImage: {fileID: 0}
-    noticiaSentence: "Cuesti\xF3n distinta es cuando est\xE1 competitividad resulta
-      excesiva, y en vez de un desarrollo personal lo que nos genera es una angustia
-      emocional..."
+    noticiaSentence: "\xA1Aprovechen! \xA1Compitan!  demuestren de lo que son capaces."

@@ -1016,6 +1016,7 @@ MonoBehaviour:
   infoPanel: {fileID: 612608286}
   diaText: {fileID: 783867960}
   intentosText: {fileID: 1748841284}
+  thisVersion: 1
 --- !u!1 &953110000
 GameObject:
   m_ObjectHideFlags: 0

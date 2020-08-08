@@ -99,5 +99,9 @@ public class menuSceneController : MonoBehaviour
         logrosPanel.SetActive(!logrosPanel.activeSelf);
         FindObjectOfType<audioManager>().playSound("click");
     }
-
+    public void onClickInsta(string instagram)
+    {
+        if(instagram != "")
+        Application.OpenURL(instagram);
+    }
 }

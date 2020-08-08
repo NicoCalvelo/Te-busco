@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e893c667724814cbbae306609c3635, type: 3}
   m_Name: RemoteSettingsDataStore
   m_EditorClassIdentifier: 
-  rsKeyList: []
+  rsKeyList:
+  - key: diasHabilitados
+    value: 20
+    type: int

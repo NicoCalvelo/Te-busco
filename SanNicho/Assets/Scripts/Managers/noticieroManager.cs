@@ -86,7 +86,7 @@ public class noticieroManager : MonoBehaviour
 
         yield return new WaitUntil(() => noticiasList.Count == notList.Length);
 
-
+        if(progressManager.Instance.nextDayAttribute.diaNumero != 25)
         noticiasList.Enqueue(endOfNoticias);
 
         Invoke("displayNextNoticia", 2.5f);

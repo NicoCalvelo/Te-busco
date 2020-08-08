@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.4
   diaNumero: 9
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
   heladero: 0
   heladosAgenerar: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_visibilityDistance: 52
-  NPC_01_timeToShoot: 1.75
+  NPC_01_visibilityDistance: 50
+  NPC_01_timeToShoot: 1.9
   cantidadNPC_02: 2
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 0

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.2
   diaNumero: 7
-  habilitado: 0
+  habilitado: 1
   shootLife: 6
   heladero: 0
   heladosAgenerar: 0
   elFamoso: 0
   pasadas: 0
   inicioNpc_01: 2
-  agregarNpc01Tarde: 2
+  agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
   NPC_01_visibilityDistance: 48
   NPC_01_timeToShoot: 1.8

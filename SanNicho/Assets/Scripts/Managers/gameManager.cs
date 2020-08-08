@@ -14,7 +14,7 @@ using UnityEngine.Analytics;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     30/07//2020 Calvelo Nicolás
+///     03/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -187,7 +187,7 @@ public class gameManager : MonoBehaviour
         int earned = (int)Mathf.Round(starsLeft * 10 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 15);
         costaneraCanvas.Instance.levelCompleted(earned);
 
-        if (progressManager.Instance.daysAttributes[progressManager.Instance.nextDayAttribute.diaNumero].habilitado == false)
+        if (progressManager.Instance.nextDayAttribute.diaNumero == progressManager.Instance.diasHabilitados)
             siguienteDiaBTN.interactable = false;
 
         if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)

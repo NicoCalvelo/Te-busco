@@ -9,7 +9,7 @@
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     22/07/2020 Calvelo Nicolás
+///     03/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -37,7 +37,7 @@ public class dayAttributes : ScriptableObject
     [Header("Npc_Complete")]
     public int inicioNpc_01;
     public int agregarNpc01Tarde, agregarNpc01Noche;
-    [Range(45, 65)]
+    [Range(0, 65)]
     public float NPC_01_visibilityDistance;
     [Range(1.5f, 3.0f)]
     public float NPC_01_timeToShoot;
@@ -58,7 +58,7 @@ public class dayAttributes : ScriptableObject
     [Header("Npc_Camera")]
     [Range(0, 10)]
     public int cantidadNPC_03;
-    [Range(15, 35)]
+    [Range(0, 35)]
     public float NPC_03_attackDistance;
     [Range(1.0f, 3.0f)]
     public float NPC_03_timeToShoot;
@@ -68,7 +68,7 @@ public class dayAttributes : ScriptableObject
     [Range(0, 4)]
     public int cantidadNPC_04;
     public int agregarNpc04Tarde, agregarNpc04Noche;
-    [Range(45, 55)]
+    [Range(0, 55)]
     public float NPC_04_attackDistance;
     [Range(.7f, 2.0f)]
     public float NPC_04_timeToShoot;

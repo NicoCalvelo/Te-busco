@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-using System.Collections;
 
 /// <Documentacion>
 /// Resumen:
@@ -13,7 +11,7 @@ using System.Collections;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     17/06//2020 Calvelo Nicolás
+///     03/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -41,6 +39,10 @@ public class levelsSceneController : MonoBehaviour
     [Header("UI Elements")]
     public TextMeshProUGUI diaText, intentosText;
 
+    enum version { Develop, Final};
+    [SerializeField]
+     version thisVersion;
+
 
     DateTime datevalue1, datevalue2;
     TextMeshProUGUI cronometer;
@@ -63,32 +65,33 @@ public class levelsSceneController : MonoBehaviour
 
         for (int i = 0; i < 25; i++)
         {
-            if(progressManager.Instance.daysAttributes[i].habilitado == false && setHabilitado == true)
-                bloqueado = true;
-
-
             if (bloqueado == false)
             {
                 GameObject d = Instantiate(diaPrefab, Vector3.zero, Quaternion.identity, grillaContent.transform);
                 d.GetComponent<levelBTN>().diaIndx = i;
                 d.GetComponent<levelBTN>().setBTN();
-                if (progressManager.Instance.daysAttributes[i + 1].habilitado == false)
+
+                if(i == 24)
+                {
+                    setDia(i);
+                    return;
+                }
+
+                if (i + 1 == progressManager.Instance.diasHabilitados)
                 {
                     setHabilitado = true;
                     bloqueado = true;
                     setDia(i);
                 }
 
-                if (progressManager.Instance.progressData.diasInfo[i + 1].completado == false && setHabilitado == false)
+                if (progressManager.Instance.progressData.diasInfo[i + 1].completado == false && thisVersion == version.Final)
                 {
                     bloqueado = true;
                     setDia(i);
                 }
-
             }
             else
             {
-
                 GameObject d = Instantiate(diaBloqPrefab, Vector3.zero, Quaternion.identity, grillaContent.transform);
                 if( setHabilitado == true)
                 {

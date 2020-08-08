@@ -17,29 +17,41 @@ MonoBehaviour:
   habilitado: 0
   shootLife: 0
   heladero: 1
-  heladosAgenerar: 4
+  heladosAgenerar: 2
   elFamoso: 1
-  pasadas: 3
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.7
-  cantidadNPC_02: 0
+  pasadas: 1
+  inicioNpc_01: 3
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 50
+  NPC_01_timeToShoot: 1.87
+  cantidadNPC_02: 4
   agregarNpc02Tarde: 0
-  agregarNpc02Noche: 0
-  NPC_02_hideTime: 0
-  NPC_02_attackDistance: 0
-  NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
-  NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
-  cantidadNPC_04: 0
-  agregarNpc04Tarde: 0
-  agregarNpc04Noche: 0
-  NPC_04_attackDistance: 0
-  NPC_04_timeToShoot: 0
-  cantidadNPC_Background: 6
-  bubblesToSpawn: 0
-  chiclesToSpawn: 0
-  noticiasList: []
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.45
+  NPC_02_attackDistance: 30.4
+  NPC_02_timeToShoot: 1.68
+  cantidadNPC_03: 4
+  NPC_03_attackDistance: 31
+  NPC_03_timeToShoot: 1.91
+  cantidadNPC_04: 2
+  agregarNpc04Tarde: 1
+  agregarNpc04Noche: 1
+  NPC_04_attackDistance: 54
+  NPC_04_timeToShoot: 1.82
+  cantidadNPC_Background: 7
+  bubblesToSpawn: 5
+  chiclesToSpawn: 8
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xBFClima?... \xA1Hermoso! \xBFComercios?... \xA1Listos! \xBFHoteles?...
+      \xA1Repletos!"
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xBFNicole\xF1os?... Disfrutando a full un dia emocionante
+      en la costanera \xA1Hay mucha expectativa por el dia de ma\xF1ana!"
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Todos sabemos que el dia de la virgen no es hoy. Sin embargo,
+      todas las miradas se encuentran puestas en esa imponente c\xFApula."
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Realmente es una lastima que la estatua del gordo, otro icono
+      de la costanera, no se encuentre para acompa\xF1arnos en estas jornadas."

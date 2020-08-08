@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionDelDia: 6.3
   diaNumero: 8
-  habilitado: 0
+  habilitado: 1
   shootLife: 0
   heladero: 0
   heladosAgenerar: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_visibilityDistance: 55
-  NPC_01_timeToShoot: 1.75
+  NPC_01_visibilityDistance: 53
+  NPC_01_timeToShoot: 1.8
   cantidadNPC_02: 3
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 1
@@ -44,9 +44,9 @@ MonoBehaviour:
   chiclesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "Anunciamos la nueva llegada de la \xFAltima generaci\xF3n de
-      celulares aifons al mercado. No tenemos muy en claro cuales son sus mejoras
-      y aumentos... Adem\xE1s del precio..."
+    noticiaSentence: "Anunciamos la nueva salida de la \xFAltima generaci\xF3n de
+      celulares al mercado. No tenemos muy en claro cuales son sus mejoras y aumentos...
+      Adem\xE1s del precio..."
   - tvImage: {fileID: 0}
     noticiaSentence: "Ah si las c\xE1maras... Como si dos lentes no alcanzaran, un
       tercero permite que el alcance en las fotos sea mucho mayor de lo que uno podr\xEDa

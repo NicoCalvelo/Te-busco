@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 25
   m_EditorClassIdentifier: 
-  duracionDelDia: 8
+  duracionDelDia: 5.8
   diaNumero: 25
   habilitado: 0
   shootLife: 0
@@ -20,10 +20,10 @@ MonoBehaviour:
   heladosAgenerar: 0
   elFamoso: 0
   pasadas: 0
-  inicioNpc_01: 0
-  agregarNpc01Tarde: 0
-  agregarNpc01Noche: 0
-  NPC_01_visibilityDistance: 48
+  inicioNpc_01: 4
+  agregarNpc01Tarde: 1
+  agregarNpc01Noche: 1
+  NPC_01_visibilityDistance: 0
   NPC_01_timeToShoot: 1.7
   cantidadNPC_02: 0
   agregarNpc02Tarde: 0
@@ -31,15 +31,17 @@ MonoBehaviour:
   NPC_02_hideTime: 0
   NPC_02_attackDistance: 0
   NPC_02_timeToShoot: 0
-  cantidadNPC_03: 0
+  cantidadNPC_03: 6
   NPC_03_attackDistance: 0
-  NPC_03_timeToShoot: 0
+  NPC_03_timeToShoot: 1
   cantidadNPC_04: 0
-  agregarNpc04Tarde: 0
+  agregarNpc04Tarde: 2
   agregarNpc04Noche: 0
   NPC_04_attackDistance: 0
-  NPC_04_timeToShoot: 0
+  NPC_04_timeToShoot: 0.7
   cantidadNPC_Background: 7
   bubblesToSpawn: 0
   chiclesToSpawn: 0
-  noticiasList: []
+  noticiasList:
+  - tvImage: {fileID: 0}
+    noticiaSentence: "\xA1Finalmente ha llegado! Nos vemos en el campito."

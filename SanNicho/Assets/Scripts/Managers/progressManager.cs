@@ -11,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/07/2020 Calvelo Nicolás
+///     03/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -121,14 +121,6 @@ public class progressManager : MonoBehaviour
             file.Close();
         }
 
-        for (int i = 0; i < diasHabilitados; i++)
-        {
-            daysAttributes[i].habilitado = true;
-        }
-        for (int i = diasHabilitados; i < 25; i++)
-        {
-            daysAttributes[i].habilitado = false;
-        }
     }
 
     //Cuando se cierra la aplicacion se guarda la info del jugador en el archivo

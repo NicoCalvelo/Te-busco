@@ -9,7 +9,7 @@ using UnityEngine;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     30/07/2020 Calvelo Nicolás
+///     08/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -43,12 +43,6 @@ public class playerController : MonoBehaviour
     }
     public Platform actualPlatform = Platform.Mobile;
 
-    enum State
-    {
-        Moving
-    }
-    State state = State.Moving;
-
 
     void Awake()
     {
@@ -58,15 +52,12 @@ public class playerController : MonoBehaviour
         transform.position = new Vector2(-110, 1.5f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        switch (state)
-        {
-            case State.Moving:
-                MoveState();
-                checkGrounded();
-                break;
-        }
+
+        MoveState();
+        checkGrounded();
+
         switch (actualPlatform)
         {
             case Platform.PC:
@@ -142,13 +133,13 @@ public class playerController : MonoBehaviour
         if (xAxis == 1 && playerAnimController.spriteRenderer.flipX == true)
         {
             playerAnimController.flip(false);
-            setCollider(.7f);
+            setCollider(1.2f);
         }
 
         if (xAxis == -1 && playerAnimController.spriteRenderer.flipX == false)
         {
             playerAnimController.flip(true);
-            setCollider(-.8f);
+            setCollider(-1.5f);
         }
 
 
@@ -237,8 +228,9 @@ public class playerController : MonoBehaviour
         {
             jumpFoce = jumpFoce / 2;
             playerAnimController.changeColor( new Color32(255, 175, 201, 255));
+            chicleState = true;
         }
-        else if(chicleState == true)
+        else if(enter == false && chicleState == true)
         {
             jumpFoce = jumpFoce * 2;
             playerAnimController.changeColor(Color.white);
