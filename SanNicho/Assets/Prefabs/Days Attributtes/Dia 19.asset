@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 19
   m_EditorClassIdentifier: 
-  duracionDelDia: 7.4
+  duracionDelDia: 6.1
   diaNumero: 19
   habilitado: 1
   shootLife: 0
@@ -20,32 +20,32 @@ MonoBehaviour:
   heladosAgenerar: 3
   elFamoso: 1
   pasadas: 3
-  inicioNpc_01: 2
+  inicioNpc_01: 3
   agregarNpc01Tarde: 1
-  agregarNpc01Noche: 0
+  agregarNpc01Noche: 1
   NPC_01_visibilityDistance: 52
   NPC_01_timeToShoot: 1.9
-  cantidadNPC_02: 2
-  agregarNpc02Tarde: 0
+  cantidadNPC_02: 4
+  agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
   NPC_02_hideTime: 2
   NPC_02_attackDistance: 27
-  NPC_02_timeToShoot: 1.95
-  cantidadNPC_03: 2
+  NPC_02_timeToShoot: 1.98
+  cantidadNPC_03: 5
   NPC_03_attackDistance: 31
   NPC_03_timeToShoot: 2
   cantidadNPC_04: 2
   agregarNpc04Tarde: 1
   agregarNpc04Noche: 1
   NPC_04_attackDistance: 55
-  NPC_04_timeToShoot: 1.2
+  NPC_04_timeToShoot: 1.3
   cantidadNPC_Background: 4
   bubblesToSpawn: 5
-  chiclesToSpawn: 4
+  chiclesToSpawn: 9
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "En vista de los pr\xF3ximos eventos que se aproximan a la ciudad
-      han llegado drones a\xE9reos para el trabajo de filmaci\xF3n..."
+      han llegado drones a\xE9reos para el trabajo de filmaci\xF3n\u2026"
   - tvImage: {fileID: 0}
     noticiaSentence: "Estas m\xE1quinas son conocidas por el abrumante sonido de
-      aspas... Esperamos que no molesten a nadie en sus paseos matutinos."
+      sus aspas... Esperamos que no molesten a nadie en sus paseos matutinos."

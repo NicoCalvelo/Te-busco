@@ -20,7 +20,7 @@ MonoBehaviour:
   heladosAgenerar: 0
   elFamoso: 0
   pasadas: 0
-  inicioNpc_01: 3
+  inicioNpc_01: 2
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
   NPC_01_visibilityDistance: 52
@@ -44,10 +44,10 @@ MonoBehaviour:
   chiclesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "\xA1El mes de septiembre ya esta aqu\xED! El mes en que nuestra
-      querida ciudad se llena de vida. As\xED es queridos nicole\xF1os! El edificio
-      m\xE1s emblematico de la ciudad comienza con sus preparativos. "
+    noticiaSentence: "\xA1El mes de septiembre ya est\xE1 aqu\xED! El mes en que
+      nuestra querida ciudad se llena de vida. \xA1As\xED es queridos nicole\xF1os!
+      El edificio m\xE1s emblem\xE1tico de la ciudad comienza con sus preparativos. "
   - tvImage: {fileID: 0}
     noticiaSentence: "Parece incre\xEDble que tambi\xE9n, en estos momentos, la estatua
       m\xE1s imponente de la costanera haya desaparecido... \xBFReformas? \xBFBandalismo?
-      \xBFUna se\xF1al de protesta?  Los mantendremos informados al respecto."
+      \xBFUna se\xF1al de protesta? Los mantendremos informados al respecto."

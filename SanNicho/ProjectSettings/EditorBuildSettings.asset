@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campeonatos.unity
     guid: bf26d6070f35c0440b7b675a047dda61
+  - enabled: 1
+    path: Assets/Scenes/Cinematicas.unity
+    guid: 3a6aac5f1caff9946aab29713b2b1bcb
   m_configObjects: {}

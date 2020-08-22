@@ -41,7 +41,7 @@ public class slotPrefab : MonoBehaviour
     //Se setea el prefab
     public void setPrefab()
     {
-        int itemLevel = progressManager.Instance.progressData.shopItems.Find(i => i.name == thisItem.itemName).nivel;
+        int itemLevel = progressManager.Instance.progressData.itemsShop.Find(i => i.name == thisItem.itemName).nivel;
         icon.sprite = thisItem.icon;
         nombre.text = thisItem.itemName;
 
@@ -51,6 +51,20 @@ public class slotPrefab : MonoBehaviour
             nivel.text = "Nvl " + itemLevel.ToString();
             mejorarText.text = "mejorar";
             mensaje.text = thisItem.mensajeDeMejora;
+
+            if(thisItem.cantidadDeNiveles < 4)
+            {
+                lvl4.enabled = false;
+                if(thisItem.cantidadDeNiveles < 3)
+                {
+                    lvl3.enabled = false;
+                    if(thisItem.cantidadDeNiveles < 2)
+                    {
+                        lvl2.enabled = false;
+                    }
+                }
+            }
+
             if (itemLevel > 1)
             {
                 lvl2.color = mejorado;
@@ -71,7 +85,6 @@ public class slotPrefab : MonoBehaviour
                 mejorarText.alignment = TextAlignmentOptions.Midline;
                 costo.transform.parent.gameObject.SetActive(false);
             }
-
         }
         else
         {
@@ -92,13 +105,13 @@ public class slotPrefab : MonoBehaviour
         if(progressManager.Instance.progressData.totalPuntos > costoDeMejora)
         {
             progressManager.Instance.progressData.totalPuntos -= Mathf.RoundToInt(costoDeMejora);
-            progressManager.Instance.progressData.shopItems.Find(i => i.name == thisItem.itemName).nivel++;
+            progressManager.Instance.progressData.itemsShop.Find(i => i.name == thisItem.itemName).nivel++;
             //Animacion de compra
             anim.SetTrigger(parameterYes);
             //Sonido de compra
             audioManager.Instance.playSound("comprado");
 
-
+            FindObjectOfType<shopController>().monedasText.text = progressManager.Instance.progressData.totalPuntos.ToString("F0");
             setPrefab();
 
         }

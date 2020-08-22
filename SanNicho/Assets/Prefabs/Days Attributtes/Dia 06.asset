@@ -44,12 +44,12 @@ MonoBehaviour:
   chiclesToSpawn: 0
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "Hermoso d\xEDa de Domingo. El fin de la semana para algunos...
-      el principio de la semana para otros... Nunca nos pondremos de acuerdo..."
+    noticiaSentence: "Hoy es un hermoso d\xEDa de Domingo. El fin de la semana para
+      algunos, el principio de la semana para otros... Nunca nos pondremos de acuerdo."
   - tvImage: {fileID: 0}
     noticiaSentence: "Aunque como Argentinos, siempre coincidiremos en algunas cosas...
-      \xA1As\xED es! D\xEDa de familia, d\xEDa de asado, d\xEDa de f\xFAtbol."
+      Hoy es d\xEDa de familia, d\xEDa de asado, \xA1d\xEDa de f\xFAtbol!"
   - tvImage: {fileID: 0}
     noticiaSentence: "Emociona ver como con tantas energ\xEDas los chicos sacan sus
-      arcos y pelotas a la calle... Evidenciando c\xF3mo este deporte corre por nuestra
+      arcos y pelotas a la calle, evidenciando c\xF3mo este deporte corre por nuestra
       sangre."

@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 50
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -2174,6 +2174,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Progress Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802456816870230909, guid: 74b70396d841d2046ac7c3015da74253,
+        type: 3}
+      propertyPath: progressData.itemsShop.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802456816870230909, guid: 74b70396d841d2046ac7c3015da74253,
+        type: 3}
+      propertyPath: progressData.itemsShop.Array.data[0].name
+      value: burbuja
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74b70396d841d2046ac7c3015da74253, type: 3}

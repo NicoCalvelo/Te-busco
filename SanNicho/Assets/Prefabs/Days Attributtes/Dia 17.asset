@@ -12,36 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 17
   m_EditorClassIdentifier: 
-  duracionDelDia: 7.2
+  duracionDelDia: 6
   diaNumero: 17
   habilitado: 1
   shootLife: 0
   heladero: 1
-  heladosAgenerar: 4
+  heladosAgenerar: 3
   elFamoso: 1
-  pasadas: 9
+  pasadas: 7
   inicioNpc_01: 3
-  agregarNpc01Tarde: 1
+  agregarNpc01Tarde: 2
   agregarNpc01Noche: 1
-  NPC_01_visibilityDistance: 48
-  NPC_01_timeToShoot: 1.75
+  NPC_01_visibilityDistance: 52
+  NPC_01_timeToShoot: 1.82
   cantidadNPC_02: 4
-  agregarNpc02Tarde: 0
-  agregarNpc02Noche: 0
-  NPC_02_hideTime: 1
-  NPC_02_attackDistance: 33.4
-  NPC_02_timeToShoot: 1.7
-  cantidadNPC_03: 3
-  NPC_03_attackDistance: 30.3
-  NPC_03_timeToShoot: 1.7
+  agregarNpc02Tarde: 1
+  agregarNpc02Noche: 1
+  NPC_02_hideTime: 1.2
+  NPC_02_attackDistance: 32.5
+  NPC_02_timeToShoot: 1.98
+  cantidadNPC_03: 5
+  NPC_03_attackDistance: 31
+  NPC_03_timeToShoot: 1.88
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
   agregarNpc04Noche: 0
   NPC_04_attackDistance: 0
   NPC_04_timeToShoot: 0
   cantidadNPC_Background: 4
-  bubblesToSpawn: 4
-  chiclesToSpawn: 8
+  bubblesToSpawn: 3
+  chiclesToSpawn: 9
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "\xDAltimamente han ocurrido varios accidentes de autos en la
@@ -51,5 +51,5 @@ MonoBehaviour:
     noticiaSentence: Gracias a los trabajos de pavimento por parte de la municipalidad
       ahora las calles se encuentran en mejores condiciones.
   - tvImage: {fileID: 0}
-    noticiaSentence: "Realizariamos la t\xEDpica advertencia para que circulen m\xE1s
-      despacio... Pero al parecer los ni\xF1os ya no juegan en las calles."
+    noticiaSentence: "Realizar\xEDamos la t\xEDpica advertencia para que circulen
+      m\xE1s despacio... Pero al parecer los ni\xF1os ya no juegan en las calles."

@@ -18,16 +18,15 @@ public class NPC_Static : NPC_States
     [SerializeField]
     private Transform phone;
     [SerializeField]
-    private GameObject shootPrefab;
-    [SerializeField]
-    private float hideTime = 2f, attackDistance = 20, timeToShoot = 5;
+    private float hideTime = 2f, attackDistance = 20, timeToShoot = 1;
+
+    int parameterShow = Animator.StringToHash("show");
 
     public override void Awake()
     {
         hideTime = progressManager.Instance.nextDayAttribute.NPC_02_hideTime;
         attackDistance = progressManager.Instance.nextDayAttribute.NPC_02_attackDistance;
         timeToShoot = progressManager.Instance.nextDayAttribute.NPC_02_timeToShoot;
-
         base.Awake();
     }
 
@@ -41,31 +40,28 @@ public class NPC_Static : NPC_States
     {
         StartCoroutine(toAttack());
         anim.enabled = true;
+        anim.SetBool(parameterShow, false);
     }
 
     IEnumerator toAttack()
     {
         yield return new WaitForSeconds(hideTime);
 
-        if (Vector2.Distance(transform.position, playerTransform.position) < attackDistance)
-        {
-            if (playerTransform.position.x < transform.position.x)                       
-                gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.parent.rotation.w);         
-            else if (playerTransform.position.x > transform.position.x)          
-                gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.parent.rotation.w);
+        yield return new WaitUntil(() => Vector2.Distance(transform.position, playerTransform.position) < attackDistance);
+
+        if (playerTransform.position.x < transform.position.x)                       
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.parent.rotation.w);         
+        else if (playerTransform.position.x > transform.position.x)          
+            gameObject.transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.parent.rotation.w);
             
-            anim.SetBool("show", true);
-            audioManager.Instance.playSound("bush");
-            yield return new WaitForSeconds(timeToShoot);
-            Instantiate(shootPrefab, phone.position, Quaternion.identity);
-            audioManager.Instance.playSound("NPCshoot");
-            yield return new WaitForSeconds(1);
-            anim.SetBool("show", false);
-            yield return new WaitForSeconds(2);
-        }
-
+        anim.SetBool(parameterShow, true);
+        audioManager.Instance.playSound("bush");
+        yield return new WaitForSeconds(timeToShoot);
+        npcManager.Instance.requestPhoto(phone.position);
+        yield return new WaitForSeconds(1);
+        anim.SetBool(parameterShow, false);
+        yield return new WaitForSeconds(2);
         StartCoroutine(toAttack());
-
     }
 
 }

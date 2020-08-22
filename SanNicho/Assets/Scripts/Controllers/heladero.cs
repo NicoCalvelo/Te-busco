@@ -9,7 +9,7 @@ using UnityEngine;
 ///     22/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     22/07//2020 Calvelo Nicolás
+///     16/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -59,8 +59,8 @@ public class heladero : MonoBehaviour
 
             }
 
-            GameObject newItem = Instantiate(heladoCollectable, transform.position, Quaternion.identity);
-            newItem.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            GameObject newItem = Instantiate(heladoCollectable, new Vector2(transform.position.x, transform.position.y +5), Quaternion.identity);
+            newItem.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15, ForceMode2D.Impulse);
 
             yield return new WaitForSeconds(tiempoDeIntervalo - primerTiempo);
             anim.ResetTrigger("generate");

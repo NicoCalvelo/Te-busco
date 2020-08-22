@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <Documentacion>
 /// Resumen:
@@ -10,7 +11,7 @@ using UnityEngine;
 ///     16/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     26/07/2020 Calvelo Nicolás
+///     14/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 /// 
@@ -38,6 +39,8 @@ public class npcManager : MonoBehaviour
     Transform player;
 
 
+    public Queue<GameObject> photoQueue;
+    public GameObject shootPrefab;
 
     [SerializeField]
     private GameObject npc01Prefab, npc02Prefab, npc03Prefab, npc04Prefab, npcBackground;
@@ -56,6 +59,8 @@ public class npcManager : MonoBehaviour
 
     private void Start()
     {
+        photoQueue = new Queue<GameObject>();
+
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.inicioNpc_01; i++)
         {
             Invoke("instantiateNewNpc", Random.Range(0.1f, 3.0f));
@@ -146,14 +151,36 @@ public class npcManager : MonoBehaviour
         }
     }
 
-    public IEnumerator exitPlayerView(GameObject npc)
+    public IEnumerator exitPlayerView(Transform npcTransform)
     {
         yield return new WaitForSeconds(3);
 
-        npcDictionary.Remove(npc.name);
-        Destroy(npc);
-        instantiateNewNpc();
+        npcTransform.position = new Vector2(player.position.x + (85 * (Random.Range(0, 2) * 2 - 1)), 0);
+
+        if (npcTransform.position.x < gameManager.Instance.sceneLimitLeft || npcTransform.position.x > gameManager.Instance.sceneLimitRigth)
+            StartCoroutine(exitPlayerView(npcTransform));
     }
+
+
+    public void storePhoto(GameObject photo)
+    {
+        photoQueue.Enqueue(photo);
+    }
+    public void requestPhoto(Vector2 pos)
+    {
+        GameObject newPhoto;
+
+        if (photoQueue.Count > 0)
+        {
+            newPhoto = photoQueue.Dequeue();
+            newPhoto.SetActive(true);
+        }
+        else
+            newPhoto = Instantiate(shootPrefab, Vector3.zero, Quaternion.identity);
+
+        newPhoto.transform.position = pos;
+    }
+
 
     void instantiateNewNpc()
     {

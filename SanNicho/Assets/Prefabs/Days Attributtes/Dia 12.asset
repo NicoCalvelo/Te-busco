@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 12
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.7
+  duracionDelDia: 6.4
   diaNumero: 12
   habilitado: 1
   shootLife: 0
@@ -22,9 +22,9 @@ MonoBehaviour:
   pasadas: 0
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
-  agregarNpc01Noche: 1
+  agregarNpc01Noche: 0
   NPC_01_visibilityDistance: 51
-  NPC_01_timeToShoot: 1.8
+  NPC_01_timeToShoot: 1.82
   cantidadNPC_02: 3
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
@@ -33,14 +33,14 @@ MonoBehaviour:
   NPC_02_timeToShoot: 2
   cantidadNPC_03: 6
   NPC_03_attackDistance: 33
-  NPC_03_timeToShoot: 1.65
+  NPC_03_timeToShoot: 1.78
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
   agregarNpc04Noche: 0
   NPC_04_attackDistance: 0
   NPC_04_timeToShoot: 0
   cantidadNPC_Background: 3
-  bubblesToSpawn: 7
+  bubblesToSpawn: 4
   chiclesToSpawn: 7
   noticiasList:
   - tvImage: {fileID: 0}

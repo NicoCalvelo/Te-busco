@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <Documentacion>
 /// Resumen:
@@ -9,7 +8,7 @@ using UnityEngine;
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/06/2020 Calvelo Nicolás
+///     11/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -17,8 +16,6 @@ public class NPC_Complete : NPC_States
 {
     [SerializeField]
     private Transform phone;
-    [SerializeField]
-    private GameObject shootPrefab;
     [SerializeField]
     private float idleTime = 2f, patrolSpeed = 8, pursueSpeed = 13, visibilityDistance = 45, attackDistance = 20, timeToShoot = 5;
 
@@ -30,17 +27,21 @@ public class NPC_Complete : NPC_States
     float distanceToPlayer;
     float sign;
 
+    //Animations parameters
+    int parameterIdle = Animator.StringToHash("isIdle");
+    int parameterPatrol = Animator.StringToHash("isPatroling");
+    int parameterPursue = Animator.StringToHash("isPursuing");
+    int parameterAttack = Animator.StringToHash("isAttacking");
+
 
     public override void Awake()
     {
-        idleTime = Random.Range(1.4f, 3.0f);
+        idleTime = Random.Range(1.4f, 2.6f);
         visibilityDistance = progressManager.Instance.nextDayAttribute.NPC_01_visibilityDistance;
         timeToShoot = progressManager.Instance.nextDayAttribute.NPC_01_timeToShoot;
 
         rb2D = GetComponent<Rigidbody2D>();
         idleTimeLeft = idleTime;
-
-
 
         base.Awake();
     }
@@ -52,10 +53,12 @@ public class NPC_Complete : NPC_States
 
     public override void enterIdle()
     {
+        anim.SetTrigger(parameterIdle);
+
         idleTimeLeft = idleTime;
         distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        if (distanceToPlayer > 130 && outOfScreen == null)
-            outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
+        if (distanceToPlayer > 105 && outOfScreen == null)
+            outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(transform));
 
         base.enterIdle();
     }
@@ -65,6 +68,7 @@ public class NPC_Complete : NPC_States
         if (idleTimeLeft < 0)
         {
             nextState = State.PATROL;
+            anim.ResetTrigger(parameterIdle);
         }
 
         base.idle();
@@ -72,7 +76,11 @@ public class NPC_Complete : NPC_States
 
     public override void enterPatrol()
     {
+        anim.SetTrigger(parameterPatrol);
         patrolTarget = new Vector2(Random.Range(transform.position.x - 80, transform.position.x + 80), 0);
+
+        if (patrolTarget.x < gameManager.Instance.sceneLimitLeft || patrolTarget.x > gameManager.Instance.sceneLimitRigth)
+            patrolTarget = transform.position + Vector3.left;
 
         sign = (transform.position.x > patrolTarget.x) ? -1.0f : 1.0f;
 
@@ -90,10 +98,14 @@ public class NPC_Complete : NPC_States
         {
             nextState = State.PURSUE;
         }
+        if(distanceToPlayer > 130)
+        {
+            nextState = State.IDLE;
+        }
 
         float distanceToTarget = Vector2.Distance(transform.position, patrolTarget);
 
-        if (distanceToTarget < 10)
+        if (distanceToTarget < 4)
         {
             nextState = State.IDLE;
         }
@@ -105,11 +117,14 @@ public class NPC_Complete : NPC_States
     public override void exitPatrol()
     {
         rb2D.velocity = Vector2.zero;
+        anim.ResetTrigger(parameterPatrol);
         base.exitPatrol();
     }
 
     public override void enterPursue()
     {
+        anim.SetTrigger(parameterPursue);
+
         if (playerTransform.position.x < transform.position.x)
             gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
         else
@@ -133,6 +148,7 @@ public class NPC_Complete : NPC_States
     public override void exitPursue()
     {
         rb2D.velocity = Vector2.zero;
+        anim.ResetTrigger(parameterPursue);
         base.exitPursue();
     }
 
@@ -144,6 +160,7 @@ public class NPC_Complete : NPC_States
     public override void enterAttack()
     {
         shootTimeLeft = timeToShoot;
+        anim.SetTrigger(parameterAttack);
         base.enterAttack();
     }
     public override void attack()
@@ -153,13 +170,16 @@ public class NPC_Complete : NPC_States
         if (shootTimeLeft < 0)
         {
 
-            Instantiate(shootPrefab, phone.position, Quaternion.identity);
-            audioManager.Instance.playSound("NPCshoot");
+            npcManager.Instance.requestPhoto(phone.position);
             shootTimeLeft = timeToShoot;
 
             distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
             if (distanceToPlayer > attackDistance)
+            {
+                anim.ResetTrigger(parameterAttack);
                 nextState = State.IDLE;
+            }
+
         }
         base.attack();
     }
@@ -174,13 +194,13 @@ public class NPC_Complete : NPC_States
 
     private void OnBecameInvisible()
     {
-        outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(gameObject));
-        GetComponent<Animator>().enabled = false;
+        outOfScreen = StartCoroutine(npcManager.Instance.exitPlayerView(transform));
+        anim.enabled = false;
     }
 
     private void OnBecameVisible()
     {
-        GetComponent<Animator>().enabled = true;
+        anim.enabled = true;
 
         if (outOfScreen != null)
         {

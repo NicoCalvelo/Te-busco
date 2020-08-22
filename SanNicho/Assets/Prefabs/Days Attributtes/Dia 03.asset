@@ -47,7 +47,7 @@ MonoBehaviour:
     noticiaSentence: "D\xEDas soleados como estos invitan a pasar las tardes en los
       parques de la ciudad... Y los chicos lo aceptan con gusto."
   - tvImage: {fileID: 0}
-    noticiaSentence: "Uno puede verlos corriendo, jugando, escondiendose detras de
-      los \xE1rboles y los arbustos \xA1Contin\xFAen as\xED! aprovechando mientras
+    noticiaSentence: "Uno puede verlos corriendo, jugando, escondi\xE9ndose detr\xE1s
+      de los \xE1rboles y los arbustos \xA1Contin\xFAen as\xED! Aprovechando mientras
       el tiempo lo permita... acorde a nuestros estudios meteorol\xF3gicos se avecina
       una lluvia un poco peculiar."

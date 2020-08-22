@@ -62,10 +62,10 @@ public class colectivo : MonoBehaviour
         {
             nextPos = pos.Dequeue();
             yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPos) < 5);
-            progressManager.Instance.progressData.logros[2].porcentajeCompletado = 1.0f * positions.Length / pos.Count;
+            progressManager.Instance.progressData.logros[1].porcentajeCompletado = 1.0f * positions.Length / pos.Count;
         }
 
-        progressManager.Instance.progressData.logros[2].completado = true;
+        progressManager.Instance.progressData.logros[1].completado = true;
         anim.enabled = false;
         GetComponent<Collider2D>().enabled = false;
         audio.enabled = false;

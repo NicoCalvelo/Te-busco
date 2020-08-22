@@ -12,7 +12,7 @@ using TMPro;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     30/07//2020 Calvelo Nicolás
+///     15/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -54,18 +54,24 @@ public class noticieroManager : MonoBehaviour
             else
             {
                 progressManager.Instance.progressData.diasInfo[13].completado = true;
-                if (progressManager.Instance.progressData.diasInfo[12].estrellas == 0)
+
+                if (progressManager.Instance.progressData.diasInfo[13].estrellas == 0)
                     noticiaText.text = "Por motivos supersticiosos hoy no trabajamos...";
                 else if (progressManager.Instance.progressData.diasInfo[13].estrellas == 1)
                     noticiaText.text = "Ya te hemos avisado... Hoy cerramos, vuelve mañana.";
                 else if (progressManager.Instance.progressData.diasInfo[13].estrellas == 2)
                     noticiaText.text = "Si que eres persistenete... Aqui tienes tu tercer estrella.";
+
                 progressManager.Instance.progressData.diasInfo[13].estrellas++;
             }
 
-            Invoke("returnLevels", 6);
+            Invoke("returnLevels", 8);
 
             return;
+        }
+        else if (progressManager.Instance.nextDayAttribute.diaNumero == 12)
+        {
+            gato.enabled = false;
         }
 
         FindObjectOfType<audioManager>().playSound("mainMusic");

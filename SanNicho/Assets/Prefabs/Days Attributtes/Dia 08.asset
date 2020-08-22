@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 08
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.3
+  duracionDelDia: 6.2
   diaNumero: 8
   habilitado: 1
   shootLife: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
       celulares al mercado. No tenemos muy en claro cuales son sus mejoras y aumentos...
       Adem\xE1s del precio..."
   - tvImage: {fileID: 0}
-    noticiaSentence: "Ah si las c\xE1maras... Como si dos lentes no alcanzaran, un
-      tercero permite que el alcance en las fotos sea mucho mayor de lo que uno podr\xEDa
-      necesitar."
+    noticiaSentence: "Ah si las c\xE1maras... "
+  - tvImage: {fileID: 0}
+    noticiaSentence: "Como si dos lentes no alcanzaran, un tercero permite que el
+      alcance en las fotos sea mucho mayor de lo que uno podr\xEDa necesitar..."

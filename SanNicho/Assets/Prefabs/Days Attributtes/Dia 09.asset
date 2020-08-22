@@ -47,8 +47,9 @@ MonoBehaviour:
     noticiaSentence: "En el d\xEDa de hoy trataremos un tema bastante frecuente...
       El manejo de los residuos en la ciudad..."
   - tvImage: {fileID: 0}
-    noticiaSentence: Uno puede salir a dar un paseo, encontrarse con las calles llenas
-      de basura, y en el transcurso aburrirse de pisar chicles en la vereda...
+    noticiaSentence: "Uno quiere salir a dar un paseo pero termina encontr\xE1ndose
+      con las calles llenas de basura. \xA1Se van a agotar de pisar chicles en la
+      vereda!"
   - tvImage: {fileID: 0}
     noticiaSentence: Los servicios de limpieza no dan a basto con el mantenimiento
       de las calles y de los parques. Es por esto que, desde "Noticias el Sur", les

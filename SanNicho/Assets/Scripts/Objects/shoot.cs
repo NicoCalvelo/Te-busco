@@ -8,7 +8,7 @@
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     10/07/2020 Calvelo Nicolás
+///     14/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -18,7 +18,22 @@ public class shoot : MonoBehaviour
     [SerializeField]
     float shootSpeed = 17;
 
+    bool stored = false;
+
+    [SerializeField]
+    private AudioSource audio;
+
     private void Start()
+    {
+        setPhoto();
+    }
+
+    private void OnEnable()
+    {
+        Invoke("setPhoto", .01f);
+    }
+
+    void setPhoto()
     {
         targetPos = gameManager.Instance.playerTransfrorm.position;
         targetPos = new Vector3(targetPos.x, targetPos.y + 3.5f); 
@@ -28,6 +43,9 @@ public class shoot : MonoBehaviour
         float angle = Vector2.Angle(Vector2.up, diference) * sign;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
+        audio.Play();
+
+        stored = false;
 
         if (progressManager.Instance.nextDayAttribute.shootLife > 0)
             Destroy(gameObject, progressManager.Instance.nextDayAttribute.shootLife);
@@ -47,12 +65,15 @@ public class shoot : MonoBehaviour
 
         if (col.gameObject.tag != "NPC")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        if (gameObject.activeSelf)
+            gameObject.SetActive(false);
+        npcManager.Instance.storePhoto(gameObject);
+
     }
 }

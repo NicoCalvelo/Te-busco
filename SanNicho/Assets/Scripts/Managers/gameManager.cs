@@ -88,6 +88,9 @@ public class gameManager : MonoBehaviour
         float invokeTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / 32;
         InvokeRepeating("setTime", invokeTime, invokeTime);
 
+        if (progressManager.Instance.buildPlataform == progressManager.Platform.PC)
+            movementBTNs.gameObject.SetActive(false);
+
         StartCoroutine(spawnCollectables());
 
         //agregar un intento de nivel al progress manager
@@ -250,7 +253,7 @@ public class gameManager : MonoBehaviour
             costaneraCanvas.Instance.agregarCollectable(collectables.Chicle);
         }else if(itemCollected == collectables.Helado)
         {
-            FindObjectOfType<playerController>().onGetHelado = true;
+            FindObjectOfType<playerController>().onGetHelado(true);
             costaneraCanvas.Instance.agregarCollectable(collectables.Helado);
         }else if(itemCollected == collectables.Resorte)
         {

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2596879278626354939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2596879278626354938}
+  - component: {fileID: 2596879278626354937}
+  m_Layer: 0
+  m_Name: game_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2596879278626354938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596879278626354939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2596879278626354937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596879278626354939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616f3bd6446ac3343a0805ce4ced942d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLimitLeft: -336
+  sceneLimitRigth: 309
+  playerTransfrorm: {fileID: 0}
+  starsLeft: 3
+  bubbleDefaultTime: 6
+  chicleDefaultTime: 15
+  heladoDefaultTime: 7
+  resorteDefaultTime: 8
+  bublePrefab: {fileID: 1573808962331801614, guid: 421e8df812e9cee4f99ce067f3dd88b8,
+    type: 3}
+  chiclePrefab: {fileID: 6401318846973105633, guid: 6b4945a2f3eae9d4996d2077cd074af2,
+    type: 3}
+  canvasAnim: {fileID: 0}
+  diaText: {fileID: 0}
+  horaText: {fileID: 0}
+  minutosText: {fileID: 0}
+  movementBTNs: {fileID: 0}
+  pausePanel: {fileID: 0}
+  siguienteDiaBTN: {fileID: 0}
+  hora: 8
+  bubbleShield: {fileID: 0}

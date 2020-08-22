@@ -9,7 +9,7 @@ using UnityEngine;
 ///     23/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/07/2020 Calvelo Nicolás
+///     16/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -39,9 +39,9 @@ public class firulais : MonoBehaviour
 
     IEnumerator setPos()
     {
-        float waitTime = Random.Range(5.0f, 11.0f);
+        float waitTime = Random.Range(4.0f, 9.0f);
         yield return new WaitForSeconds(waitTime);
-        nextPos = new Vector2(Random.Range(transform.position.x - 120, transform.position.x + 120), transform.position.y);
+        nextPos = new Vector2(Random.Range(transform.position.x - 150, transform.position.x + 150), transform.position.y);
         if(nextPos.x > gameManager.Instance.sceneLimitRigth || nextPos.x < gameManager.Instance.sceneLimitLeft)
         {
             nextPos = Vector2.zero;
@@ -61,7 +61,7 @@ public class firulais : MonoBehaviour
 
         actualState = states.run;
         anim.SetBool("running", true);
-        yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPos) < 6);
+        yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPos) < 7);
         audio.Play();
         actualState = states.idle;
         anim.SetBool("running", false);

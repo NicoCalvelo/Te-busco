@@ -68,7 +68,12 @@ private static costaneraManager _instance;
         else if (progressManager.Instance.nextDayAttribute.diaNumero == 6)
         {
             arcoFutbol.SetActive(true);
-        }else if(progressManager.Instance.nextDayAttribute.diaNumero == 11)
+        }
+        else if (progressManager.Instance.nextDayAttribute.diaNumero == 10)
+        {
+            niebla.SetActive(true);
+        }
+        else if(progressManager.Instance.nextDayAttribute.diaNumero == 11)
         {
             colectivo.SetActive(true);
         }
@@ -84,9 +89,6 @@ private static costaneraManager _instance;
         }else if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
         {
             anim.SetTrigger("preEscenario");
-        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 22)
-        {
-            niebla.SetActive(true);
         }
 
         if (progressManager.Instance.nextDayAttribute.diaNumero >= 21)

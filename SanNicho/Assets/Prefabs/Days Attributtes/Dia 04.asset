@@ -45,13 +45,12 @@ MonoBehaviour:
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "\xA1\xDAltimo momento! Desde la direcci\xF3n nos informan del
-      comunicado oficial por parte del municipio\u2026 Aparentemente, la estatua
-      en costanera alta ha desaparecido."
+      comunicado oficial por parte del municipio. Aparentemente, la estatua en la
+      costanera alta ha desaparecido."
   - tvImage: {fileID: 0}
     noticiaSentence: "Por nuestra parte, como noticiero de la ciudad, decidimos contribuir
       a la investigaci\xF3n de lo sucedido de la misma manera que siempre... Transmitiendo
       informaci\xF3n."
   - tvImage: {fileID: 0}
-    noticiaSentence: "Es por esto que todo aquel que tenga informaci\xF3n \xFAtil
-      acerca de lo ocurrido \xA1No dude en contactarse con nosotros! via instagram
-      \"@velogroup\"."
+    noticiaSentence: "Todo aquel que tenga informaci\xF3n \xFAtil acerca de lo ocurrido
+      no dude en contactarse con nosotros via instagram \"@velogroup\"."

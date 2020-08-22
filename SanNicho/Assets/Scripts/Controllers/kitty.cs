@@ -20,6 +20,8 @@ public class kitty : MonoBehaviour
     [SerializeField]
     private Vector2[] positions;
 
+    int shots = 0;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -29,12 +31,19 @@ public class kitty : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "shoot")
+
+        if(other.gameObject.tag == "Photo")
         {
-            progressManager.Instance.progressData.logros[2].completado = true;
             audio.Play();
-            anim.SetTrigger("encontrado");
-            Destroy(gameObject, 3.5f);
+            shots++;
+            progressManager.Instance.progressData.logros[2].porcentajeCompletado = shots / 3;
+            if (shots == 3)
+            {
+                progressManager.Instance.progressData.logros[2].completado = true;
+                anim.SetTrigger("encontrado");
+                Destroy(gameObject, 3.5f);
+                return;
+            }
         }
     }
 }

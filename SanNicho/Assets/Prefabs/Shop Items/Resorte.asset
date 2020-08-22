@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf7ee50397e7a147ba47db4330da3ff, type: 3}
   m_Name: Resorte
   m_EditorClassIdentifier: 
-  itemName: Resorte
+  itemName: resorte
   mensajeDeMejora: "+ 35% de duraci\xF3n"
   descripcionCompra: 
   disponibleAPartirDelDia: 17

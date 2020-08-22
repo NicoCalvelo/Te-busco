@@ -56,6 +56,10 @@ public class levelsSceneController : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<audioManager>().playSound("mainMusic");
+        if(progressManager.Instance.progressData.primeraVez == true)
+        {
+            progressManager.Instance.progressData.primeraVez = false;
+        }
     }
 
     void setPage()

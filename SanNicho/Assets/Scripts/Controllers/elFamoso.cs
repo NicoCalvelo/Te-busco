@@ -9,7 +9,7 @@ using System.Collections;
 ///     24/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     29/07/2020 Calvelo Nicolás
+///     21/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -33,8 +33,6 @@ public class elFamoso : MonoBehaviour
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
         StartCoroutine(pasadas());
-        if (gameManager.Instance.hora >= 20)
-            ligths.SetActive(true);
     }
 
     IEnumerator pasadas()
@@ -49,7 +47,6 @@ public class elFamoso : MonoBehaviour
             sp.enabled = true;
             anim.enabled = true;
             anim.SetBool(parameterConducir, true);
-            anim.Play("conducir", 0);
 
             float spawnCollectTime = Random.Range(3.0f, 17.0f);
             yield return new WaitForSeconds(spawnCollectTime);
@@ -66,10 +63,14 @@ public class elFamoso : MonoBehaviour
     private void OnBecameInvisible()
     {
         motorAudio.Stop();
+        if (ligths.activeSelf)
+            ligths.SetActive(false);
     }
     private void OnBecameVisible()
     {
         motorAudio.Play();
+        if (gameManager.Instance.hora >= 20)
+            ligths.SetActive(true);
     }
 
 }

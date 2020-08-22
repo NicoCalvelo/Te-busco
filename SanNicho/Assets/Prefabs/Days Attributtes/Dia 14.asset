@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 14
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.9
+  duracionDelDia: 6.3
   diaNumero: 14
   habilitado: 1
   shootLife: 0
   heladero: 1
-  heladosAgenerar: 7
+  heladosAgenerar: 6
   elFamoso: 0
   pasadas: 0
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_visibilityDistance: 52
+  NPC_01_visibilityDistance: 51.8
   NPC_01_timeToShoot: 1.75
-  cantidadNPC_02: 2
+  cantidadNPC_02: 3
   agregarNpc02Tarde: 0
   agregarNpc02Noche: 1
   NPC_02_hideTime: 1.65
   NPC_02_attackDistance: 31.2
   NPC_02_timeToShoot: 1.95
   cantidadNPC_03: 3
-  NPC_03_attackDistance: 28.1
-  NPC_03_timeToShoot: 1.95
+  NPC_03_attackDistance: 29.8
+  NPC_03_timeToShoot: 1.9
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
   agregarNpc04Noche: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
   NPC_04_timeToShoot: 0
   cantidadNPC_Background: 3
   bubblesToSpawn: 4
-  chiclesToSpawn: 5
+  chiclesToSpawn: 11
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: Los dias se van haciendo cada vez mas largos... Los grados comienzan
@@ -49,7 +49,7 @@ MonoBehaviour:
       a mostrar sus flores.
   - tvImage: {fileID: 0}
     noticiaSentence: La costanera cada vez comienza a mostrarse mas llena de vida...
-      Algunos FoodTrucks comienazan a estacionarse en los parques.
+      Algunos FoodTrucks comienzan a estacionarse en los parques.
   - tvImage: {fileID: 0}
     noticiaSentence: Nunca es mal momento para tomarse un helado mientras se pasea
       con amigos...

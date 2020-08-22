@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 24
   m_EditorClassIdentifier: 
-  duracionDelDia: 7.9
+  duracionDelDia: 6.9
   diaNumero: 24
   habilitado: 0
   shootLife: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
     noticiaSentence: "\xBFClima?... \xA1Hermoso! \xBFComercios?... \xA1Listos! \xBFHoteles?...
       \xA1Repletos!"
   - tvImage: {fileID: 0}
-    noticiaSentence: "\xBFNicole\xF1os?... Disfrutando a full un dia emocionante
-      en la costanera \xA1Hay mucha expectativa por el dia de ma\xF1ana!"
+    noticiaSentence: "\xBFNicole\xF1os?... Disfrutando a full un d\xEDa emocionante
+      en la costanera \xA1Hay mucha expectativa para ma\xF1ana!"
   - tvImage: {fileID: 0}
-    noticiaSentence: "Todos sabemos que el dia de la virgen no es hoy. Sin embargo,
+    noticiaSentence: "Todos sabemos que el d\xEDa de la virgen no es hoy. Sin embargo,
       todas las miradas se encuentran puestas en esa imponente c\xFApula."
   - tvImage: {fileID: 0}
-    noticiaSentence: "Realmente es una lastima que la estatua del gordo, otro icono
-      de la costanera, no se encuentre para acompa\xF1arnos en estas jornadas."
+    noticiaSentence: "Realmente es una lastima que la estatua del grandulon, otro
+      icono de la costanera, no se encuentre para acompa\xF1arnos en estas jornadas."

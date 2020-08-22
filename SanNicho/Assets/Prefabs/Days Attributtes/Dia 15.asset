@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 15
   m_EditorClassIdentifier: 
-  duracionDelDia: 7
+  duracionDelDia: 6.3
   diaNumero: 15
   habilitado: 1
   shootLife: 0
@@ -20,20 +20,20 @@ MonoBehaviour:
   heladosAgenerar: 5
   elFamoso: 0
   pasadas: 0
-  inicioNpc_01: 3
-  agregarNpc01Tarde: 1
-  agregarNpc01Noche: 1
+  inicioNpc_01: 2
+  agregarNpc01Tarde: 2
+  agregarNpc01Noche: 0
   NPC_01_visibilityDistance: 51
-  NPC_01_timeToShoot: 1.79
-  cantidadNPC_02: 1
+  NPC_01_timeToShoot: 1.8
+  cantidadNPC_02: 2
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
   NPC_02_hideTime: 1.34
   NPC_02_attackDistance: 25
   NPC_02_timeToShoot: 1.79
-  cantidadNPC_03: 3
-  NPC_03_attackDistance: 31.3
-  NPC_03_timeToShoot: 1.51
+  cantidadNPC_03: 5
+  NPC_03_attackDistance: 32
+  NPC_03_timeToShoot: 1.67
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
   agregarNpc04Noche: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
   NPC_04_timeToShoot: 0
   cantidadNPC_Background: 3
   bubblesToSpawn: 4
-  chiclesToSpawn: 7
+  chiclesToSpawn: 11
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "Toda la ciudad se encuentra expectante... El 20 de septiembre,
-      a la noche, habr\xE1 un concierto en el anfiteatro de la costanera!"
+    noticiaSentence: "Toda la ciudad se encuentra expectante... En la noche del 20
+      de septiembre habr\xE1 un incre\xEDble concierto en el anfiteatro de la costanera."
   - tvImage: {fileID: 0}
     noticiaSentence: "Entre m\xFAsicos y festejos, los nicole\xF1os recibiremos a
       la primavera de la mejor manera posible!"

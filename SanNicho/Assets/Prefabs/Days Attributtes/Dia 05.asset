@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 05
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.1
+  duracionDelDia: 6.4
   diaNumero: 5
   habilitado: 1
   shootLife: 5
@@ -49,5 +49,5 @@ MonoBehaviour:
       l\xEDmites de nuestra ciudad."
   - tvImage: {fileID: 0}
     noticiaSentence: "Habitualmente les sugerir\xEDa que lleven sus paraguas con
-      ustedes. Aunque al parecer tendr\xE1n que sacar sus alfileres... Si escucharon
-      bien... Esas gotas con forma de burbujas no se pincharan solas."
+      ustedes, aunque al parecer tendr\xE1n que sacar sus alfileres... S\xED, escucharon
+      bien... \xA1Esas gotas con forma de burbujas no se pincharan solas!"

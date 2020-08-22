@@ -11,7 +11,7 @@ using UnityEngine.UI;
 ///     27/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     26/07//2020 Calvelo Nicolás
+///     21/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -38,8 +38,6 @@ public class costaneraCanvas : MonoBehaviour
     public TextMeshProUGUI monedasTotales, monedasGanadas;
 
     int coinsEarned = 0;
-
-
 
     [SerializeField]
     private GameObject bubblePrefab, chiclePrefab, heladoPrefab, resortePrefab;
@@ -91,7 +89,7 @@ public class costaneraCanvas : MonoBehaviour
                 return;
             }
             GameObject newItem = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity, collectables_T);
-            StartCoroutine(consumeBubble(newItem, gameManager.Instance.bubbleDefaultTime + ((gameManager.Instance.bubbleDefaultTime / 4) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "burbuja").nivel)));
+            StartCoroutine(consumeBubble(newItem, gameManager.Instance.bubbleDefaultTime + ((gameManager.Instance.bubbleDefaultTime / 4) * progressManager.Instance.progressData.itemsShop.Find(i => i.name == "burbuja").nivel)));
         }
         else if(item == gameManager.collectables.Chicle)
         {
@@ -101,7 +99,7 @@ public class costaneraCanvas : MonoBehaviour
                 return;
             }
             GameObject newItem = Instantiate(chiclePrefab, Vector3.zero, Quaternion.identity, collectables_T);
-            StartCoroutine(consumeChicle(newItem, gameManager.Instance.chicleDefaultTime - ((gameManager.Instance.chicleDefaultTime * .15f) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "chicle").nivel)));
+            StartCoroutine(consumeChicle(newItem, gameManager.Instance.chicleDefaultTime - ((gameManager.Instance.chicleDefaultTime * .15f) * progressManager.Instance.progressData.itemsShop.Find(i => i.name == "chicle").nivel)));
 
         }
         else if (item == gameManager.collectables.Helado)
@@ -112,7 +110,7 @@ public class costaneraCanvas : MonoBehaviour
                 return;
             }
             GameObject newItem = Instantiate(heladoPrefab, Vector3.zero, Quaternion.identity, collectables_T);
-            StartCoroutine(consumeHelado(newItem, gameManager.Instance.heladoDefaultTime + ((gameManager.Instance.heladoDefaultTime * .5f) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "helado").nivel)));
+            StartCoroutine(consumeHelado(newItem, gameManager.Instance.heladoDefaultTime + ((gameManager.Instance.heladoDefaultTime * .5f) * progressManager.Instance.progressData.itemsShop.Find(i => i.name == "helado").nivel)));
 
         }
         else if (item == gameManager.collectables.Resorte)
@@ -124,7 +122,7 @@ public class costaneraCanvas : MonoBehaviour
             }
 
             GameObject newItem = Instantiate(resortePrefab, Vector3.zero, Quaternion.identity, collectables_T);
-            StartCoroutine(consumeResorte(newItem, gameManager.Instance.resorteDefaultTime + ((gameManager.Instance.resorteDefaultTime * .35f) * progressManager.Instance.progressData.shopItems.Find(i => i.name == "resorte").nivel)));
+            StartCoroutine(consumeResorte(newItem, gameManager.Instance.resorteDefaultTime + ((gameManager.Instance.resorteDefaultTime * .35f) * progressManager.Instance.progressData.itemsShop.Find(i => i.name == "resorte").nivel)));
         }
     }
 
@@ -175,7 +173,7 @@ public class costaneraCanvas : MonoBehaviour
 
             if (heladoTimeLeft <= 0.01f)
             {
-                FindObjectOfType<playerController>().onGetHelado = false;
+                FindObjectOfType<playerController>().onGetHelado(false);
                 Destroy(item);
             }
             yield return new WaitForSeconds(seconds * .01f);

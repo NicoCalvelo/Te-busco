@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -35,6 +36,12 @@ public class progressManager : MonoBehaviour
 
     public dayAttributes nextDayAttribute;
     public List<dayAttributes> daysAttributes;
+
+    public enum Platform
+    {
+        PC, Mobile
+    }
+    public Platform buildPlataform;
 
     public infoJugador progressData;
 
@@ -94,12 +101,24 @@ public class progressManager : MonoBehaviour
                 }
             }
             //Hay nuevos items en la tienda
-            if(info.shopItems.Count < progressData.shopItems.Count)
+            if(info.itemsShop.Count < progressData.itemsShop.Count)
             {
-                for (int i = info.shopItems.Count; i < progressData.shopItems.Count; i++)
+                foreach(infoJugador.item item in progressData.itemsShop)
                 {
-                    info.shopItems.Add(progressData.shopItems[i]);
+                    if(info.itemsShop.Exists(ite => ite.name == item.name) == false)
+                    {
+                        info.itemsShop.Add(item);
+                    }
                 }
+            }
+
+            if (Debug.isDebugBuild)
+            {
+                foreach(infoJugador.nivel d in info.diasInfo.Values)
+                {
+                    d.completado = true;
+                }
+                info.primeraVez = false;
             }
 
             progressData = info;

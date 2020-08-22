@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 23
   m_EditorClassIdentifier: 
-  duracionDelDia: 7.8
+  duracionDelDia: 6.3
   diaNumero: 23
   habilitado: 0
   shootLife: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "Estamos a tan solo dos d\xEDas de uno de los d\xEDas festivos
-      que m\xE1s caracterizan a nuestra ciudad... As\xED es, el dia de la virgen
-      del Rosario de San Nicol\xE1s."
+      que m\xE1s caracterizan a nuestra ciudad... \xA1As\xED es!, el d\xEDa de la
+      virgen del Rosario de San Nicol\xE1s."
   - tvImage: {fileID: 0}
     noticiaSentence: "Les pedimos absoluta paciencia al momento de circular por zonas
-      cercanas a el santuario... El tr\xE1fico y la gente puede volverse un poco
-      tediosos."
+      cercanas a el santuario... El tr\xE1fico y los peatones pueden volverse un
+      poco tediosos."

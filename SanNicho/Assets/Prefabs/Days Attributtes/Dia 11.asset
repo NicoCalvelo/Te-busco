@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 11
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.6
+  duracionDelDia: 6.3
   diaNumero: 11
   habilitado: 1
   shootLife: 0
@@ -23,16 +23,16 @@ MonoBehaviour:
   inicioNpc_01: 2
   agregarNpc01Tarde: 1
   agregarNpc01Noche: 1
-  NPC_01_visibilityDistance: 47
+  NPC_01_visibilityDistance: 49
   NPC_01_timeToShoot: 1.9
   cantidadNPC_02: 3
   agregarNpc02Tarde: 1
   agregarNpc02Noche: 0
   NPC_02_hideTime: 1.7
   NPC_02_attackDistance: 30
-  NPC_02_timeToShoot: 2.5
+  NPC_02_timeToShoot: 2.1
   cantidadNPC_03: 4
-  NPC_03_attackDistance: 30
+  NPC_03_attackDistance: 31
   NPC_03_timeToShoot: 1.85
   cantidadNPC_04: 0
   agregarNpc04Tarde: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   chiclesToSpawn: 7
   noticiasList:
   - tvImage: {fileID: 0}
-    noticiaSentence: "11 de septiembre... D\xEDa del maestro! Gracias a ellos, por
-      tanta vocaci\xF3n, pasi\xF3n y amor. Realmente admirable su labor."
+    noticiaSentence: "11 de septiembre... \xA1D\xEDa del maestro! Gracias a ellos,
+      por tanta vocaci\xF3n, pasi\xF3n y amor. Realmente es admirable su labor.\r"
   - tvImage: {fileID: 0}
     noticiaSentence: "Algunos pensaran que por ser su dia se lo tomaran de descanso...
       Sin embargo, algunos aprovechan la ocasi\xF3n para salir de excursi\xF3n con

@@ -22,10 +22,15 @@ public class menuSceneController : MonoBehaviour
     [SerializeField]
     GameObject torneoDialog, shopDialog, logroPrefab, logroContent, logrosPanel;
 
+    bool campeonatosHabilitados;
+    string mensajeCampeonatos;
 
     private void Start()
     {
         FindObjectOfType<audioManager>().playSound("mainMusic");
+
+        campeonatosHabilitados = RemoteSettings.GetBool("campeonatosHabilitados");
+        mensajeCampeonatos = RemoteSettings.GetString("mensajeCampeonatosDeshabilitados");
 
         setMenu();
         setLogros();
@@ -33,11 +38,9 @@ public class menuSceneController : MonoBehaviour
 
     void setMenu()
     {
-        if (progressManager.Instance.progressData.diasInfo[9].completado == true) //Significa que ya se desbloquearon los torneos
-        {
-            torneoBtn.interactable = true;
-            torneoBtn.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        torneoBtn.interactable = campeonatosHabilitados;
+        torneoBtn.transform.GetChild(0).gameObject.SetActive(!campeonatosHabilitados);
+        torneoDialog.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = mensajeCampeonatos;
 
         if(progressManager.Instance.progressData.diasInfo[4].completado == true)
         {
@@ -61,12 +64,19 @@ public class menuSceneController : MonoBehaviour
     public void onClickPlayBTN()
     {
         FindObjectOfType<audioManager>().playSound("confirmClick");
+
+        if(progressManager.Instance.progressData.primeraVez == true)
+        {
+            StartCoroutine(sceneLoader.Instance.loadScene(6));
+            return;
+        }
+
         StartCoroutine(sceneLoader.Instance.loadScene(1));
     }
     public void onclickTorneo()
     {
-
-        if(progressManager.Instance.progressData.diasInfo[9].completado == false)
+        torneoDialog.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = mensajeCampeonatos;
+        if (campeonatosHabilitados == false)
         {
             FindObjectOfType<audioManager>().playSound("click");
             torneoDialog.SetActive(!torneoDialog.activeSelf);
@@ -103,5 +113,10 @@ public class menuSceneController : MonoBehaviour
     {
         if(instagram != "")
         Application.OpenURL(instagram);
+    }
+
+    public void habilitarCinematica()
+    {
+        progressManager.Instance.progressData.primeraVez = true;
     }
 }

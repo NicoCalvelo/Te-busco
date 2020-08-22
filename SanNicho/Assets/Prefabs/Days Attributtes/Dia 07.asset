@@ -45,11 +45,11 @@ MonoBehaviour:
   noticiasList:
   - tvImage: {fileID: 0}
     noticiaSentence: "Una semana se cumple desde la desaparici\xF3n de la estatua
-      en costanera alta... Seguimos sin tener en claro que fue lo sucedido."
+      en la costanera alta... Seguimos sin tener en claro que fue lo sucedido."
   - tvImage: {fileID: 0}
     noticiaSentence: "Hemos recibido mensajes, fotos y algunas menciones, pero todas
-      con informaci\xF3n muy poco convincente y dif\xEDcilmente verificables..."
+      con informaci\xF3n muy poco convincente y dif\xEDcilmente verificables\u2026"
   - tvImage: {fileID: 0}
-    noticiaSentence: "Debido a lo ocurrido, la municipalidad se vi\xF3 en la necesidad
+    noticiaSentence: "Debido a lo ocurrido, la municipalidad se vio en la necesidad
       de recurrir a la instalaci\xF3n de c\xE1maras de seguridad en los parques...
       Los mantendremos informados de las novedades."

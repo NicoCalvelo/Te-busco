@@ -9,7 +9,7 @@ using UnityEngine;
 ///     26/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     26/07/2020 Calvelo Nicolás
+///     11/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -18,8 +18,6 @@ public class drone : NPC_States
 
     [SerializeField]
     private Transform phone;
-    [SerializeField]
-    private GameObject shootPrefab;
     [SerializeField]
     private float attackDistance = 20, timeToShoot = 2, speed = 10;
 
@@ -67,8 +65,7 @@ public class drone : NPC_States
     IEnumerator toAttack()
     {
         yield return new WaitForSeconds(timeToShoot);
-        Instantiate(shootPrefab, phone.position, Quaternion.identity);
-        audioManager.Instance.playSound("NPCshoot");
+        npcManager.Instance.requestPhoto(phone.position);
         yield return new WaitForSeconds(1);
         StartCoroutine(reset());
     }

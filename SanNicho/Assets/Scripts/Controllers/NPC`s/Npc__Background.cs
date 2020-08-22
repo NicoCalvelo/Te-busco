@@ -55,8 +55,6 @@ public class Npc__Background : MonoBehaviour
     {
         switch (estado)
         {
-            case state.idle:
-                break;
             case state.patrol:
                 transform.position = Vector2.MoveTowards(transform.position, nextTarget, speed * Time.deltaTime);
                 break;

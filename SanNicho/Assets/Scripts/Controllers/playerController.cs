@@ -9,7 +9,7 @@ using UnityEngine;
 ///     01/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     08/08/2020 Calvelo Nicolás
+///     18/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour
     private bool isGrounded = false;
     public float floorDistance;
 
+
     [Header("Movement Facts")]
     [SerializeField]
     private float jumpFoce = 31.0f;
@@ -36,12 +37,7 @@ public class playerController : MonoBehaviour
     private float speed = 10f;
     float initialSpeed;
 
-
-    public enum Platform
-    {
-        PC, Mobile
-    }
-    public Platform actualPlatform = Platform.Mobile;
+    progressManager.Platform actualPlatform;
 
 
     void Awake()
@@ -50,17 +46,17 @@ public class playerController : MonoBehaviour
         playerAnimController = FindObjectOfType<playerAnimController>();
         initialSpeed = speed;
         transform.position = new Vector2(-110, 1.5f);
+        actualPlatform = progressManager.Instance.buildPlataform;
     }
 
     void FixedUpdate()
     {
 
         MoveState();
-        checkGrounded();
 
         switch (actualPlatform)
         {
-            case Platform.PC:
+            case progressManager.Platform.PC:
                 PCinput();
                 break;
         }
@@ -151,6 +147,8 @@ public class playerController : MonoBehaviour
         if (isGrounded == false)
             return;
         audioManager.Instance.playSound("Jumping");
+        if (resorteState)
+            audioManager.Instance.playSound("jumpBoing");
         rb2D.velocity = new Vector2(rb2D.velocity.x, jumpFoce);
         isGrounded = false;
         resetJumpNedded = true;
@@ -179,47 +177,41 @@ public class playerController : MonoBehaviour
         isGrounded = true;
         playerAnimController.jump(false);
         audioManager.Instance.playSound("playerLanding");
-
     }
 
     #endregion
 
     bool heladoActualState = false;
     bool chicleState = false;
+    bool resorteState = false;
 
-    public bool onGetHelado
+    public void onGetHelado(bool entrance)
     {
-        get
+        if(heladoActualState == false && entrance == true)
         {
-            return heladoActualState;
+            gameObject.transform.localScale = gameObject.transform.localScale / 3;
+            heladoActualState = true;
+            audioManager.Instance.playSound("heladoIn");
         }
-        set
+        else if (heladoActualState == true && entrance == false)
         {
-            if(heladoActualState == false)
-            {
-                gameObject.transform.localScale = gameObject.transform.localScale / 3;
-                heladoActualState = true;
-                audioManager.Instance.playSound("heladoIn");
-            }
-            else
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y + 3);
-                gameObject.transform.localScale = gameObject.transform.localScale * 3;
-                heladoActualState = false;
-                audioManager.Instance.playSound("heladoOut");
-            }
+            transform.position = new Vector2(transform.position.x, transform.position.y + 3);
+            gameObject.transform.localScale = gameObject.transform.localScale * 3;
+            heladoActualState = false;
+            audioManager.Instance.playSound("heladoOut");
         }
     }
     public void onGetResorte(bool enter)
     {
-        if (enter)
+        if (enter == true && resorteState == false)
         {
             jumpFoce = jumpFoce * 1.8f;
-            //Animacion  de resortes
+            resorteState = true;
         }
-        else
+        else if(enter == false)
         {
             jumpFoce = jumpFoce / 1.8f;
+            resorteState = false;
         }
     }
     public void onGetChicle(bool enter)

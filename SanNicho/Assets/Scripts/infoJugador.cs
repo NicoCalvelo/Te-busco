@@ -21,7 +21,7 @@ public class infoJugador
     public int totalEstrellas = 0;
     public int totalPuntos = 0;
 
-    public List<item> shopItems;
+    public List<item> itemsShop;
 
     public Dictionary<int, nivel> diasInfo;
 
