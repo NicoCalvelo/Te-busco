@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -76904,6 +76904,11 @@ PrefabInstance:
       propertyPath: bubbleShield
       value: 
       objectReference: {fileID: 761357811}
+    - target: {fileID: 2596879278626354937, guid: 13c148352b1a5fa438b3cc4b3690d37d,
+        type: 3}
+      propertyPath: pauseBTN
+      value: 
+      objectReference: {fileID: 1627239182}
     - target: {fileID: 2596879278626354938, guid: 13c148352b1a5fa438b3cc4b3690d37d,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,7 +11,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/08//2020 Calvelo Nicolás
+///     23/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -144,6 +144,7 @@ public class levelsSceneController : MonoBehaviour
     public void onClickJugar()
     {
         FindObjectOfType<audioManager>().playSound("clickConfirm");
+        progressManager.Instance.nextModoDeJuego = progressManager.modoDeJuego.historia;
         StartCoroutine(sceneLoader.Instance.loadScene(sceneLoader.Instance.indxNoticiero));
     }
 

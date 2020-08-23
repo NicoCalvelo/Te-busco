@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///     10/08/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     10/08/2020 Calvelo Nicolás
+///     23/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -78,6 +78,7 @@ public class tarjetaDePresentacion : MonoBehaviour
     public void onClickUnirse()
     {
         panelChamp.Instance.thisChamp = thisCampeonato;
+        panelChamp.Instance.thisProgress = campeonatosManager.Instance.campeonatosData.userCampeonatoProgress[thisCampeonato.campeonatoID];
         //Ya se habia inscripto
         if(participando)
         {

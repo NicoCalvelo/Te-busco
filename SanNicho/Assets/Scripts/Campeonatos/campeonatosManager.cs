@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 ///     06/08/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     08/08//2020 Calvelo Nicolás
+///     23/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -35,6 +35,10 @@ public class campeonatosManager : MonoBehaviour
     #endregion
 
     public CampeonatosData campeonatosData;
+
+
+    bool isPlaying = false;
+    public string champIDplaying;
 
     private void Awake()
     {
@@ -147,7 +151,7 @@ public class campeonatosManager : MonoBehaviour
             {
                 campeonatosData.campeonatosList = new List<campeonatoAttribute>();
                 campeonatosData.tablaDePosiciones = new Dictionary<string, List<userDisplay>>();
-                descargarCampeonatos(() => 
+                descargarCampeonatos(() =>
                 {
                     campeonatosData.lastUpdate = DateTime.Now;
                     panelCampeonatos.Instance.setTarjetasCampeonatos();
@@ -160,7 +164,7 @@ public class campeonatosManager : MonoBehaviour
         {
             campeonatosData.campeonatosList = new List<campeonatoAttribute>();
             campeonatosData.tablaDePosiciones = new Dictionary<string, List<userDisplay>>();
-            descargarCampeonatos(() => 
+            descargarCampeonatos(() =>
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 string filePath = Application.persistentDataPath + "/campeonatosData" + ".dat";
@@ -175,14 +179,82 @@ public class campeonatosManager : MonoBehaviour
 
     }
 
+
+    public void inicioDia()
+    {
+        isPlaying = true;
+        gameManager.onComplete += diaCompletado;
+        gameManager.onLose += lose;
+    }
+
+    public void lose()
+    {
+        outputPartida(true);
+        isPlaying = false;
+    }
+
+    public void diaCompletado()
+    {
+        campeonatosData.userCampeonatoProgress[champIDplaying].diaActual++;
+        campeonatosData.userCampeonatoProgress[champIDplaying].puntosActuales += gameManager.Instance.starsLeft * 10;
+
+        outputPartida(false);
+
+        isPlaying = false;
+    }
+
+    //Se setean los datos del dia jugado
+    void outputPartida(bool lose)
+    {
+        //Si el score es mayo que el maximo previo
+        if(campeonatosData.userCampeonatoProgress[champIDplaying].diaActual > campeonatosData.userCampeonatoProgress[champIDplaying].cantidadMaximaDeDias)
+        {
+            campeonatosData.userCampeonatoProgress[champIDplaying].cantidadMaximaDeDias = campeonatosData.userCampeonatoProgress[champIDplaying].diaActual;
+            campeonatosData.userCampeonatoProgress[champIDplaying].cantidadMaximaDePuntos = campeonatosData.userCampeonatoProgress[champIDplaying].puntosActuales;
+            
+            //Subir info a la lista del torneo
+            //No habia info antes
+            if(Array.Exists(campeonatosData.tablaDePosiciones[champIDplaying].ToArray(), s => s.nombreDelUsuario == campeonatosData.nombreDeUsuario) == false)
+            {
+                userDisplay newDisp = new userDisplay();
+                newDisp.nombreDelUsuario = campeonatosData.nombreDeUsuario;
+                campeonatosData.tablaDePosiciones[champIDplaying].Add(newDisp);
+            }
+
+            userDisplay toSet = Array.Find(campeonatosData.tablaDePosiciones[champIDplaying].ToArray(), s => s.nombreDelUsuario == campeonatosData.nombreDeUsuario);
+            toSet.CantidadMaximaDeDias = campeonatosData.userCampeonatoProgress[champIDplaying].diaActual;
+            toSet.cantidadDePuntos = campeonatosData.userCampeonatoProgress[champIDplaying].puntosActuales;
+
+            campeonatosData.tablaDePosiciones[champIDplaying].Sort(SortByScore);
+
+            //Subir info al awsManager
+            subirTablaDePosiciones(champIDplaying, campeonatosData.tablaDePosiciones[champIDplaying], (bool succes) => { });
+        }
+
+        if (lose)
+        {
+            campeonatosData.userCampeonatoProgress[champIDplaying].diaActual = 1;
+            campeonatosData.userCampeonatoProgress[champIDplaying].puntosActuales = 0;
+        }
+    }
+
+    static int SortByScore(userDisplay p1, userDisplay p2)
+    {
+        if(p1.CantidadMaximaDeDias == p2.CantidadMaximaDeDias)
+            return p1.cantidadDePuntos.CompareTo(p2.cantidadDePuntos);
+        else 
+            return p1.CantidadMaximaDeDias.CompareTo(p2.CantidadMaximaDeDias);
+    }
+
+
     [System.Serializable]
     public class userProgress 
     {
         public string nombreDeUsuario;
         public int diaActual;
-        public int estrellasActuales;
+        public int puntosActuales;
         public int cantidadMaximaDeDias;
-        public int cantidadDePuntos;
+        public int cantidadMaximaDePuntos;
     }
     [System.Serializable]
     public class userDisplay
@@ -194,6 +266,7 @@ public class campeonatosManager : MonoBehaviour
     [System.Serializable]
     public class CampeonatosData
     {
+        public string nombreDeUsuario;
         public Dictionary<string, userProgress> userCampeonatoProgress;
         public Dictionary<string, List<userDisplay>> tablaDePosiciones;
         public List<campeonatoAttribute> campeonatosList;
@@ -201,4 +274,15 @@ public class campeonatosManager : MonoBehaviour
         public DateTime lastUpdate;
     }
 
+
+    private void OnApplicationQuit()
+    {
+        if (isPlaying)
+            outputPartida(true);
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        if (isPlaying)
+            outputPartida(true);
+    }
 }

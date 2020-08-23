@@ -37,6 +37,12 @@ public class gameManager : MonoBehaviour
     #endregion
 
     public float sceneLimitLeft = -336.0f, sceneLimitRigth = 314.0f;
+
+    public delegate void OnComplete();
+    public static event OnComplete onComplete;
+    public delegate void OnLose();
+    public static event OnLose onLose;
+
     [HideInInspector]
     public Transform playerTransfrorm;
 
@@ -59,18 +65,48 @@ public class gameManager : MonoBehaviour
     [SerializeField]
     private GameObject pausePanel;
     [SerializeField]
-    private Button siguienteDiaBTN;
+    private Button siguienteDiaBTN, pauseBTN;
 
     public int hora = 8;
 
     bool isTransition = false;
 
+    public progressManager.modoDeJuego modoDeJuego;
+
+
     private void Awake()
     {
         _instance = this;
+        modoDeJuego = progressManager.Instance.nextModoDeJuego;
         itemsToSpawn = new List<GameObject>();
         playerTransfrorm = GameObject.FindGameObjectWithTag("Player").transform;
 
+        switch (modoDeJuego)
+        {
+            case progressManager.modoDeJuego.campeonato:
+                pauseBTN.interactable = false;
+
+                campeonatosManager.Instance.inicioDia();
+
+                break;
+
+            case progressManager.modoDeJuego.historia:
+                pauseBTN.interactable = true;
+
+                //agregar un intento de nivel al progress manager
+                progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos++;
+                //---Analitycs---      
+                Analytics.CustomEvent("level_start", new Dictionary<string, object>
+                {
+                    { "level_index", progressManager.Instance.nextDayAttribute.diaNumero }
+                });
+                break;
+        }
+
+    }
+
+    private void Start()
+    {
         diaText.text = progressManager.Instance.nextDayAttribute.diaNumero.ToString("00");
 
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.bubblesToSpawn; i++)
@@ -81,25 +117,14 @@ public class gameManager : MonoBehaviour
         {
             itemsToSpawn.Add(chiclePrefab);
         }
-    }
 
-    private void Start()
-    {
         float invokeTime = (progressManager.Instance.nextDayAttribute.duracionDelDia * 60) / 32;
         InvokeRepeating("setTime", invokeTime, invokeTime);
 
         if (progressManager.Instance.buildPlataform == progressManager.Platform.PC)
             movementBTNs.gameObject.SetActive(false);
 
-        StartCoroutine(spawnCollectables());
-
-        //agregar un intento de nivel al progress manager
-        progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos++;
-        //---Analitycs---      
-        Analytics.CustomEvent("level_start", new Dictionary<string, object>
-        {
-            { "level_index", progressManager.Instance.nextDayAttribute.diaNumero }          
-        });    
+        StartCoroutine(spawnCollectables()); 
     }
 
     //Se ejecuta repetidamente cada vez que pasan 30 minutos en tiempo del juego
@@ -171,11 +196,28 @@ public class gameManager : MonoBehaviour
 
     void lose()
     {
-        audioManager.Instance.stopSound("backgroundMusic");
         Time.timeScale = 0;
         audioManager.Instance.playSound("levelLose");
-        canvasAnim.SetTrigger("levelLose");
         npcManager.Instance.StopAllCoroutines();
+
+        switch (modoDeJuego)
+        {
+            case progressManager.modoDeJuego.historia:
+                audioManager.Instance.stopSound("backgroundMusic");
+                canvasAnim.SetTrigger("levelLose");
+                break;
+
+            case progressManager.modoDeJuego.campeonato:
+
+
+                isTransition = true;
+                audioManager.Instance.playSound("click03");
+                StartCoroutine(sceneLoader.Instance.loadScene(5));
+                break;
+        }
+
+        if (onLose != null)
+            onLose();
     }
     void levelCompleted()
     {
@@ -184,34 +226,54 @@ public class gameManager : MonoBehaviour
         audioManager.Instance.playSound("levelCompleted");
         canvasAnim.SetTrigger("dayCompleted");
         npcManager.Instance.StopAllCoroutines();
-        progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
 
         //puntaje
         int earned = (int)Mathf.Round(starsLeft * 10 + (progressManager.Instance.nextDayAttribute.diaNumero * (starsLeft * .1f)) * 15);
         costaneraCanvas.Instance.levelCompleted(earned);
 
-        if (progressManager.Instance.nextDayAttribute.diaNumero == progressManager.Instance.diasHabilitados)
-            siguienteDiaBTN.interactable = false;
-
-        if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
-            progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
-
-        //Logro de firulais
-        if(progressManager.Instance.nextDayAttribute.diaNumero == 16)
+        switch (modoDeJuego)
         {
-            if (costaneraManager.Instance.firulais.activeSelf)
-            {
-                progressManager.Instance.progressData.logros[3].completado = true;
-                progressManager.Instance.progressData.logros[3].porcentajeCompletado = 1;
-            }
+            case progressManager.modoDeJuego.historia:
+
+                progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
+
+                if (progressManager.Instance.nextDayAttribute.diaNumero == progressManager.Instance.diasHabilitados)
+                    siguienteDiaBTN.interactable = false;
+
+                if (starsLeft > progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas)
+                    progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].estrellas = starsLeft;
+
+                //Logro de firulais
+                if (progressManager.Instance.nextDayAttribute.diaNumero == 16)
+                {
+                    if (costaneraManager.Instance.firulais.activeSelf)
+                    {
+                        progressManager.Instance.progressData.logros[3].completado = true;
+                        progressManager.Instance.progressData.logros[3].porcentajeCompletado = 1;
+                    }
+                }
+
+                //---Analitycs---
+                Analytics.CustomEvent("level_complete", new Dictionary<string, object>
+                {
+                    { "level_index", progressManager.Instance.nextDayAttribute.diaNumero },
+                    { "intentos", progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos }
+                });
+
+                break;
+
+            case progressManager.modoDeJuego.campeonato:
+
+                if (onComplete != null)
+                    onComplete();
+
+                gameManager.Instance.isTransition = true;
+                audioManager.Instance.playSound("click03");
+                StartCoroutine(sceneLoader.Instance.loadScene(5));
+
+                break;
         }
 
-        //---Analitycs---
-        Analytics.CustomEvent("level_complete", new Dictionary<string, object>
-        {
-            { "level_index", progressManager.Instance.nextDayAttribute.diaNumero },
-            { "intentos", progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].intentos }
-        });
 
     }
 

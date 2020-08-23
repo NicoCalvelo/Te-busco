@@ -79,6 +79,8 @@ public class AWSManager : MonoBehaviour
                 Debug.Log("AWS Error" + responseObject.Exception);
             }
         });
+
+        DontDestroyOnLoad(gameObject);
     }
 
 

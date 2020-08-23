@@ -43,10 +43,15 @@ public class progressManager : MonoBehaviour
     }
     public Platform buildPlataform;
 
+    public enum modoDeJuego { historia, campeonato };
+    [HideInInspector]
+    public modoDeJuego nextModoDeJuego;
+
     public infoJugador progressData;
 
     [HideInInspector]
     public int diasHabilitados;
+
 
     public void Awake()
     {

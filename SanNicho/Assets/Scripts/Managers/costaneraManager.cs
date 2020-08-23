@@ -9,7 +9,7 @@
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/08/2020 Calvelo Nicolás
+///     23/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -40,14 +40,14 @@ private static costaneraManager _instance;
     {
         _instance = this;
         anim = GetComponent<Animator>();
-        setScene();
+
     }
 
     void Start()
     {
         audioManager.Instance.changeBackgroundMusic(0);
         audioManager.Instance.playRandomAmbienceSound();
-
+        setScene();
     }
 
     void setScene()
@@ -56,39 +56,52 @@ private static costaneraManager _instance;
         //Nubes
         int cantidadDeNubes = Random.Range(11, 19);
 
-        if(progressManager.Instance.nextDayAttribute.diaNumero == 5)
+        switch (gameManager.Instance.modoDeJuego)
         {
-            cantidadDeNubes += 75;
-            Instantiate(gameManager.Instance.bublePrefab, new Vector2(-85, 65), Quaternion.identity, gameManager.Instance.transform);
-        }
-        else if(progressManager.Instance.nextDayAttribute.diaNumero == 9)
-        {
-            Instantiate(gameManager.Instance.chiclePrefab, new Vector2(-85, 0), Quaternion.identity, gameManager.Instance.transform);
-        }
-        else if (progressManager.Instance.nextDayAttribute.diaNumero == 6)
-        {
-            arcoFutbol.SetActive(true);
-        }
-        else if (progressManager.Instance.nextDayAttribute.diaNumero == 10)
-        {
-            niebla.SetActive(true);
-        }
-        else if(progressManager.Instance.nextDayAttribute.diaNumero == 11)
-        {
-            colectivo.SetActive(true);
-        }
-        else if (progressManager.Instance.nextDayAttribute.diaNumero == 12)
-        {
-            doraemon.SetActive(true);
-        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 16)
-        {
-            firulais.SetActive(true);
-        }else if (progressManager.Instance.nextDayAttribute.diaNumero == 18)
-        {
-            globitos.SetActive(true);
-        }else if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
-        {
-            anim.SetTrigger("preEscenario");
+            case progressManager.modoDeJuego.historia:
+                if (progressManager.Instance.nextDayAttribute.diaNumero == 5)
+                {
+                    cantidadDeNubes += 75;
+                    Instantiate(gameManager.Instance.bublePrefab, new Vector2(-85, 65), Quaternion.identity, gameManager.Instance.transform);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 9)
+                {
+                    Instantiate(gameManager.Instance.chiclePrefab, new Vector2(-85, 0), Quaternion.identity, gameManager.Instance.transform);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 6)
+                {
+                    arcoFutbol.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 10)
+                {
+                    niebla.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 11)
+                {
+                    colectivo.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 12)
+                {
+                    doraemon.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 16)
+                {
+                    firulais.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 18)
+                {
+                    globitos.SetActive(true);
+                }
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 20)
+                {
+                    anim.SetTrigger("preEscenario");
+                }
+
+                break;
+
+            case progressManager.modoDeJuego.campeonato:
+
+                break;
         }
 
         if (progressManager.Instance.nextDayAttribute.diaNumero >= 21)
@@ -116,12 +129,19 @@ private static costaneraManager _instance;
     {
         anim.SetTrigger("noche");
         audioManager.Instance.changeBackgroundMusic(2);
-        if (progressManager.Instance.nextDayAttribute.diaNumero != 15)
-            Invoke("setLuces", 15);
-        else if (progressManager.Instance.nextDayAttribute.diaNumero == 20)
+
+        switch (gameManager.Instance.modoDeJuego)
         {
-            //Cambiar musica de fondo
+            case progressManager.modoDeJuego.historia:
+                if (progressManager.Instance.nextDayAttribute.diaNumero != 15)
+                    Invoke("setLuces", 12);
+                else if (progressManager.Instance.nextDayAttribute.diaNumero == 20)
+                {
+                    //Cambiar musica de fondo
+                }
+                break;
         }
+
 
     }
     public void setLuces()

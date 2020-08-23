@@ -38,7 +38,7 @@ MonoBehaviour:
   agregarNpc04Tarde: 1
   agregarNpc04Noche: 0
   NPC_04_attackDistance: 53.27
-  NPC_04_timeToShoot: 0.988
+  NPC_04_timeToShoot: 0.95
   cantidadNPC_Background: 6
   bubblesToSpawn: 5
   chiclesToSpawn: 7
