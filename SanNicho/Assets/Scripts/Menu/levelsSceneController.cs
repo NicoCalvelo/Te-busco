@@ -11,7 +11,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/08//2020 Calvelo Nicolás
+///     26/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 

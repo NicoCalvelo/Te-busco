@@ -30,6 +30,7 @@ ScriptsOnlyBuild:
     - menuSceneController
     - noticieroManager
     - npcManager
+    - panelCampeonatos
     - panelChamp
     - playerAnimController
     - playerController
@@ -192,6 +193,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11396}
     - Class: 114
+      Script: {instanceID: 11600}
+    - Class: 114
       Script: {instanceID: 12010}
     - Class: 114
       Script: {instanceID: 12284}
@@ -203,6 +206,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13080}
     - Class: 114
       Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13654}
     - Class: 114
       Script: {instanceID: 13688}
     - Class: 114
@@ -359,6 +364,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -1416,7 +1425,7 @@ ScriptsOnlyBuild:
     className: CinemachineTrack
   - hash:
       serializedVersion: 2
-      Hash: 612d0e9b6a4871ffdefb1d752025b364
+      Hash: 39c2780eaf4e32863623ea59b82b2d15
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: progressManager
@@ -1536,7 +1545,7 @@ ScriptsOnlyBuild:
     className: CinemachineTriggerAction
   - hash:
       serializedVersion: 2
-      Hash: 7079c476643c3d6f377e2ea45df78cac
+      Hash: 68ebf14a4a01107f75a50fb1bb562e1e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameManager
@@ -1890,7 +1899,7 @@ ScriptsOnlyBuild:
     className: VolumeComponent
   - hash:
       serializedVersion: 2
-      Hash: 75a55e52684ae4b339353e440400ac1c
+      Hash: ba70c14273b7e732ac56c8279440c7c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: campeonatosManager
@@ -2022,7 +2031,7 @@ ScriptsOnlyBuild:
     className: cinematicasManager
   - hash:
       serializedVersion: 2
-      Hash: e019fb7f607697fe4d65e207649fcef7
+      Hash: 335afed018a3e07477717334e75f8fe5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: panelChamp
@@ -2100,7 +2109,7 @@ ScriptsOnlyBuild:
     className: LiftGammaGain
   - hash:
       serializedVersion: 2
-      Hash: 8cb75bd4b69ac5c135a37260da9dc957
+      Hash: 59306ec444880eaa4d2c31da35ce3f6f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: menuSceneController
@@ -2413,4 +2422,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Tienda.unity
   - Assets/Scenes/Campeonatos.unity
   - Assets/Scenes/Cinematicas.unity
-  playerPath: C:/Users/Nico Calvelo/Documents/nico/Builds/TeBusco.apk
+  playerPath: C:/Users/Nico Calvelo/Documents/nico/Velo/Builds/Te busco v1.0.0.aab

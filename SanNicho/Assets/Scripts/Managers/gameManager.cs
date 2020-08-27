@@ -14,7 +14,7 @@ using UnityEngine.Analytics;
 ///     12/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/08//2020 Calvelo Nicolás
+///     26/08//2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -159,6 +159,9 @@ public class gameManager : MonoBehaviour
             //Se cambia a tarde
             costaneraManager.Instance.setTarde();
             npcManager.Instance.onChangeTarde();
+        }else if (horaText.text == "18" && minutosText.text == "00" && progressManager.Instance.nextDayAttribute.diaNumero == 20)
+        {
+            costaneraManager.Instance.comienzaConcierto();
         }
         else if(horaText.text == "20" && minutosText.text == "00")
         {
@@ -236,6 +239,12 @@ public class gameManager : MonoBehaviour
             case progressManager.modoDeJuego.historia:
 
                 progressManager.Instance.progressData.diasInfo[progressManager.Instance.nextDayAttribute.diaNumero].completado = true;
+                if(progressManager.Instance.nextDayAttribute.diaNumero == 25)
+                {
+                    Time.timeScale = 1;
+                    StartCoroutine(sceneLoader.Instance.loadScene(6));
+                    return;
+                }
 
                 if (progressManager.Instance.nextDayAttribute.diaNumero == progressManager.Instance.diasHabilitados)
                     siguienteDiaBTN.interactable = false;
@@ -250,6 +259,17 @@ public class gameManager : MonoBehaviour
                     {
                         progressManager.Instance.progressData.logros[3].completado = true;
                         progressManager.Instance.progressData.logros[3].porcentajeCompletado = 1;
+                    }
+                }
+
+                //Logro globitos
+                if (progressManager.Instance.nextDayAttribute.diaNumero == 18)
+                {
+                    int globitosLeft = costaneraManager.Instance.globitos.transform.childCount;
+                    if(globitosLeft == 0)
+                    {
+                        progressManager.Instance.progressData.logros[4].completado = true;
+                        progressManager.Instance.progressData.logros[4].porcentajeCompletado = 1;
                     }
                 }
 
@@ -344,7 +364,7 @@ public class gameManager : MonoBehaviour
     }
     public void resumeGame()
     {
-        audioManager.Instance.playSound("backgroundMusic");
+        audioManager.Instance.unPauseMusic();
         audioManager.Instance.playSound("click01");
         Time.timeScale = 1;
         pausePanel.SetActive(false);

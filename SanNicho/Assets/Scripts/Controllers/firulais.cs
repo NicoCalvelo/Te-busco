@@ -9,7 +9,7 @@ using UnityEngine;
 ///     23/07/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     16/08/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -94,6 +94,6 @@ public class firulais : MonoBehaviour
     {
         Debug.Log("Se tescapo");
         gameObject.SetActive(false);
-        progressManager.Instance.progressData.logros[3].porcentajeCompletado = gameManager.Instance.hora - 8 / 16;
+        progressManager.Instance.progressData.logros[3].porcentajeCompletado = (gameManager.Instance.hora - 8) / 16;
     }
 }

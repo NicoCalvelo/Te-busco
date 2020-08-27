@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 ///     16/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/08/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 /// 
@@ -120,14 +120,7 @@ public class npcManager : MonoBehaviour
     }
     public void onChangeNoche()
     {
-        //En el dia del concierto a las 20:00hs se destruyen todos los npc
-        if(progressManager.Instance.nextDayAttribute.diaNumero == 20)
-        {
-            foreach(GameObject npc in npcDictionary.Values)
-            {
-                Destroy(npc);
-            }
-        }
+
 
 
         for (int i = 0; i < progressManager.Instance.nextDayAttribute.agregarNpc01Noche; i++)
@@ -173,12 +166,12 @@ public class npcManager : MonoBehaviour
         if (photoQueue.Count > 0)
         {
             newPhoto = photoQueue.Dequeue();
-            newPhoto.SetActive(true);
         }
         else
             newPhoto = Instantiate(shootPrefab, Vector3.zero, Quaternion.identity);
 
         newPhoto.transform.position = pos;
+        newPhoto.SetActive(true);
     }
 
 
@@ -226,5 +219,13 @@ public class npcManager : MonoBehaviour
         newNpc.name = "npcBackground_" + nextNpcNumber.ToString();
         nextNpcNumber++;
         npcDictionary.Add(newNpc.name, newNpc);
+    }
+
+    public void destroyAllNpc()
+    {
+        foreach (GameObject npc in npcDictionary.Values)
+        {
+            Destroy(npc);
+        }
     }
 }

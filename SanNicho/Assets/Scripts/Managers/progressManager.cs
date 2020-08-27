@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -12,7 +11,7 @@ using UnityEngine;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     03/08/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -44,7 +43,6 @@ public class progressManager : MonoBehaviour
     public Platform buildPlataform;
 
     public enum modoDeJuego { historia, campeonato };
-    [HideInInspector]
     public modoDeJuego nextModoDeJuego;
 
     public infoJugador progressData;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 09
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.4
+  duracionDelDia: 6.1
   diaNumero: 9
-  habilitado: 1
+  habilitado: 0
   shootLife: 0
   heladero: 0
   heladosAgenerar: 0

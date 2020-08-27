@@ -48,7 +48,7 @@ public class NPC_Static : NPC_States
         yield return new WaitForSeconds(hideTime);
 
         yield return new WaitUntil(() => Vector2.Distance(transform.position, playerTransform.position) < attackDistance);
-
+        anim.enabled = true;
         if (playerTransform.position.x < transform.position.x)                       
             gameObject.transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.parent.rotation.w);         
         else if (playerTransform.position.x > transform.position.x)          

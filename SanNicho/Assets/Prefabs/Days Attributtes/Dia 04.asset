@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34a1a6e108e624fa60e1983c95e246, type: 3}
   m_Name: Dia 04
   m_EditorClassIdentifier: 
-  duracionDelDia: 6.1
+  duracionDelDia: 6.4
   diaNumero: 4
-  habilitado: 1
+  habilitado: 0
   shootLife: 4.5
   heladero: 0
   heladosAgenerar: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   pasadas: 0
   inicioNpc_01: 3
   agregarNpc01Tarde: 1
-  agregarNpc01Noche: 1
+  agregarNpc01Noche: 2
   NPC_01_visibilityDistance: 54
   NPC_01_timeToShoot: 1.75
   cantidadNPC_02: 5

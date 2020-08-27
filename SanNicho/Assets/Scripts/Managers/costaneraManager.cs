@@ -9,7 +9,7 @@
 ///     07/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     23/08/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -128,17 +128,19 @@ private static costaneraManager _instance;
     public void setNoche()
     {
         anim.SetTrigger("noche");
-        audioManager.Instance.changeBackgroundMusic(2);
+
 
         switch (gameManager.Instance.modoDeJuego)
         {
             case progressManager.modoDeJuego.historia:
                 if (progressManager.Instance.nextDayAttribute.diaNumero != 15)
                     Invoke("setLuces", 12);
-                else if (progressManager.Instance.nextDayAttribute.diaNumero == 20)
-                {
-                    //Cambiar musica de fondo
-                }
+
+                if (progressManager.Instance.nextDayAttribute.diaNumero != 20)
+                    audioManager.Instance.changeBackgroundMusic(2);
+                break;
+            case progressManager.modoDeJuego.campeonato:
+                audioManager.Instance.changeBackgroundMusic(2);
                 break;
         }
 
@@ -147,5 +149,12 @@ private static costaneraManager _instance;
     public void setLuces()
     {
         anim.SetTrigger("encenderLuces");
+    }
+    public void comienzaConcierto()
+    {
+        audioManager.Instance.changeBackgroundMusic(3);
+        audioManager.Instance.playSound("applause");
+        anim.SetTrigger("comienzaConcierto");
+        npcManager.Instance.destroyAllNpc();
     }
 }

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 ///     05/06/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/07/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -22,6 +22,9 @@ public class menuSceneController : MonoBehaviour
     [SerializeField]
     GameObject torneoDialog, shopDialog, logroPrefab, logroContent, logrosPanel;
 
+    [SerializeField]
+    Text versionText;
+
     bool campeonatosHabilitados;
     string mensajeCampeonatos;
 
@@ -31,6 +34,7 @@ public class menuSceneController : MonoBehaviour
 
         campeonatosHabilitados = RemoteSettings.GetBool("campeonatosHabilitados");
         mensajeCampeonatos = RemoteSettings.GetString("mensajeCampeonatosDeshabilitados");
+        versionText.text = Application.version;
 
         setMenu();
         setLogros();

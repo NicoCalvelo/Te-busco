@@ -8,7 +8,7 @@
 ///     18/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     14/08/2020 Calvelo Nicolás
+///     26/08/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -48,7 +48,12 @@ public class shoot : MonoBehaviour
         stored = false;
 
         if (progressManager.Instance.nextDayAttribute.shootLife > 0)
-            Destroy(gameObject, progressManager.Instance.nextDayAttribute.shootLife);
+            Invoke("storeBullet", progressManager.Instance.nextDayAttribute.shootLife);
+    }
+
+    void storeBullet()
+    {
+        gameObject.SetActive(false);
     }
 
     private void FixedUpdate()

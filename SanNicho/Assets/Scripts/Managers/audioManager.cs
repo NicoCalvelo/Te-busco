@@ -9,7 +9,7 @@ using UnityEngine;
 ///     09/05/2020 Calvelo Nicolás
 /// 
 /// Ultima modificación:
-///     24/06/2020 Calvelo Nicolás
+///     26/06/2020 Calvelo Nicolás
 ///     
 /// </Documentacion>
 
@@ -64,9 +64,13 @@ public class audioManager : MonoBehaviour
     {
         audioManagerSounds[clipName].Play();
     }
+    public void unPauseMusic()
+    {
+        audioManagerSounds["backgroundMusic"].UnPause();
+    }
     public void stopSound(string clipName)
     {
-        audioManagerSounds[clipName].Stop();
+        audioManagerSounds[clipName].Pause();
     }
 
     public void changeBackgroundMusic(int clipIndx)
